@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": ["test.txt"],
+      "cwd": "/Users/Axel/Desktop/Ecole_42/C++_modules/CPP04/ex01",
+      "program": "/Users/Axel/Desktop/Ecole_42/C++_modules/CPP04/ex01/ex01"
+    }
+  ]
+}
