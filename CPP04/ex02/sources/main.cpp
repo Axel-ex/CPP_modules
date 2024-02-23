@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:00:51 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/21 15:42:39 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:52:24 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,43 +34,9 @@ void	printBanner( const std::string &msg )
 
 int	main(void)
 {
-	// printBanner("ARRAY OF CATS AND DOGS");
-	// Animal	*animals[10];
-	// for (int i = 0; i < 5; i++)
-	// 	animals[i] = new Cat();
-	// for (int i = 5; i < 10; i++)
-	// 	animals[i] = new Dog();
-	// pressEnter();
-
-	// printBanner("METHOD CALL");
-	// for (int i = 0; i < 10; i++)
-	// 	animals[i]->makeSound();
-	// pressEnter();
-
-	// printBanner("DESTRUCTORS");
-	// for (int i = 0; i < 10; i++)
-	// 	delete animals[i];
-	// pressEnter();
+	Animal *cat = new Cat();
+	cat->makeSound();
+	delete cat;
 	
-	printBanner("COPY TEST");
-	Cat *cat1 = new Cat();
-	for (int i = 0; i < 5; i++)
-		cat1->getBrain().setIdea("lol", i);
-	Cat *cat2 = new Cat(*cat1);
-	pressEnter();
-
-	printBanner("ACCESS THE BRAIN");
-	delete cat1;
-	for (int i = 0; i < 5; i++)
-		std::cout << cat2->getBrain().getIdea(i) << std::endl;
-	pressEnter();
-
-	printBanner("REPLACE EXISTING BY COPY");
-	Cat *cat3 = new Cat();
-	cat3->getBrain().setIdea("hey", 0);
-	*cat3 = *cat2;
-	pressEnter();
-
-	delete cat3; delete cat2;
 	return (EXIT_SUCCESS);
 }

@@ -1,56 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 14:21:15 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/21 15:39:04 by achabrer         ###   ########.fr       */
+/*   Created: 2024/02/20 14:07:18 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/21 11:48:30 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Dog.hpp"
+#include "../includes/Cat.hpp"
 
-Dog :: Dog( void )
+Cat :: Cat( void )
 {
-	Animal::setType("Dog");
+	Animal::setType("Cat");
 	_brain = new Brain();
-	std::cout << "Dog default constructor called" << std::endl;
+	std::cout << "Cat default constructor called" << std::endl;
 }
 
-Dog :: Dog( const Dog &copy ) : Animal(copy)
+Cat :: Cat( const Cat &copy ) : Animal(copy)
 {
 	*this = copy;
-	std::cout << "Dog copy constructor called" << std::endl;
+	std::cout << "Cat copy constructor called" << std::endl;
 }
 
-Dog :: ~Dog( void )
+Cat :: ~Cat( void )
 {
 	delete _brain;
-	std::cout << "Dog default destructor called" << std::endl;
+	std::cout << "Cat destructor called" << std::endl;
 }
 
 //OPERATOR OVERLOAD
-Dog &Dog :: operator=( const Dog &rhs )
+Cat &Cat :: operator=( const Cat &rhs )
 {
 	if (this != &rhs)
 	{
 		Animal::operator=(rhs);
-		if (_brain != nullptr)
-			delete _brain;
 		_brain = new Brain(rhs.getBrain());
 	}
 	return (*this);
 }
 
-//METHODS
-void	Dog :: makeSound( void )	const
+//METHOD
+void	Cat :: makeSound( void ) const
 {
-	std::cout << "WOAF" << std::endl;
+	std::cout << "MIAOW" << std::endl;
 }
 
-Brain	&Dog :: getBrain( void )	const
+Brain	&Cat :: getBrain( void )	const
 {
 	return (*_brain);
 }

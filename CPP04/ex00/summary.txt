@@ -1,0 +1,554 @@
+ and ./includes/Animal.hpp and ./includes/Cat.hpp and ./includes/Dog.hpp and ./includes/WrongAnimal.hpp and ./includes/WrongCat.hpp and ./sources/Animal.cpp and ./sources/Cat.cpp and ./sources/Dog.cpp and ./sources/WrongAnimal.cpp and ./sources/WrongCat.cpp
+
+./includes/Animal.hpp:
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/20 13:38:27 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/20 14:50:29 by achabrer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ANIMAL__H
+#define ANIMAL__H
+
+#include <iostream>
+
+
+class Animal
+{
+	protected:
+		std::string _type;
+	
+	public:
+		Animal( void );
+		Animal( const Animal &copy );
+		virtual ~Animal( void );
+
+		Animal 			&operator=(const Animal &rhs );
+		std::string		getType( void )	const;
+		void			setType( const std::string &type );
+		virtual void	makeSound( void ) const;
+};
+
+#endif./includes/Cat.hpp:
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/20 13:40:56 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/20 14:07:00 by achabrer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CAT__H
+#define CAT__H
+
+#include "Animal.hpp"
+
+class Cat : public Animal
+{
+	public:
+		Cat( void );
+		Cat( const Cat &copy );
+		~Cat( void );
+		
+		Cat &operator=( const Cat &rhs );
+		
+		void	makeSound( void )	const;
+};
+
+#endif./includes/Dog.hpp:
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/20 13:36:17 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/21 10:06:27 by achabrer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef DOG__H
+#define DOG__H
+
+#include "Animal.hpp"
+
+class Dog : public Animal
+{
+	public:
+		Dog( void );
+		Dog( const Dog &copy );
+		~Dog( void );
+
+		Dog		&operator=( const Dog &rhs );
+		
+		void	makeSound( void )	const;
+};
+
+#endif./includes/WrongAnimal.hpp:
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/20 14:56:58 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/20 15:03:02 by achabrer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef WRONGANIMAL__H
+#define WRONGANIMAL__H
+
+#include <iostream>
+
+
+class WrongAnimal
+{
+	protected:
+		std::string _type;
+	
+	public:
+		WrongAnimal( void );
+		WrongAnimal( const WrongAnimal &copy );
+		virtual ~WrongAnimal( void );
+
+		WrongAnimal 			&operator=(const WrongAnimal &rhs );
+		std::string		getType( void )	const;
+		void			setType( const std::string &type );
+		void	makeSound( void ) const;
+};
+
+#endif./includes/WrongCat.hpp:
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/20 15:00:45 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/20 15:05:07 by achabrer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef WRONGCAT__H
+#define WRONGCAT__H
+
+#include "WrongAnimal.hpp"
+
+class WrongCat : public WrongAnimal
+{
+	public:
+		WrongCat( void );
+		WrongCat( const WrongCat &copy );
+		~WrongCat( void );
+		
+		WrongCat &operator=( const WrongCat &rhs );
+		
+		void	makeSound( void )	const;
+};
+
+#endif./sources/Animal.cpp:
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/20 13:44:07 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/20 14:43:11 by achabrer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/Animal.hpp"
+
+//CONSTRUCTORS
+Animal :: Animal( void ) : _type("animal")
+{
+	std::cout << "Animal default constructor called" << std::endl;
+}
+
+Animal :: Animal( const Animal &copy )
+{
+	*this = copy;	
+	std::cout << "Animal copy constructor called" << std::endl;
+}
+
+Animal :: ~Animal( void )
+{
+	std::cout << "Animal default destructor called" << std::endl;
+}
+
+//OPERATOR OVERLOAD
+Animal &Animal :: operator=( const Animal &rhs)
+{
+	if (this != &rhs)
+		_type = rhs.getType();
+	return (*this);
+}
+
+//GETTERS AND SETTERS
+std::string	Animal :: getType( void )	const
+{
+	return (_type);
+}
+
+void	Animal :: setType( const std::string &type)
+{
+	_type = type;
+}
+
+//METHODS
+void	Animal :: makeSound( void )	const
+{
+	return ;
+}./sources/Cat.cpp:
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/20 14:07:18 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/20 14:48:16 by achabrer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/Cat.hpp"
+
+Cat :: Cat( void )
+{
+	Animal::setType("Cat");
+	std::cout << "Cat default constructor called" << std::endl;
+}
+
+Cat :: Cat( const Cat &copy) : Animal(copy)
+{
+	*this = copy;
+	std::cout << "Cat copy constructor called" << std::endl;
+}
+
+Cat :: ~Cat( void )
+{
+	std::cout << "Cat destructor called" << std::endl;
+}
+
+//OPERATOR OVERLOAD
+Cat &Cat :: operator=( const Cat &rhs)
+{
+	if (this != &rhs)
+		Animal::operator=(rhs);
+	return (*this);
+}
+
+//METHOD
+void	Cat :: makeSound( void ) const
+{
+	std::cout << "MIAOW" << std::endl;
+}./sources/Dog.cpp:
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/20 14:21:15 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/21 10:07:14 by achabrer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/Dog.hpp"
+
+Dog :: Dog( void )
+{
+	Animal::setType("Dog");
+	std::cout << "Dog default constructor called" << std::endl;
+}
+
+Dog :: Dog( const Dog &copy ) : Animal(copy)
+{
+	*this = copy;
+	std::cout << "Dog copy constructor called" << std::endl;
+}
+
+Dog :: ~Dog( void )
+{
+	std::cout << "Dog default destructor called" << std::endl;
+}
+
+//OPERATOR OVERLOAD
+Dog &Dog :: operator=( const Dog &rhs )
+{
+	if (this != &rhs)
+	{
+		Animal::operator=(rhs);
+	}
+	return (*this);
+}
+
+//METHODS
+void	Dog :: makeSound( void )	const
+{
+	std::cout << "WOAF" << std::endl;
+}./sources/WrongAnimal.cpp:
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/20 13:44:07 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/20 15:03:34 by achabrer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/WrongAnimal.hpp"
+
+//CONSTRUCTORS
+WrongAnimal :: WrongAnimal( void ) : _type("WrongAnimal")
+{
+	std::cout << "WrongAnimal default constructor called" << std::endl;
+}
+
+WrongAnimal :: WrongAnimal( const WrongAnimal &copy )
+{
+	*this = copy;	
+	std::cout << "WrongAnimal copy constructor called" << std::endl;
+}
+
+WrongAnimal :: ~WrongAnimal( void )
+{
+	std::cout << "WrongAnimal default destructor called" << std::endl;
+}
+
+//OPERATOR OVERLOAD
+WrongAnimal &WrongAnimal :: operator=( const WrongAnimal &rhs)
+{
+	if (this != &rhs)
+		_type = rhs.getType();
+	return (*this);
+}
+
+//GETTERS AND SETTERS
+std::string	WrongAnimal :: getType( void )	const
+{
+	return (_type);
+}
+
+void	WrongAnimal :: setType( const std::string &type)
+{
+	_type = type;
+}
+
+//METHODS
+void	WrongAnimal :: makeSound( void )	const
+{
+	std::cout << "AAAAARRRGH" << std::endl;
+}./sources/WrongCat.cpp:
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/20 15:01:27 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/20 15:05:46 by achabrer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/20 14:07:18 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/20 14:48:16 by achabrer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/WrongCat.hpp"
+
+WrongCat :: WrongCat( void )
+{
+	WrongAnimal::setType("WrongCat");
+	std::cout << "WrongCat default constructor called" << std::endl;
+}
+
+WrongCat :: WrongCat( const WrongCat &copy) : WrongAnimal(copy)
+{
+	*this = copy;
+	std::cout << "WrongCat copy constructor called" << std::endl;
+}
+
+WrongCat :: ~WrongCat( void )
+{
+	std::cout << "WrongCat destructor called" << std::endl;
+}
+
+//OPERATOR OVERLOAD
+WrongCat &WrongCat :: operator=( const WrongCat &rhs)
+{
+	if (this != &rhs)
+		WrongAnimal::operator=(rhs);
+	return (*this);
+}
+
+//METHOD
+void	WrongCat :: makeSound( void ) const
+{
+	std::cout << "MIAOW" << std::endl;
+}Resume these files of code in few words. Just resume, don't write anything else, so I can copy and paste it.
+ and ./sources/main.cpp and ./Makefile
+void	clearScreen( void )
+void	pressEnter( void )
+void	printBanner( const std::string &msg )
+int	main(void)
+./sources/main.cpp:
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/20 14:00:51 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/20 15:07:30 by achabrer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/Animal.hpp"
+#include "../includes/Cat.hpp"
+#include "../includes/Dog.hpp"
+#include "../includes/WrongAnimal.hpp"
+#include "../includes/WrongCat.hpp"
+
+void	clearScreen( void )
+{
+	std::cout << "c";
+}
+
+void	pressEnter( void )
+{
+	std::cout << "
+Press ENTER to continue...";
+	std::cin.ignore(10000, '
+');
+	clearScreen();
+}
+
+void	printBanner( const std::string &msg )
+{
+	std::cout << "----->" << msg << "<-----" << std::endl;
+	std::cout << std::endl;
+}
+
+int	main(void)
+{
+	clearScreen();
+	
+	Animal	meta = Animal();
+	Cat		cat = Cat();
+	Dog		dog = Dog();
+	
+	pressEnter();
+
+	printBanner("METHODS");
+	std::cout << "meta says: 
+"; meta.makeSound(); std::cout << std::endl;
+	std::cout << "Cat says: "; cat.makeSound(); std::cout << std::endl;
+	std::cout << "Dog says: "; dog.makeSound(); std::cout << std::endl;
+	pressEnter();
+
+	printBanner("COPIES");
+	Cat copy_cat = cat;
+	Dog copy_dog = dog;
+	pressEnter();
+
+	printBanner("WITH POINTER");
+	Animal *ptr = new Cat();
+	std::cout << "The cat should do: "; ptr->makeSound();
+	std::cout << std::endl;
+	pressEnter();
+
+	printBanner("WRONG ANIMAL");
+	WrongAnimal *ptr2 = new WrongCat();
+	std::cout << "The cat should do: "; ptr2->makeSound();
+	std::cout << std::endl;
+
+	delete ptr;
+	delete ptr2;
+	return (EXIT_SUCCESS);
+}./Makefile:
+NAME		= ex00
+
+OBJ_DIR		= bin
+
+SRC_DIR		= sources
+
+SRC			= $(wildcard $(SRC_DIR)/*.cpp)
+
+OBJ			= $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC))
+
+FLAGS		= -Wall -Wextra -Werror -std=c++98
+
+INC			= includes/
+
+GREEN		= [38;5;47m
+YELLOW		= [38;5;226m
+RED			= [38;5;196m
+RESET 		= [0m
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+	@c++ $(FLAGS) -g -c $< -o $@
+	@echo "[$(GREEN)compiling$(RESET)]: $<"
+
+all: $(NAME)
+	@echo "$(GREEN)$(NAME) executable created$(RESET)"
+
+$(OBJ_DIR):
+	@mkdir bin/
+
+$(NAME): $(OBJ)
+	@c++ $(FLAGS) -I $(INC) $(OBJ) -o $(NAME)
+
+clean:
+	@rm -rf $(OBJ_DIR)
+	@echo "$(YELLOW)Removing $(NAME) objects files$(RESET)"
+
+fclean: clean
+	@rm -rf $(NAME)
+	@echo "$(RED)removing $(NAME) executable$(RESET)"
+
+re: fclean all
+
+.PHONY: all clean fclean reResume these files of code in few words. Just resume, don't write anything else, so I can copy and paste it.
+
+
+
+This was the summary of the subject and my resolution for a programming project at Code 42 school. Please create a README for this project on GitHub. Explain in DETAIL the subject and my code.
+These are the functions I created for this project.
+int	main(void)
+void	clearScreen( void )
+void	pressEnter( void )
+void	printBanner( const std::string &msg )
+
+Explain everything in DETAIL, the subject, building, running, testing, and explain each function in the order they are called in the code.

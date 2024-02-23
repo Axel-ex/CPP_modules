@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 13:40:56 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/21 11:46:52 by achabrer         ###   ########.fr       */
+/*   Created: 2024/02/21 16:41:35 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/22 15:33:55 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT__H
-#define CAT__H
+#ifndef ICE_HPP
+#define ICE_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "AMateria.hpp"
 
-class Cat : public Animal
+class Ice : public AMateria
 {
 	public:
-		Cat( void );
-		Cat( const Cat &copy );
-		~Cat( void );
-		
-		Cat &operator=( const Cat &rhs );
+		Ice( void );
+		Ice( const Ice &copy );
+		~Ice( void );
 
-		void	makeSound( void )	const;
-		Brain	&getBrain( void )	const;
+		Ice	&operator=( const Ice &rhs );
 
-		private:
-			Brain *_brain;
+		void			use( ICharacter &target );
+		AMateria		*clone( void )	const;
 };
 
 #endif

@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 13:40:56 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/21 11:46:52 by achabrer         ###   ########.fr       */
+/*   Created: 2024/02/22 09:41:13 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/22 14:34:23 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT__H
-#define CAT__H
+#ifndef IMATERIASOURCE_HPP
+#define IMATERIASOURCE_HPP
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "AMateria.hpp"
+#include "../includes/Ice.hpp"
 
-class Cat : public Animal
+class IMateriaSource
 {
 	public:
-		Cat( void );
-		Cat( const Cat &copy );
-		~Cat( void );
-		
-		Cat &operator=( const Cat &rhs );
-
-		void	makeSound( void )	const;
-		Brain	&getBrain( void )	const;
-
-		private:
-			Brain *_brain;
+		virtual ~IMateriaSource() {}
+		virtual void learnMateria(AMateria*) = 0;
+		virtual AMateria *createMateria(std::string const & type) = 0;
 };
 
 #endif

@@ -1,0 +1,24 @@
+ and ./includes/AMateria.hpp and ./includes/Character.hpp and ./includes/Cure.hpp and ./includes/Floor.hpp and ./includes/ICharacter.hpp and ./includes/IMateriaSource.hpp and ./includes/Ice.hpp and ./includes/MateriaSource.hpp and ./sources/AMateria.cpp and ./sources/Character.cpp
+
+
+ and ./sources/Cure.cpp and ./sources/Floor.cpp and ./sources/Ice.cpp and ./sources/MateriaSource.cpp and ./sources/main.cpp and ./Makefile
+void	clearScreen( void )
+void	pressEnter( void )
+void	printBanner( const std::string &msg )
+void	subjectTest( void )
+void	limitsTest( void )
+int	main(void)
+
+
+
+
+This was the summary of the subject and my resolution for a programming project at Code 42 school. Please create a README for this project on GitHub. Explain in DETAIL the subject and my code.
+These are the functions I created for this project.
+int	main(void)
+void	clearScreen( void )
+void	limitsTest( void )
+void	pressEnter( void )
+void	printBanner( const std::string &msg )
+void	subjectTest( void )
+
+Explain everything in DETAIL, the subject, building, running, testing, and explain each function in the order they are called in the code.
