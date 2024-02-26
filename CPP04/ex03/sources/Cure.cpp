@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:28:45 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/22 15:37:22 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:55:49 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Cure :: Cure( void )
 	_type = "cure";
 }
 
-Cure :: Cure( const Cure &copy )
+Cure :: Cure( const Cure &copy ) : AMateria(copy)
 {
 	*this = copy;
 }
@@ -31,7 +31,7 @@ Cure :: ~Cure(void)
 Cure &Cure :: operator=( const Cure &rhs )
 {
 	if (this != &rhs)
-		_type = rhs.getType();
+		AMateria::operator=(rhs);
 	return (*this);
 }
 

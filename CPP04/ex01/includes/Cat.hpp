@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:40:56 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/21 11:46:52 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/24 10:08:32 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ class Cat : public Animal
 		Cat &operator=( const Cat &rhs );
 
 		void	makeSound( void )	const;
-		Brain	&getBrain( void )	const;
+		Brain	*getBrain( void )	const;
 
 		private:
 			Brain *_brain;
 };
+
+std::ostream	&operator<<( std::ostream &ofs, const Cat &rhs );
 
 #endif

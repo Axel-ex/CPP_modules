@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:44:07 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/21 11:50:51 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/24 10:51:25 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Animal.hpp"
+#include "../includes/AAnimal.hpp"
 
 //CONSTRUCTORS
-Animal :: Animal( void ) : _type("animal")
+AAnimal :: AAnimal( void ) : _type("Animal")
 {
-	std::cout << "Animal default constructor called" << std::endl;
+	LOG("Animal default constructor called");
 }
 
-Animal :: Animal( const Animal &copy )
+AAnimal :: AAnimal( const AAnimal &copy )
 {
 	*this = copy;	
-	std::cout << "Animal copy constructor called" << std::endl;
+	LOG("Animal copy constructor called");
 }
 
-Animal :: ~Animal( void )
+AAnimal :: ~AAnimal( void )
 {
-	std::cout << "Animal default destructor called" << std::endl;
+	LOG("Animal default destructor called");
 }
 
 //OPERATOR OVERLOAD
-Animal &Animal :: operator=( const Animal &rhs)
+AAnimal &AAnimal :: operator=( const AAnimal &rhs)
 {
 	if (this != &rhs)
 		_type = rhs.getType();
@@ -38,12 +38,12 @@ Animal &Animal :: operator=( const Animal &rhs)
 }
 
 //GETTERS AND SETTERS
-std::string	Animal :: getType( void )	const
+std::string	AAnimal :: getType( void )	const
 {
 	return (_type);
 }
 
-void	Animal :: setType( const std::string &type)
+void	AAnimal :: setType( const std::string &type)
 {
 	_type = type;
 }

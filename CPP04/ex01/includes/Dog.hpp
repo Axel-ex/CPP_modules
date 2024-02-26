@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:36:17 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/21 11:32:50 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/24 10:04:44 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Dog : public Animal
 		Dog		&operator=( const Dog &rhs );
 		
 		void	makeSound( void )	const;
-		Brain	&getBrain( void )	const;
+		Brain	*getBrain( void )	const;
 
 	private:
 		Brain *_brain;

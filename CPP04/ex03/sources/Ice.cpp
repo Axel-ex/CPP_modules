@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:44:15 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/22 15:37:58 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:55:31 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Ice :: Ice( void )
 	LOG("Ice constructor called");
 }
 
-Ice :: Ice( const Ice &copy )
+Ice :: Ice( const Ice &copy ) : AMateria(copy)
 {
 	*this = copy;
 	LOG("Ice copy constructor called");
@@ -33,7 +33,7 @@ Ice :: ~Ice( void )
 Ice &Ice :: operator=(const Ice &rhs)
 {
 	if (this != &rhs)
-		_type = rhs.getType();
+		AMateria::operator=(rhs);
 	return (*this);
 }
 

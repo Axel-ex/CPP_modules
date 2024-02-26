@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:44:07 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/20 14:43:11 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/23 22:28:47 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 //CONSTRUCTORS
 Animal :: Animal( void ) : _type("animal")
 {
-	std::cout << "Animal default constructor called" << std::endl;
+	LOG("Animal default constructor called");
 }
 
 Animal :: Animal( const Animal &copy )
 {
 	*this = copy;	
-	std::cout << "Animal copy constructor called" << std::endl;
+	LOG("Animal copy constructor called")
 }
 
 Animal :: ~Animal( void )
 {
-	std::cout << "Animal default destructor called" << std::endl;
+	LOG("Animal default destructor called")
 }
 
 //OPERATOR OVERLOAD

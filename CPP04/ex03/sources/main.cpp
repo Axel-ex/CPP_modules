@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:56:29 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/22 16:47:19 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/26 11:54:27 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../includes/Cure.hpp"
 #include "../includes/Character.hpp"
 #include "../includes/MateriaSource.hpp"
+#include <iomanip>
 
 void	clearScreen( void )
 {
@@ -29,7 +30,7 @@ void	pressEnter( void )
 
 void	printBanner( const std::string &msg )
 {
-	std::cout << "----->" << msg << "<-----" << std::endl;
+	std::cout << "----->" << std::setw(10) << msg << "<-----" << std::endl;
 	std::cout << std::endl;
 }
 
@@ -54,21 +55,22 @@ void	subjectTest( void )
 	pressEnter();
 }
 
-void	limitsTest( void )
+void	limitsMateriaSourceTest( void )
 {
-	clearScreen();
-	printBanner("INIT");
+	printBanner("SOURCE LIMITS");
+	pressEnter();
+	
 	MateriaSource *source = new MateriaSource();
 	source->learnMateria(new Ice());
 	source->learnMateria(new Cure());
-	pressEnter();
 
-	printBanner("5 MATERIAS");
+	printBanner("ADD MATERIA");
 	AMateria *mat;
 	for (int i = 0; i < 7; i++)
 	{
 		mat = source->createMateria("ice");
 		source->learnMateria(mat);
+		std::cout << "trying to add materia " << i <<" to the source" << std::endl;
 	}
 	pressEnter();
 
@@ -80,19 +82,69 @@ void	limitsTest( void )
 	Floor::displayList();
 	pressEnter();
 	
-	printBanner("EXIT");
+	printBanner("DESTRUCTION");
 	delete source;
+	pressEnter();
 }
 
-// void	deepCopyTest()
-// {
+void	deepCopyTestSource()
+{
+	printBanner("SRC DEEP COPY");
+	pressEnter();
 
-// }
+	MateriaSource *source = new MateriaSource();
+	MateriaSource *source2 = new MateriaSource();
+	source->learnMateria(new Ice());
+	source->learnMateria(new Cure());
+
+	printBanner("BEFORE THE COPY");
+	std::cout << *source2 << std::endl;
+	pressEnter();
+
+	printBanner("AFTER THE COPY");
+	*source2 = *source;
+	std::cout << *source2 << std::endl;
+	pressEnter();	
+
+	delete source; delete source2;
+}
+
+void	deepCopyTestSCharacter()
+{
+	printBanner("CHAR DEEP COPY");
+	pressEnter();
+
+	MateriaSource *source = new MateriaSource();
+	Character *john = new Character("John");
+	Character *jack = new Character("Jack");
+
+	source->learnMateria(new Ice());
+	for (int i = 0; i < MAX_ITEMS; i++)
+	{
+		jack->equip(source->createMateria("ice"));
+	}
+
+	printBanner("BEFORE COPY");
+	std::cout << *jack << std::endl;
+	std::cout << *john << std::endl;
+	pressEnter();
+
+	printBanner("AFTER COPY");
+	*john = *jack;
+	std::cout << *jack << std::endl;
+	std::cout << *john << std::endl;
+	pressEnter();
+
+	delete source; delete john; delete jack;
+}
 
 int	main(void)
 {
-	subjectTest();
-	limitsTest();
-	// deepCopyTest();
+	// clearScreen();
+	// subjectTest();
+	// limitsMateriaSourceTest();
+	deepCopyTestSource();
+	// deepCopyTestSCharacter();
+
 	return (EXIT_SUCCESS);
 }

@@ -6,13 +6,14 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:00:51 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/21 15:42:39 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/24 10:47:33 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Animal.hpp"
 #include "../includes/Cat.hpp"
 #include "../includes/Dog.hpp"
+#include <iomanip>
 
 void	clearScreen( void )
 {
@@ -28,49 +29,65 @@ void	pressEnter( void )
 
 void	printBanner( const std::string &msg )
 {
-	std::cout << "----->" << msg << "<-----" << std::endl;
+	std::cout << "----->" << std::setw(10) << msg << "<-----" << std::endl;
 	std::cout << std::endl;
 }
 
-int	main(void)
+void	basicTest( void )
 {
-	// printBanner("ARRAY OF CATS AND DOGS");
-	// Animal	*animals[10];
-	// for (int i = 0; i < 5; i++)
-	// 	animals[i] = new Cat();
-	// for (int i = 5; i < 10; i++)
-	// 	animals[i] = new Dog();
-	// pressEnter();
+	printBanner("BASIC TESTS");
+	pressEnter();
 
-	// printBanner("METHOD CALL");
-	// for (int i = 0; i < 10; i++)
-	// 	animals[i]->makeSound();
-	// pressEnter();
+	printBanner("CREATION");
+	Animal	*ptr[3] = {new Cat(), new Cat(), new Dog()};
+	pressEnter();
 
-	// printBanner("DESTRUCTORS");
-	// for (int i = 0; i < 10; i++)
-	// 	delete animals[i];
-	// pressEnter();
+	printBanner("METHOD make");
+	for (int i = 0; i < 3 ; i++)
+		ptr[i]->makeSound();
+	pressEnter();
+
+	printBanner("DELETION");
+	for (int i = 0; i < 3; i++)
+		delete ptr[i];
+	pressEnter();
+}
+
+void	brainTest( void )
+{
+	printBanner("BRAIN TEST");
+	pressEnter();
+
+	printBanner("SETTING IDEAS");
+	Cat cat = Cat();
+	for (int i = 0; i < 5; i++)
+		cat.getBrain()->setIdea("*thinking about food*", i);
+	pressEnter();
 	
-	printBanner("COPY TEST");
-	Cat *cat1 = new Cat();
-	for (int i = 0; i < 5; i++)
-		cat1->getBrain().setIdea("lol", i);
-	Cat *cat2 = new Cat(*cat1);
+	printBanner("DISPLAY OBJECT");
+	std::cout << cat << std::endl;
 	pressEnter();
 
-	printBanner("ACCESS THE BRAIN");
-	delete cat1;
-	for (int i = 0; i < 5; i++)
-		std::cout << cat2->getBrain().getIdea(i) << std::endl;
+	printBanner("BRAIN LIMITS");
+	try
+	{
+		cat.getBrain()->setIdea("Out limits", 101);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "EXCEPTION CAUGHT" << std::endl;
+		std::cout << e.what() << std::endl;
+	}
 	pressEnter();
 
-	printBanner("REPLACE EXISTING BY COPY");
-	Cat *cat3 = new Cat();
-	cat3->getBrain().setIdea("hey", 0);
-	*cat3 = *cat2;
-	pressEnter();
+	printBanner("DESTRUCTION");
+}
 
-	delete cat3; delete cat2;
+int	main( void )
+{
+	clearScreen();
+	basicTest();
+	brainTest();
+
 	return (EXIT_SUCCESS);
 }

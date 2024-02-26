@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 09:46:29 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/22 18:02:29 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/24 18:21:47 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ MateriaSource :: ~MateriaSource( void )
 //OPERATOR OVERLOAD
 std::ostream &operator<<( std::ostream &ofs, const MateriaSource &rhs )
 {
-	ofs << "Source" << std::endl;
 	for (int i = 0; i < MAX_ITEMS; i++)
 		rhs.displayMateria(i, ofs);
 	return (ofs);
@@ -95,7 +94,11 @@ AMateria *MateriaSource :: createMateria( const std::string &type )
 	for (int i = 0; i < MAX_ITEMS; i++)
 	{
 		if (_source[i] && _source[i]->getType() == type)
-			return (_source[i]->clone());
+		{
+			AMateria *new_materia = _source[i]->clone();
+			new_materia->setIsTaken(false);
+			return (new_materia);
+		}
 	}
 	return (NULL);
 }
@@ -104,6 +107,6 @@ void	MateriaSource :: displayMateria( int idx, std::ostream &ofs )	const
 {
 	if (idx < 0 || idx >= MAX_ITEMS)
 		return ;
-	if (_source[idx] != nullptr)
+	if (_source[idx])
 		ofs << _source[idx]->getType() << std::endl;
 }

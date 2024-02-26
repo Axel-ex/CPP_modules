@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:38:27 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/20 14:50:29 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/23 22:27:57 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 
 #include <iostream>
 
-
+#ifdef DEBUG
+#	define LOG(str) std::cout << str << std::endl
+#else
+#	define LOG(str)
+#endif
 class Animal
 {
 	protected:

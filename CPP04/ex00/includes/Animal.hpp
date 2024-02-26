@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:38:27 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/20 14:50:29 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/24 09:58:24 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 
 class Animal
 {
-	protected:
-		std::string _type;
-	
 	public:
 		Animal( void );
 		Animal( const Animal &copy );
@@ -30,6 +27,10 @@ class Animal
 		std::string		getType( void )	const;
 		void			setType( const std::string &type );
 		virtual void	makeSound( void ) const;
+		
+	protected:
+		std::string _type;
+	
 };
 
 #endif

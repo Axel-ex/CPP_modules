@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 08:44:17 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/22 18:03:21 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/24 18:12:42 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,29 @@ Character &Character :: operator=( const Character &rhs )
 	return (*this);
 }
 
+std::ostream &operator<<( std::ostream &ofs, const Character &rhs )
+{
+	std::cout << "name: " << rhs.getName() << std::endl;
+	std::cout << "inventory: " << std::endl;
+	for (int i = 0; i < MAX_ITEMS; i++)
+	{
+		if (rhs.getItem(i))
+			std::cout << "\t" << rhs.getItem(i)->getType() << std::endl;
+	}
+	return (ofs);
+}
+
 //MEMBER FUNCTIONS
 const std::string &Character :: getName( void )	const
 {
 	return (_name);
+}
+
+AMateria	*Character :: getItem( int idx )	const
+{
+	if (idx < 0 || idx > MAX_ITEMS)
+		return (NULL);
+	return (_inventory[idx]);
 }
 
 void	Character :: equip( AMateria *m	)

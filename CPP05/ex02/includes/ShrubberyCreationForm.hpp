@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 13:38:27 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/21 11:51:01 by achabrer         ###   ########.fr       */
+/*   Created: 2024/02/26 10:19:48 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/26 13:49:46 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL__H
-#define ANIMAL__H
+#ifndef SHRUB_HPP
+#define SHRUB_HPP
 
-#include <iostream>
+#include "AForm.hpp"
+#include <fstream>
 
-
-class Animal
+class ShrubberyCreationForm : public AForm
 {
-	protected:
-		std::string _type;
-	
 	public:
-		Animal( void );
-		Animal( const Animal &copy );
-		virtual ~Animal( void );
+		ShrubberyCreationForm( const std::string &target );
+		ShrubberyCreationForm( const ShrubberyCreationForm &src );
+		~ShrubberyCreationForm( void );
 
-		Animal 			&operator=(const Animal &rhs );
-		std::string		getType( void )	const;
-		void			setType( const std::string &type );
-		virtual void	makeSound( void ) const = 0;
+		ShrubberyCreationForm	&operator=( const ShrubberyCreationForm &rhs );
+		
+		virtual void			execute( void )	const;
+
+	private:
+		std::string _target;
 };
 
 #endif

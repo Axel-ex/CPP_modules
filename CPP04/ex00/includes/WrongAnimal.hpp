@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:56:58 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/20 15:03:02 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/24 09:58:44 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 
 class WrongAnimal
 {
-	protected:
-		std::string _type;
-	
 	public:
 		WrongAnimal( void );
 		WrongAnimal( const WrongAnimal &copy );
@@ -30,6 +27,10 @@ class WrongAnimal
 		std::string		getType( void )	const;
 		void			setType( const std::string &type );
 		void	makeSound( void ) const;
+		
+	protected:
+		std::string _type;
+	
 };
 
 #endif

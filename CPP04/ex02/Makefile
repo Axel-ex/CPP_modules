@@ -17,6 +17,12 @@ YELLOW		= \033[38;5;226m
 RED			= \033[38;5;196m
 RESET 		= \033[0m
 
+MODE = none
+
+ifeq (debug, $(MODE))
+	FLAGS += -D DEBUG
+endif
+
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	@c++ $(FLAGS) -g -c $< -o $@
 	@echo "[$(GREEN)compiling$(RESET)]: $<"

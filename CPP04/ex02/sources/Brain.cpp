@@ -6,26 +6,27 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:28:59 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/21 11:17:34 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/24 10:48:08 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Brain.hpp"
+#include "../includes/AAnimal.hpp"
 
-Brain :: Brain( void )
+Brain :: Brain( void ) : _nb_ideas(0)
 {
-	std::cout << "Brain default constructor called" << std::endl;
+	LOG("Brain default constructor called");
 }
 
 Brain :: Brain( const Brain &copy )
 {
 	*this = copy;
-	std::cout << "Brain copy constructor called" << std::endl;
+	LOG("Brain copy constructor called");
 }
 
 Brain :: ~Brain( void )
 {
-	std::cout << "Brain destructor called" << std::endl;
+	LOG("Brain destructor called");
 }
 
 //OPERATOR OVERLOAD
@@ -33,8 +34,9 @@ Brain &Brain :: operator=( const Brain &rhs )
 {
 	if (this != &rhs)
 	{
-		for (int i = 0; i < NB_IDEAS; i++)
+		for (int i = 0; i < MAX_IDEAS; i++)
 			_ideas[i] = rhs.getIdea(i);
+		_nb_ideas = rhs.getNbIdea();
 	}
 	return (*this);
 }
@@ -42,14 +44,26 @@ Brain &Brain :: operator=( const Brain &rhs )
 //MEMBER FUNCTIONS
 std::string Brain :: getIdea( int index ) const
 {
-	if (index > NB_IDEAS)
+	if (index < 0 || index > MAX_IDEAS)
 		throw std::runtime_error("Ideas index out of range");
 	return (_ideas[index]);
 }
 
 void	Brain :: setIdea( const std::string &idea, int index )
 {
-	if (index > NB_IDEAS)
+	if (index < 0 || index > MAX_IDEAS)
 		throw std::runtime_error("Ideas index out of range");
 	_ideas[index] = idea;
+	_nb_ideas++;
+}
+
+int		Brain :: getNbIdea( void )	const
+{
+	return (_nb_ideas);
+}
+
+void	Brain :: print( void )		const
+{
+	for (int i = 0; i < _nb_ideas; i++)
+		std::cout << "\t" << _ideas[i] << std::endl;
 }

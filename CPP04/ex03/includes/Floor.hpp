@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 13:36:56 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/23 09:40:15 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/24 11:11:15 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ class Floor
 {
 	private:
 		MateriaList *_materia_list;
-		Floor( const Floor&) = delete;
+		Floor( const Floor&); //= delete; c++11
 		Floor( void );
 		~Floor( void );
 
-		Floor &operator=(const Floor&) = delete;
+		Floor &operator=(const Floor&); //= delete; c++11
 		
 		void			pushFront( AMateria *materia );
 		void			deleteMaterias( void );

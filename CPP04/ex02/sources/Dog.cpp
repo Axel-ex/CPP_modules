@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:21:15 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/21 11:32:40 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/24 10:30:53 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 Dog :: Dog( void )
 {
-	Animal::setType("Dog");
+	AAnimal::setType("Dog");
 	_brain = new Brain();
-	std::cout << "Dog default constructor called" << std::endl;
+	LOG("Dog default constructor called");
 }
 
-Dog :: Dog( const Dog &copy ) : Animal(copy)
+Dog :: Dog( const Dog &copy ) : AAnimal(copy)
 {
 	*this = copy;
-	std::cout << "Dog copy constructor called" << std::endl;
+	LOG("Dog copy constructor called");
 }
 
 Dog :: ~Dog( void )
 {
 	delete _brain;
-	std::cout << "Dog default destructor called" << std::endl;
+	LOG("Dog default destructor called");
 }
 
 //OPERATOR OVERLOAD
@@ -36,8 +36,10 @@ Dog &Dog :: operator=( const Dog &rhs )
 {
 	if (this != &rhs)
 	{
-		Animal::operator=(rhs);
-		_brain = new Brain(rhs.getBrain());
+		AAnimal::operator=(rhs);
+		if (_brain != nullptr)
+			delete _brain;
+		_brain = new Brain(*(rhs._brain));
 	}
 	return (*this);
 }
@@ -48,7 +50,7 @@ void	Dog :: makeSound( void )	const
 	std::cout << "WOAF" << std::endl;
 }
 
-Brain	&Dog :: getBrain( void )	const
+Brain	*Dog :: getBrain( void )	const
 {
-	return (*_brain);
+	return (_brain);
 }

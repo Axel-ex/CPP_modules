@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:00:51 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/20 15:07:30 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/24 10:01:07 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "../includes/Dog.hpp"
 #include "../includes/WrongAnimal.hpp"
 #include "../includes/WrongCat.hpp"
+#include <iomanip>
 
 void	clearScreen( void )
 {
@@ -30,43 +31,53 @@ void	pressEnter( void )
 
 void	printBanner( const std::string &msg )
 {
-	std::cout << "----->" << msg << "<-----" << std::endl;
+	std::cout << "----->" << std::setw(10) << msg << "<-----" << std::endl;
 	std::cout << std::endl;
 }
 
-int	main(void)
+void	basicTest( void )
+{
+	printBanner("BASIC TESTS");
+	pressEnter();
+
+	printBanner("CREATION");
+	Animal	*ptr[3] = {new Cat(), new Cat(), new Dog()};
+	pressEnter();
+
+	printBanner("METHOD make");
+	for (int i = 0; i < 3 ; i++)
+		ptr[i]->makeSound();
+	pressEnter();
+
+	printBanner("DELETION");
+	for (int i = 0; i < 3; i++)
+		delete ptr[i];
+	pressEnter();
+}
+
+void	WrongAnimalTest( void )
+{
+	printBanner("WRONG CAT TEST");
+	pressEnter();
+
+	printBanner("CREATION");
+	WrongAnimal	*wrong = new WrongCat();
+	pressEnter();
+
+	printBanner("METHOD");
+	wrong->makeSound();
+	pressEnter();
+
+	printBanner("DELETION");
+	delete wrong;
+	pressEnter();
+}
+
+int	main( void )
 {
 	clearScreen();
-	
-	Animal	meta = Animal();
-	Cat		cat = Cat();
-	Dog		dog = Dog();
-	
-	pressEnter();
+	basicTest();
+	WrongAnimalTest();
 
-	printBanner("METHODS");
-	std::cout << "meta says: \n"; meta.makeSound(); std::cout << std::endl;
-	std::cout << "Cat says: "; cat.makeSound(); std::cout << std::endl;
-	std::cout << "Dog says: "; dog.makeSound(); std::cout << std::endl;
-	pressEnter();
-
-	printBanner("COPIES");
-	Cat copy_cat = cat;
-	Dog copy_dog = dog;
-	pressEnter();
-
-	printBanner("WITH POINTER");
-	Animal *ptr = new Cat();
-	std::cout << "The cat should do: "; ptr->makeSound();
-	std::cout << std::endl;
-	pressEnter();
-
-	printBanner("WRONG ANIMAL");
-	WrongAnimal *ptr2 = new WrongCat();
-	std::cout << "The cat should do: "; ptr2->makeSound();
-	std::cout << std::endl;
-
-	delete ptr;
-	delete ptr2;
 	return (EXIT_SUCCESS);
 }

@@ -6,17 +6,17 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:40:56 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/21 11:46:52 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/02/24 10:37:39 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT__H
 #define CAT__H
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal
+class Cat : public AAnimal
 {
 	public:
 		Cat( void );
@@ -26,10 +26,12 @@ class Cat : public Animal
 		Cat &operator=( const Cat &rhs );
 
 		void	makeSound( void )	const;
-		Brain	&getBrain( void )	const;
+		Brain	*getBrain( void )	const;
 
-		private:
-			Brain *_brain;
+	private:
+		Brain *_brain;
 };
+
+std::ostream	&operator<<( std::ostream &ofs, const Cat &rhs );
 
 #endif
