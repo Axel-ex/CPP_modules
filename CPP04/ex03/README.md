@@ -1,4 +1,4 @@
-# Magical Materias - Game Development Project
+# Exercice03: 
 
 Welcome to the world of Magical Materias! In this project, you'll be implementing a game framework where characters can interact with various magical materials to cast spells and perform enchantments. Let's dive into the components of this project:
 

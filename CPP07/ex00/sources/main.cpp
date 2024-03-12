@@ -6,11 +6,12 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 10:47:42 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/28 11:15:04 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:16:28 by Axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/functions.hpp"
+#include <iostream>
 #include <iomanip>
 
 void	clearScreen( void )
@@ -27,7 +28,7 @@ void	pressEnter( void )
 
 void	printBanner( const std::string &msg )
 {
-	std::cout << "--->" << std::setw(5) << msg << std::setw(5) << "<---" << std::endl;
+	std::cout << "--->" << std::setw(10) << msg << "<---" << std::endl;
 }
 
 template <typename T>

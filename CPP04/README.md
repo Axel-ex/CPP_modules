@@ -1,6 +1,5 @@
 # CPP04
 
-## Overview
 This project delves into the world of subtype polymorphism, abstract classes, and interfaces in C++. Here's a brief overview of each exercise:
 
 ### Exercise 00: Polymorphism

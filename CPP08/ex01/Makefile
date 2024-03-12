@@ -1,4 +1,4 @@
-NAME		= ex01
+NAME		= span
 
 OBJ_DIR		= bin
 

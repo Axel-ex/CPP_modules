@@ -6,14 +6,12 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 10:40:41 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/28 11:06:11 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:03:14 by Axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FUNCTIONS_HPP
 #define FUNCTIONS_HPP
-
-#include <iostream>
 
 template<typename T>
 void	swap( T &a, T &b )
