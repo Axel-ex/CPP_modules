@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 17:22:23 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/27 13:39:39 by achabrer         ###   ########.fr       */
+/*   Created: 2024/02/27 15:11:07 by achabrer          #+#    #+#             */
+/*   Updated: 2024/02/27 15:27:58 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-#define SCALARCONVERTER_HPP
+#ifndef SERIALIZER_HPP
+#define SERIALIZER_HPP
 
 #include <iostream>
 
-typedef	enum	s_type
+typedef struct s_data
 {
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE
+	int			x;
+	std::string str;
+}	t_data;
 
-}	e_type;
-
-class	ScalarConverter
+class	Serializer
 {
 	public:
-		static	void	convert( const std::string &str );
+		static uintptr_t	serialize(t_data *ptr);
+		static t_data		*deserialize(uintptr_t raw);
 };
-
-void	printChar( char c, const std::string &str );
-void	printInt( int i, const std::string &str );
-void	printFloat( float f, const std::string &str );
-void	printDouble( double d, const std::string &str );
-void	printPseudo( const std::string &str );
 
 #endif
