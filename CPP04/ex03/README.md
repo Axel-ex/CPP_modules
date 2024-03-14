@@ -29,13 +29,8 @@ This exercice aims to get acquinted with the concept of pure abstract class or I
    - Concrete class implementing `IMateriaSource`.
    - Handles the learning and creation of materials.
 
-## Memory Management Approach
-
-1. **Dynamic Memory Allocation**: 
-   - Use dynamic memory allocation for materials to ensure proper lifetime management.
-
-
-3. **Floor Singleton Class**:
+### Memory Management Approach
    - Materials unequipped by characters are not immediately deleted but are stored for later cleanup.
    - Utilize a singleton class called `Floor` to manage dropped materials that are not currently equipped.
    - This approach prevents immediate deletion of unequipped materials and allows for centralized cleanup.
+   - **DISCLAIMER** STL is not allowed in this module hence the need to implement a list structure.
