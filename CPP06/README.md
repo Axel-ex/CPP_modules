@@ -1,6 +1,6 @@
 # CPPO6
 
-The aim of this module was to get acquinted with the different cast available in C++.
+The aim of this module was to get acquinted with the different cast available in C++. See [subject](en.subject.pdf).
 
 ### Exercise00: ScalarConverter
 This class contains a static method `convert` that takes a string representation of a C++ literal and outputs its value in different scalar types using `static_cast`: char, int, float, and double. The class is designed to handle various types of literals including char, int, float, double, and pseudo literals like `nan`, `-inff`, `+inff`, `-inf`, and `+inf`.
