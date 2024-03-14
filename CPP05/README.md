@@ -1,6 +1,6 @@
 # CPP05
 
-CPP05 introduces students to the world of bureaucratic paperwork simulation in C++. The exercises focus on implementing classes to represent bureaucrats, forms, and interns, each with specific functionalities and interactions. See [subject](en.subject.pdf).
+CPP05 introduces the world of bureaucratic paperwork simulation in C++. The exercises focus on implementing classes to represent bureaucrats, forms, and interns, each with specific functionalities and interactions. See [subject](en.subject.pdf).
 
 
 ### Exercise00: Mommy, when I grow up, I want to be a bureaucrat!
