@@ -13,14 +13,11 @@
 #include "../includes/Point.hpp"
 
 /*
- 	Equation of a line segment: y = ax + b
-		* a - slope
-		* b - origin
-	m = (y2 - y1)/(x2 - x1)
-	b = y - ax
+    Equation of a line segment: y = ax + b
+        * a - slope
+        * b - origin
+    m = (y2 - y1)/(x2 - x1)
+    b = y - ax
  */
 
-bool bsp( Point const a, Point const b, Point const c, Point const point)
-{
-	
-}
+bool bsp(Point const a, Point const b, Point const c, Point const point) {}

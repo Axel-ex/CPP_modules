@@ -12,100 +12,85 @@
 
 #include "../includes/AForm.hpp"
 
-AForm :: AForm( const std::string &name, int sign_grade, int exec_grade ) :
-_name(name),  _is_signed(false), SIGN_GRADE(sign_grade), EXEC_GRADE(exec_grade)
+AForm ::AForm(const std::string &name, int sign_grade, int exec_grade)
+    : _name(name), _is_signed(false), SIGN_GRADE(sign_grade),
+      EXEC_GRADE(exec_grade)
 {
-	if (SIGN_GRADE < MAX_GRADE || EXEC_GRADE < MAX_GRADE)
-		throw AForm::GradeTooHighException();
-	if (SIGN_GRADE > MIN_GRADE || EXEC_GRADE > MIN_GRADE)
-		throw AForm::GradeTooLowException();
+    if (SIGN_GRADE < MAX_GRADE || EXEC_GRADE < MAX_GRADE)
+        throw AForm::GradeTooHighException();
+    if (SIGN_GRADE > MIN_GRADE || EXEC_GRADE > MIN_GRADE)
+        throw AForm::GradeTooLowException();
 }
 
-AForm :: AForm( const AForm &src ) : _name(src._name), SIGN_GRADE(src.SIGN_GRADE),
-EXEC_GRADE(src.EXEC_GRADE)
+AForm ::AForm(const AForm &src)
+    : _name(src._name), SIGN_GRADE(src.SIGN_GRADE), EXEC_GRADE(src.EXEC_GRADE)
 {
-	*this = src;
+    *this = src;
 }
 
-AForm :: ~AForm( void )
-{}
+AForm ::~AForm(void) {}
 
-//OPERATOR OVERLOAD
-AForm &AForm :: operator=( const AForm &rhs )
+// OPERATOR OVERLOAD
+AForm &AForm ::operator=(const AForm &rhs)
 {
-	if (this != &rhs)
-		_is_signed = rhs._is_signed;
-	return (*this);
+    if (this != &rhs)
+        _is_signed = rhs._is_signed;
+    return (*this);
 }
 
-std::ostream &operator<<( std::ostream &ofs, const AForm &rhs )
+std::ostream &operator<<(std::ostream &ofs, const AForm &rhs)
 {
-	std::string sign = rhs.IsSigned() ? " ✅ " : " ❌ ";
+    std::string sign = rhs.IsSigned() ? " ✅ " : " ❌ ";
 
-	ofs << "FORM" << std::endl;
-	ofs << "name: " <<  rhs.getName() << std::endl;
-	ofs << "is signed: " << sign << std::endl;
-	ofs << "min grade to sign: " << rhs.getSignGrade() << std::endl;
-	ofs << "min grade to execute: " << rhs.getExecGrade() << std::endl;
-	return (ofs);
+    ofs << "FORM" << std::endl;
+    ofs << "name: " << rhs.getName() << std::endl;
+    ofs << "is signed: " << sign << std::endl;
+    ofs << "min grade to sign: " << rhs.getSignGrade() << std::endl;
+    ofs << "min grade to execute: " << rhs.getExecGrade() << std::endl;
+    return (ofs);
 }
 
-//GETTERS // SETTERS
-std::string	AForm :: getName( void )	const
+// GETTERS // SETTERS
+std::string AForm ::getName(void) const { return (_name); }
+
+bool AForm ::IsSigned(void) const { return (_is_signed); }
+
+int AForm ::getSignGrade(void) const { return (SIGN_GRADE); }
+
+int AForm ::getExecGrade(void) const { return (EXEC_GRADE); }
+
+void AForm ::beSigned(const Bureaucrat &bureaucrat)
 {
-	return (_name);
+    if (bureaucrat.getGrade() > SIGN_GRADE)
+        throw AForm ::GradeTooLowException();
+    _is_signed = true;
 }
 
-bool	AForm ::IsSigned( void )		const
+void AForm ::setIsSigned(bool to_set) { _is_signed = to_set; }
+
+void AForm ::execute(const Bureaucrat &executor) const
 {
-	return (_is_signed);
+    if (executor.getGrade() > EXEC_GRADE)
+        throw AForm::GradeTooLowException();
+    if (!_is_signed)
+        throw AForm::UnsignedException();
+    std::cout << executor.getName() << " executed the form " << this->getName()
+              << std::endl;
+    this->execute();
 }
 
-int		AForm :: getSignGrade( void )const
+// EXCEPTIONS
+const char *AForm ::GradeTooHighException ::what(void) const throw()
 {
-	return (SIGN_GRADE);
+    return ("Grade too high");
 }
 
-int		AForm :: getExecGrade( void )const
+const char *AForm ::GradeTooLowException ::what(void) const throw()
 {
-	return (EXEC_GRADE);
+    return ("Grade too low");
 }
 
-void	AForm :: beSigned( const Bureaucrat &bureaucrat )
+const char *AForm ::UnsignedException ::what(void) const throw()
 {
-	if (bureaucrat.getGrade() > SIGN_GRADE)
-		throw AForm :: GradeTooLowException();
-	_is_signed = true;
-}
-
-void	AForm :: setIsSigned( bool to_set )
-{
-	_is_signed = to_set;
-}
-
-void	AForm :: execute( const Bureaucrat &executor ) const
-{
-	if (executor.getGrade() > EXEC_GRADE)
-		throw AForm::GradeTooLowException();
-	if (!_is_signed)
-		throw AForm::UnsignedException();
-	std::cout << executor.getName() << " executed the form " << this->getName()
-	<< std::endl;
-	this->execute();
-}
-
-//EXCEPTIONS
-const char *AForm :: GradeTooHighException :: what( void ) const throw()
-{
-	return ("Grade too high");
-}
-
-const char	*AForm :: GradeTooLowException :: what( void ) const throw()
-{
-	return ("Grade too low");
-}
-
-const char	*AForm :: UnsignedException :: what( void ) const throw()
-{
-	return ("The form was not signed");
+    return ("The form was not signed");
 }

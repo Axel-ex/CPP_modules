@@ -12,38 +12,29 @@
 
 #include "../includes/AAnimal.hpp"
 
-//CONSTRUCTORS
-AAnimal :: AAnimal( void ) : _type("Animal")
+// CONSTRUCTORS
+AAnimal ::AAnimal(void) : _type("Animal")
 {
-	LOG("Animal default constructor called");
+    LOG("Animal default constructor called");
 }
 
-AAnimal :: AAnimal( const AAnimal &copy )
+AAnimal ::AAnimal(const AAnimal &copy)
 {
-	*this = copy;	
-	LOG("Animal copy constructor called");
+    *this = copy;
+    LOG("Animal copy constructor called");
 }
 
-AAnimal :: ~AAnimal( void )
+AAnimal ::~AAnimal(void) { LOG("Animal default destructor called"); }
+
+// OPERATOR OVERLOAD
+AAnimal &AAnimal ::operator=(const AAnimal &rhs)
 {
-	LOG("Animal default destructor called");
+    if (this != &rhs)
+        _type = rhs.getType();
+    return (*this);
 }
 
-//OPERATOR OVERLOAD
-AAnimal &AAnimal :: operator=( const AAnimal &rhs)
-{
-	if (this != &rhs)
-		_type = rhs.getType();
-	return (*this);
-}
+// GETTERS AND SETTERS
+std::string AAnimal ::getType(void) const { return (_type); }
 
-//GETTERS AND SETTERS
-std::string	AAnimal :: getType( void )	const
-{
-	return (_type);
-}
-
-void	AAnimal :: setType( const std::string &type)
-{
-	_type = type;
-}
+void AAnimal ::setType(const std::string &type) { _type = type; }

@@ -12,24 +12,25 @@
 
 #include "../includes/RPN.hpp"
 
-void	printUsage( void )
+void printUsage(void)
 {
-	std::cout << "\nEnter a valid reverse polish expression" << std::endl;
-	std::cout << "ex: 7 7 * 7 -" << std::endl;
+    std::cout << "\nEnter a valid reverse polish expression" << std::endl;
+    std::cout << "ex: 7 7 * 7 -" << std::endl;
 }
 
-int	main( int argc, char **argv )
+int main(int argc, char **argv)
 {
-	try
-	{
-		if (argc < 2)
-			throw std::runtime_error("Enter an expression");
-		RPN	rpn(argv[1]);
-		rpn.compute();
-	}
-	catch(std::exception &e){
-		std::cout << e.what() << std::endl;
-		printUsage();
-	}
-	return (EXIT_SUCCESS);
+    try
+    {
+        if (argc < 2)
+            throw std::runtime_error("Enter an expression");
+        RPN rpn(argv[1]);
+        rpn.compute();
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+        printUsage();
+    }
+    return (EXIT_SUCCESS);
 }

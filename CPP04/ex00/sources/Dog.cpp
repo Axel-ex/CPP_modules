@@ -12,35 +12,29 @@
 
 #include "../includes/Dog.hpp"
 
-Dog :: Dog( void )
+Dog ::Dog(void)
 {
-	Animal::setType("Dog");
-	std::cout << "Dog default constructor called" << std::endl;
+    Animal::setType("Dog");
+    std::cout << "Dog default constructor called" << std::endl;
 }
 
-Dog :: Dog( const Dog &copy ) : Animal(copy)
+Dog ::Dog(const Dog &copy) : Animal(copy)
 {
-	*this = copy;
-	std::cout << "Dog copy constructor called" << std::endl;
+    *this = copy;
+    std::cout << "Dog copy constructor called" << std::endl;
 }
 
-Dog :: ~Dog( void )
+Dog ::~Dog(void) { std::cout << "Dog default destructor called" << std::endl; }
+
+// OPERATOR OVERLOAD
+Dog &Dog ::operator=(const Dog &rhs)
 {
-	std::cout << "Dog default destructor called" << std::endl;
+    if (this != &rhs)
+    {
+        Animal::operator=(rhs);
+    }
+    return (*this);
 }
 
-//OPERATOR OVERLOAD
-Dog &Dog :: operator=( const Dog &rhs )
-{
-	if (this != &rhs)
-	{
-		Animal::operator=(rhs);
-	}
-	return (*this);
-}
-
-//METHODS
-void	Dog :: makeSound( void )	const
-{
-	std::cout << "WOAF" << std::endl;
-}
+// METHODS
+void Dog ::makeSound(void) const { std::cout << "WOAF" << std::endl; }

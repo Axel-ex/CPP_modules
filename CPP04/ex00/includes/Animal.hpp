@@ -15,22 +15,20 @@
 
 #include <iostream>
 
-
 class Animal
 {
-	public:
-		Animal( void );
-		Animal( const Animal &copy );
-		virtual ~Animal( void );
+    public:
+        Animal(void);
+        Animal(const Animal &copy);
+        virtual ~Animal(void);
 
-		Animal 			&operator=(const Animal &rhs );
-		std::string		getType( void )	const;
-		void			setType( const std::string &type );
-		virtual void	makeSound( void ) const;
-		
-	protected:
-		std::string _type;
-	
+        Animal &operator=(const Animal &rhs);
+        std::string getType(void) const;
+        void setType(const std::string &type);
+        virtual void makeSound(void) const;
+
+    protected:
+        std::string _type;
 };
 
 #endif

@@ -12,21 +12,21 @@
 
 #include <iostream>
 
-int	main(void)
+int main(void)
 {
-	std::string const str = "HI THIS IS BRAIN";
-	std::string const *strPTR = &str;
-	std::string	const &strREF = str;
+    std::string const str = "HI THIS IS BRAIN";
+    std::string const *strPTR = &str;
+    std::string const &strREF = str;
 
-	std::cout << "MEMORY ADDRESSES:" << std::endl;
-	std::cout << "\tstr:\t" << &str << std::endl;
-	std::cout << "\tstrPTR:\t" << strPTR << std::endl;
-	std::cout << "\tstrREF:\t" << &strREF << std::endl << std::endl;
+    std::cout << "MEMORY ADDRESSES:" << std::endl;
+    std::cout << "\tstr:\t" << &str << std::endl;
+    std::cout << "\tstrPTR:\t" << strPTR << std::endl;
+    std::cout << "\tstrREF:\t" << &strREF << std::endl << std::endl;
 
-	std::cout << "VALUES:\t" << std::endl;
-	std::cout << "\tstr:\t" << str << std::endl;
-	std::cout << "\tstrPTR:\t" << *strPTR << std::endl;
-	std::cout << "\tstrREF:\t" << strREF << std::endl;
+    std::cout << "VALUES:\t" << std::endl;
+    std::cout << "\tstr:\t" << str << std::endl;
+    std::cout << "\tstrPTR:\t" << *strPTR << std::endl;
+    std::cout << "\tstrREF:\t" << strREF << std::endl;
 
-	return (EXIT_SUCCESS);
+    return (EXIT_SUCCESS);
 }

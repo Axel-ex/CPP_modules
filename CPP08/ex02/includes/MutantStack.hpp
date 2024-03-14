@@ -13,39 +13,38 @@
 #ifndef MUTANTSTACK_HPP
 #define MUTANTSTACK_HPP
 
-#include <iostream>
-#include <stack>
 #include <deque>
+#include <iostream>
 #include <list>
+#include <stack>
 
 /**
  * @brief container adaptor making stack iterable
- * 
- * The stack itself is a container adaptor that restrict the underlying sequential
- * container to LIFO structure. by default the underlying container is assigned to
- * deque if no arg provided.
- * 
+ *
+ * The stack itself is a container adaptor that restrict the underlying
+ * sequential container to LIFO structure. by default the underlying container
+ * is assigned to deque if no arg provided.
+ *
  * @tparam T type the container is managing
- * @tparam C stack underlying container 
+ * @tparam C stack underlying container
  */
-template<typename T, typename C = std::deque<T> >
+template <typename T, typename C = std::deque<T>>
 class MutantStack : public std::stack<T, C>
 {
-	public:
-		MutantStack( void );
-		MutantStack( const MutantStack &src );
-		~MutantStack( void );
+    public:
+        MutantStack(void);
+        MutantStack(const MutantStack &src);
+        ~MutantStack(void);
 
-		MutantStack	&operator=( const MutantStack &rhs );
+        MutantStack &operator=(const MutantStack &rhs);
 
-		typedef typename C::iterator iterator;
-		iterator	begin( void );
-		iterator	end( void );
+        typedef typename C::iterator iterator;
+        iterator begin(void);
+        iterator end(void);
 
-		typedef typename C::const_iterator c_iterator;	
-		c_iterator	cbegin( void )	const;
-		c_iterator	cend( void )	const;
-
+        typedef typename C::const_iterator c_iterator;
+        c_iterator cbegin(void) const;
+        c_iterator cend(void) const;
 };
 
 #include "MutantStack.tpp"

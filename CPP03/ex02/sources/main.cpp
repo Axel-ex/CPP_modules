@@ -12,25 +12,25 @@
 
 #include "../includes/FragTrap.hpp"
 
-int	main(void)
+int main(void)
 {
-	FragTrap john = FragTrap("bob");
-	FragTrap leo = FragTrap("leo");
-	FragTrap bob;
+    FragTrap john = FragTrap("bob");
+    FragTrap leo = FragTrap("leo");
+    FragTrap bob;
 
-	std::cout << "INIT JOHN LEO AND BOB" << std::endl;
-	std::cout << john << std::endl;
-	std::cout << leo << std::endl;
-	std::cout << bob << std::endl;
+    std::cout << "INIT JOHN LEO AND BOB" << std::endl;
+    std::cout << john << std::endl;
+    std::cout << leo << std::endl;
+    std::cout << bob << std::endl;
 
-	std::cout << "COPY OVERLOAD" << std::endl;
-	bob = leo;
-	std::cout << john << std::endl;
-	std::cout << leo << std::endl;
-	std::cout << bob << std::endl;
+    std::cout << "COPY OVERLOAD" << std::endl;
+    bob = leo;
+    std::cout << john << std::endl;
+    std::cout << leo << std::endl;
+    std::cout << bob << std::endl;
 
-	std::cout << "HIGH FIVE?" << std::endl;
-	john.highFiveGuys();
-	
-	return (EXIT_SUCCESS);
+    std::cout << "HIGH FIVE?" << std::endl;
+    john.highFiveGuys();
+
+    return (EXIT_SUCCESS);
 }

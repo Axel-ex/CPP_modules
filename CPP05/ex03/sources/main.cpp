@@ -13,20 +13,16 @@
 #include "../includes/Bureaucrat.hpp"
 #include "../includes/Intern.hpp"
 
+void clearScreen(void) { std::cout << "\033c"; }
 
-void	clearScreen( void )
+void pressEnter(void)
 {
-	std::cout << "\033c";
+    std::cout << "\nPress ENTER to continue...";
+    std::cin.ignore(10000, '\n');
+    clearScreen();
 }
 
-void	pressEnter( void )
-{
-	std::cout << "\nPress ENTER to continue...";
-	std::cin.ignore(10000, '\n');
-	clearScreen();
-}
-
-void printBanner(const std::string& msg)
+void printBanner(const std::string &msg)
 {
     const int bannerWidth = 15;
     int padding = std::max(0, (bannerWidth - static_cast<int>(msg.size())) / 2);
@@ -35,63 +31,63 @@ void printBanner(const std::string& msg)
     std::cout << "<----" << std::endl;
 }
 
-void	makeFormTest()
+void makeFormTest()
 {
-	printBanner("Intern test");
-	pressEnter();
+    printBanner("Intern test");
+    pressEnter();
 
-	Intern		axel;
-	AForm		*forms[3];
-	Bureaucrat	john("john", 1);
+    Intern axel;
+    AForm *forms[3];
+    Bureaucrat john("john", 1);
 
-	printBanner("MAKE FORM TEST");
-	pressEnter();
-	
-	try
-	{
-		for (int i = 0; i < 3; i++)
-			forms[i] = axel.makeForm("shrubbery", "whatever");
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+    printBanner("MAKE FORM TEST");
+    pressEnter();
 
-	printBanner("EXECUTE");
-	for (int i = 0; i < 3; i++)
-	{
-		john.signForm(*forms[i]);
-		john.executeForm(*forms[i]);
-	}
-	pressEnter();
+    try
+    {
+        for (int i = 0; i < 3; i++)
+            forms[i] = axel.makeForm("shrubbery", "whatever");
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
 
-	for (int i = 0; i< 3; i++)
-		delete forms[i];
+    printBanner("EXECUTE");
+    for (int i = 0; i < 3; i++)
+    {
+        john.signForm(*forms[i]);
+        john.executeForm(*forms[i]);
+    }
+    pressEnter();
+
+    for (int i = 0; i < 3; i++)
+        delete forms[i];
 }
 
-void	invalidFormTest()
+void invalidFormTest()
 {
-	printBanner("INVALID FORM TEST");
-	pressEnter();
+    printBanner("INVALID FORM TEST");
+    pressEnter();
 
-	Intern	Axel;
+    Intern Axel;
 
-	try
-	{
-		Axel.makeForm("ndjned", "dede");
-	}
-	catch (std::exception &e)
-	{
-		std::cout << RED <<  e.what() << RESET << std::endl;
-	}
-	pressEnter();
+    try
+    {
+        Axel.makeForm("ndjned", "dede");
+    }
+    catch (std::exception &e)
+    {
+        std::cout << RED << e.what() << RESET << std::endl;
+    }
+    pressEnter();
 }
 
-int	main( void )
+int main(void)
 {
-	clearScreen();
-	makeFormTest();
-	invalidFormTest();
+    clearScreen();
+    makeFormTest();
+    invalidFormTest();
 
-	return (EXIT_SUCCESS);
+    return (EXIT_SUCCESS);
 }

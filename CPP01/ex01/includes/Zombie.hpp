@@ -11,26 +11,24 @@
 /* ************************************************************************** */
 
 #ifndef __ZOMBIE__H
-# define __ZOMBIE__H
+#define __ZOMBIE__H
 
-# include <iostream>
+#include <iostream>
 
-
-class	Zombie
+class Zombie
 {
-	public:
-		Zombie( void );
-		~Zombie( void );
-		Zombie( std::string name );
+    public:
+        Zombie(void);
+        ~Zombie(void);
+        Zombie(std::string name);
 
-		void	announce( void );
-		void	setName( std::string name);
-	
-	private:
-		std::string	_name;
+        void announce(void);
+        void setName(std::string name);
 
+    private:
+        std::string _name;
 };
 
-Zombie 	*zombieHorde( int N, std::string name );
+Zombie *zombieHorde(int N, std::string name);
 
 #endif

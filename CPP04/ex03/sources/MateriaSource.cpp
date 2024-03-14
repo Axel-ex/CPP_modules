@@ -12,101 +12,101 @@
 
 #include "../includes/MateriaSource.hpp"
 
-//CONSTRUCTORS
-MateriaSource :: MateriaSource( void ) : _source()
+// CONSTRUCTORS
+MateriaSource ::MateriaSource(void) : _source()
 {
-	LOG("MateriaSource constructor called");
+    LOG("MateriaSource constructor called");
 }
 
-MateriaSource :: MateriaSource( const MateriaSource &copy)
+MateriaSource ::MateriaSource(const MateriaSource &copy)
 {
-	LOG("MateriaSource copy constructor called");
-	*this = copy;
+    LOG("MateriaSource copy constructor called");
+    *this = copy;
 }
 
-MateriaSource :: ~MateriaSource( void )
+MateriaSource ::~MateriaSource(void)
 {
-	LOG("MateriaSource destructor called");
-	for (int i = 0; i < MAX_ITEMS; i++)
-	{
-		if (!_source[i])
-			continue;
-		delete _source[i];
-	}
+    LOG("MateriaSource destructor called");
+    for (int i = 0; i < MAX_ITEMS; i++)
+    {
+        if (!_source[i])
+            continue;
+        delete _source[i];
+    }
 }
 
-//OPERATOR OVERLOAD
-std::ostream &operator<<( std::ostream &ofs, const MateriaSource &rhs )
+// OPERATOR OVERLOAD
+std::ostream &operator<<(std::ostream &ofs, const MateriaSource &rhs)
 {
-	for (int i = 0; i < MAX_ITEMS; i++)
-		rhs.displayMateria(i, ofs);
-	return (ofs);
+    for (int i = 0; i < MAX_ITEMS; i++)
+        rhs.displayMateria(i, ofs);
+    return (ofs);
 }
 
 /**
-* @brief Deep copies the rhs object.
+ * @brief Deep copies the rhs object.
  * Since our class implements a container of objects with polymorphic behavior,
- * the clone() function allows us to avoid slicing. Slicing occurs when only 
- * the constructor of the base class is called on an object of derived class type,
- * resulting in the derived part of the object being "sliced away".
- * 
- * @param rhs 
- * @return MateriaSource& 
+ * the clone() function allows us to avoid slicing. Slicing occurs when only
+ * the constructor of the base class is called on an object of derived class
+ * type, resulting in the derived part of the object being "sliced away".
+ *
+ * @param rhs
+ * @return MateriaSource&
  */
-MateriaSource &MateriaSource :: operator=( const MateriaSource &rhs )
+MateriaSource &MateriaSource ::operator=(const MateriaSource &rhs)
 {
-	if (this == &rhs)
-		return (*this);
-	for (int i = 0; i < MAX_ITEMS; i++)
-	{
-		if (_source[i])
-		{
-			delete _source[i];
-			_source[i] = NULL;
-		}
-		if (rhs._source[i])
-			_source[i] = rhs._source[i]->clone();
-	}
-	return (*this);
+    if (this == &rhs)
+        return (*this);
+    for (int i = 0; i < MAX_ITEMS; i++)
+    {
+        if (_source[i])
+        {
+            delete _source[i];
+            _source[i] = NULL;
+        }
+        if (rhs._source[i])
+            _source[i] = rhs._source[i]->clone();
+    }
+    return (*this);
 }
 
-//MEMBER FUNCTIONS
-void	MateriaSource :: learnMateria( AMateria *m )
+// MEMBER FUNCTIONS
+void MateriaSource ::learnMateria(AMateria *m)
 {
-	if (m->getIsTaken())
-	{
-		LOG("Can't store the materia, it is already taken");
-		return ;
-	}
-	for (int i = 0; i < MAX_ITEMS; i++)
-	{
-		if (_source[i])
-			continue;
-		_source[i] = m;
-		m->setIsTaken(true);
-		return;
-	}
-	Floor::dropMateria(m);
+    if (m->getIsTaken())
+    {
+        LOG("Can't store the materia, it is already taken");
+        return;
+    }
+    for (int i = 0; i < MAX_ITEMS; i++)
+    {
+        if (_source[i])
+            continue;
+        _source[i] = m;
+        m->setIsTaken(true);
+        return;
+    }
+    Floor::dropMateria(m);
 }
 
-AMateria *MateriaSource :: createMateria( const std::string &type )
+AMateria *MateriaSource ::createMateria(const std::string &type)
 {
-	for (int i = 0; i < MAX_ITEMS; i++)
-	{
-		if (_source[i] && _source[i]->getType() == type)
-		{
-			AMateria *new_materia = _source[i]->clone();
-			new_materia->setIsTaken(false);
-			return (new_materia);
-		}
-	}
-	return (NULL);
+    for (int i = 0; i < MAX_ITEMS; i++)
+    {
+        if (_source[i] && _source[i]->getType() == type)
+        {
+            AMateria *new_materia = _source[i]->clone();
+            new_materia->setIsTaken(false);
+            return (new_materia);
+        }
+    }
+    return (NULL);
 }
 
-void	MateriaSource :: displayMateria( int idx, std::ostream &ofs )	const
+void MateriaSource ::displayMateria(int idx, std::ostream &ofs) const
 {
-	if (idx < 0 || idx >= MAX_ITEMS)
-		return ;
-	if (_source[idx])
-		ofs << _source[idx]->getType() << std::endl;
+    if (idx < 0 || idx >= MAX_ITEMS)
+        return;
+    if (_source[idx])
+        ofs << _source[idx]->getType() << std::endl;
 }

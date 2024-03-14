@@ -15,25 +15,25 @@
 
 #include <iostream>
 
-typedef	enum	s_type
+typedef enum s_type
 {
-	CHAR,
-	INT,
-	FLOAT,
-	DOUBLE
+    CHAR,
+    INT,
+    FLOAT,
+    DOUBLE
 
-}	e_type;
+} e_type;
 
-class	ScalarConverter
+class ScalarConverter
 {
-	public:
-		static	void	convert( const std::string &str );
+    public:
+        static void convert(const std::string &str);
 };
 
-void	printChar( char c, const std::string &str );
-void	printInt( int i, const std::string &str );
-void	printFloat( float f, const std::string &str );
-void	printDouble( double d, const std::string &str );
-void	printPseudo( const std::string &str );
+void printChar(char c, const std::string &str);
+void printInt(int i, const std::string &str);
+void printFloat(float f, const std::string &str);
+void printDouble(double d, const std::string &str);
+void printPseudo(const std::string &str);
 
 #endif

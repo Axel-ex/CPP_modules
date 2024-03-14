@@ -12,12 +12,9 @@
 
 #include "../includes/Span.hpp"
 
-void	clearScreen( void )
-{
-	std::cout << "\033c";
-}
+void clearScreen(void) { std::cout << "\033c"; }
 
-void printBanner(const std::string& msg)
+void printBanner(const std::string &msg)
 {
     const int bannerWidth = 15;
     int padding = std::max(0, (bannerWidth - static_cast<int>(msg.size())) / 2);
@@ -26,80 +23,79 @@ void printBanner(const std::string& msg)
     std::cout << "<----" << std::endl;
 }
 
-void	pressEnter( void )
+void pressEnter(void)
 {
-	std::cout << "\npress ENTER to continue..." << std::endl;
-	std::cin.ignore(1);
-	clearScreen();
+    std::cout << "\npress ENTER to continue..." << std::endl;
+    std::cin.ignore(1);
+    clearScreen();
 }
 
-void	subjectTest( void )
+void subjectTest(void)
 {
-	Span sp = Span(5);
+    Span sp = Span(5);
 
-	printBanner("SUBJECT TEST");
+    printBanner("SUBJECT TEST");
 
-	sp.addNumber(6);
-	sp.addNumber(3);
-	sp.addNumber(17);
-	sp.addNumber(9);
-	sp.addNumber(11);
+    sp.addNumber(6);
+    sp.addNumber(3);
+    sp.addNumber(17);
+    sp.addNumber(9);
+    sp.addNumber(11);
 
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
+    std::cout << sp.shortestSpan() << std::endl;
+    std::cout << sp.longestSpan() << std::endl;
 
-	pressEnter();
+    pressEnter();
 }
 
-void	smallTest( void )
+void smallTest(void)
 {
-	Span	obj(10);
+    Span obj(10);
 
-	printBanner("SMALL TEST");
-	pressEnter();
+    printBanner("SMALL TEST");
+    pressEnter();
 
-	printBanner("FILL");
-	obj.fill();
-	std::cout << obj << std::endl;
-	pressEnter();
+    printBanner("FILL");
+    obj.fill();
+    std::cout << obj << std::endl;
+    pressEnter();
 
-	printBanner("LONGEST SPAN");
-	std :: cout << "span: " << obj.longestSpan() << std::endl;
-	std::cout << "min: " << obj.min() << std::endl;
-	std::cout << "max: " << obj.max() << std::endl;
-	pressEnter();
+    printBanner("LONGEST SPAN");
+    std ::cout << "span: " << obj.longestSpan() << std::endl;
+    std::cout << "min: " << obj.min() << std::endl;
+    std::cout << "max: " << obj.max() << std::endl;
+    pressEnter();
 
-	printBanner("SHORTEST SPAN");
-	std::cout << obj.shortestSpan() << std::endl;
-	pressEnter();
+    printBanner("SHORTEST SPAN");
+    std::cout << obj.shortestSpan() << std::endl;
+    pressEnter();
 }
 
-void	bigTest( void )
+void bigTest(void)
 {
-	Span	obj(10000);
+    Span obj(10000);
 
-	obj.fill();
+    obj.fill();
 
-	printBanner("LONGEST SPAN");
-	std :: cout << "span: " << obj.longestSpan() << std::endl;
-	std::cout << "min: " << obj.min() << std::endl;
-	std::cout << "max: " << obj.max() << std::endl;
-	pressEnter();
+    printBanner("LONGEST SPAN");
+    std ::cout << "span: " << obj.longestSpan() << std::endl;
+    std::cout << "min: " << obj.min() << std::endl;
+    std::cout << "max: " << obj.max() << std::endl;
+    pressEnter();
 
-	printBanner("SHORTEST SPAN");
-	std::cout << obj.shortestSpan() << std::endl;
-	pressEnter();
-	
+    printBanner("SHORTEST SPAN");
+    std::cout << obj.shortestSpan() << std::endl;
+    pressEnter();
 }
 
-int	main( void )
+int main(void)
 {
-	std::srand(time(NULL));
+    std::srand(time(NULL));
 
-	clearScreen();
-	subjectTest();
-	smallTest();
-	bigTest();
+    clearScreen();
+    subjectTest();
+    smallTest();
+    bigTest();
 
-	return (EXIT_SUCCESS);
+    return (EXIT_SUCCESS);
 }

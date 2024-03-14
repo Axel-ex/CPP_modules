@@ -12,45 +12,45 @@
 
 #include "../includes/ScavTrap.hpp"
 
-ScavTrap :: ScavTrap( void )
+ScavTrap ::ScavTrap(void)
 {
-	std::cout << "ScavTrap default constructor called" << std::endl;
-	_hit_point = 100;
-	_energy_point = 50;
-	_attack_damage = 20;
+    std::cout << "ScavTrap default constructor called" << std::endl;
+    _hit_point = 100;
+    _energy_point = 50;
+    _attack_damage = 20;
 }
 
-ScavTrap :: ~ScavTrap( void )
+ScavTrap ::~ScavTrap(void)
 {
-	std::cout << "ScavTrap destructor called" << std::endl;
+    std::cout << "ScavTrap destructor called" << std::endl;
 }
 
-ScavTrap :: ScavTrap( std::string name ) : ClapTrap(name)
+ScavTrap ::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap name constructor called" << std::endl;
-	_hit_point = 100;
-	_energy_point = 50;
-	_attack_damage = 20;
+    std::cout << "ScavTrap name constructor called" << std::endl;
+    _hit_point = 100;
+    _energy_point = 50;
+    _attack_damage = 20;
 }
 
-ScavTrap :: ScavTrap( const ScavTrap &copy ) : ClapTrap(copy)
+ScavTrap ::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
 {
-	std::cout << "ScavTrap copy constructor called" << std::endl;
+    std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
-ScavTrap &ScavTrap :: operator=( const ScavTrap &rhs )
+ScavTrap &ScavTrap ::operator=(const ScavTrap &rhs)
 {
-	if (this != &rhs)
-	{
-		_name = rhs.getName();
-		_attack_damage = rhs.getAttackDammage();
-		_hit_point = rhs.getHitPoints();
-		_energy_point = rhs.getEnergyPoints();
-	}
-	return (*this);
+    if (this != &rhs)
+    {
+        _name = rhs.getName();
+        _attack_damage = rhs.getAttackDammage();
+        _hit_point = rhs.getHitPoints();
+        _energy_point = rhs.getEnergyPoints();
+    }
+    return (*this);
 }
 
-void ScavTrap::guardGate( void ) const
+void ScavTrap::guardGate(void) const
 {
-	std::cout << "ScavTrap " << _name << " is in guardGate mode" << std::endl;
+    std::cout << "ScavTrap " << _name << " is in guardGate mode" << std::endl;
 }

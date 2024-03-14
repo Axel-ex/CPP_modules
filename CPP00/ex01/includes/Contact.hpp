@@ -11,33 +11,34 @@
 /* ************************************************************************** */
 
 #ifndef CONTACT_H
-# define CONTACT_H
+#define CONTACT_H
 
-# include <iostream>
-# include <iomanip>
+#include <iomanip>
+#include <iostream>
 
-# define CLEAR "\033[2J\033[H"
+#define CLEAR "\033[2J\033[H"
 
-class	Contact
+class Contact
 {
-	public:
-		Contact(void);
-		~Contact(void);
-		Contact(std::string fn, std::string ln, std::string nn, std::string pn, std::string ds);
-		
-		void		display() 		const;
-		std::string	getFirstName()	const;
-		std::string	getLastName()	const;
-		std::string	getNickname()	const;
+    public:
+        Contact(void);
+        ~Contact(void);
+        Contact(std::string fn, std::string ln, std::string nn, std::string pn,
+                std::string ds);
 
-		static 		std::string	formatField(std::string field);
+        void display() const;
+        std::string getFirstName() const;
+        std::string getLastName() const;
+        std::string getNickname() const;
 
-	private:
-		std::string	_firstName;
-		std::string	_lastName;
-		std::string	_nickname;
-		std::string	_phoneNumber;
-		std::string	_darkestSecret;
+        static std::string formatField(std::string field);
+
+    private:
+        std::string _firstName;
+        std::string _lastName;
+        std::string _nickname;
+        std::string _phoneNumber;
+        std::string _darkestSecret;
 };
 
 #endif

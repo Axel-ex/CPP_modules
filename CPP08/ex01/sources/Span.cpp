@@ -12,121 +12,106 @@
 
 #include "../includes/Span.hpp"
 
-Span :: Span ( void ) : _N(0)
-{}
+Span ::Span(void) : _N(0) {}
 
-Span :: Span( unsigned int N ) : _N(N)
-{}
+Span ::Span(unsigned int N) : _N(N) {}
 
-Span :: Span( const Span &src )
+Span ::Span(const Span &src) { *this = src; }
+
+Span ::~Span(void) {}
+
+// OPERATOR OVERLOAD
+Span &Span ::operator=(const Span &rhs)
 {
-	*this = src;
+    if (this != &rhs)
+    {
+        _array = rhs._array;
+        _N = rhs._N;
+    }
+    return (*this);
 }
 
-Span :: ~Span( void )
-{}
-
-//OPERATOR OVERLOAD
-Span	&Span :: operator=( const Span &rhs )
+std::ostream &operator<<(std::ostream &ofs, const Span &rhs)
 {
-	if (this != &rhs)
-	{
-		_array = rhs._array;
-		_N = rhs._N;
-	}
-	return (*this);
+    for (int i = 0; i < rhs.getSize(); i++)
+    {
+        std::cout << rhs.getElement(i);
+        if (i + 1 != rhs.getSize())
+            std::cout << ", ";
+    }
+    return (ofs);
 }
 
-std::ostream &operator<<( std::ostream &ofs, const Span &rhs )
+// GETTERS / SETTERS
+void Span ::setMax(unsigned int max) { _N = max; }
+
+int Span ::getElement(unsigned int idx) const
 {
-	for (int i = 0; i < rhs.getSize(); i++)
-	{
-		std::cout << rhs.getElement(i);
-		if (i + 1 != rhs.getSize())
-			std::cout << ", ";
-	}
-	return (ofs);
+    if (idx > _array.size())
+        throw std::out_of_range("index out of range");
+    return (_array[idx]);
 }
 
-//GETTERS / SETTERS
-void	Span :: setMax( unsigned int max)
+int Span ::getSize(void) const { return (_array.size()); }
+
+int Span ::min(void) const
 {
-	_N = max; 
+    return (*(std::min_element(_array.begin(), _array.end())));
 }
 
-int		Span :: getElement( unsigned int idx )	const
+int Span ::max(void) const
 {
-	if (idx > _array.size())
-		throw std::out_of_range("index out of range");
-	return (_array[idx]);
+    return (*(std::max_element(_array.begin(), _array.end())));
 }
 
-int		Span :: getSize( void )	const
+// MEMBER FCTS
+void Span ::addNumber(int to_add)
 {
-	return (_array.size());
+    if (_array.size() == _N)
+        throw Span::FullSpanException();
+    _array.push_back(to_add);
 }
 
-int		Span :: min( void )		const
+int Span ::shortestSpan(void) const
 {
-	return (*(std::min_element(_array.begin(), _array.end())));
+    int distance = std::numeric_limits<int>::max();
+    std::vector<int>::const_iterator it;
+    std::vector<int> sorted = _array;
+
+    if (_array.size() < 2)
+        throw Span::NoSpanException();
+
+    std::sort(sorted.begin(), sorted.end());
+    for (it = sorted.cbegin(); it != sorted.cend() - 1; it++)
+        if ((*(it + 1) - *it) < distance)
+            distance = *(it + 1) - *it;
+
+    return (distance);
 }
 
-int		Span :: max( void )		const
+int Span ::longestSpan(void) const
 {
-	return (*(std::max_element(_array.begin(), _array.end())));	
+    if (_array.size() < 2)
+        throw Span::NoSpanException();
+
+    return (this->max() - this->min());
 }
 
-//MEMBER FCTS
-void	Span :: addNumber( int to_add )
+static int generateRandom(void) { return (std::rand() % 100000); }
+
+void Span ::fill(void)
 {
-	if (_array.size() == _N)
-		throw Span::FullSpanException();
-	_array.push_back(to_add);
+    _array.resize(_N);
+    std::generate(_array.begin(), _array.end(), generateRandom);
 }
 
-int		Span :: shortestSpan( void )	const
+// EXCEPTIONS
+const char *Span ::NoSpanException ::what(void) const throw()
 {
-	int	distance = std::numeric_limits<int>::max();
-	std::vector<int>::const_iterator	it;
-	std::vector<int>	sorted = _array;
-
-	if (_array.size() < 2)
-		throw Span::NoSpanException();
-
-	std::sort(sorted.begin(), sorted.end());
-	for (it = sorted.cbegin(); it != sorted.cend() - 1; it++)
-		if ((*(it + 1) - *it) < distance)
-			distance = *(it + 1) - *it;
-
-	return (distance);
+    return ("No span can be calculated on an object of less than 2 elements");
 }
 
-int		Span :: longestSpan( void )	const
+const char *Span ::FullSpanException ::what(void) const throw()
 {
-	if (_array.size() < 2)
-		throw Span::NoSpanException();
-	
-	return (this->max() - this->min());	
-}
-
-static	int	generateRandom( void )
-{
-	return (std::rand() % 100000);
-}
-
-void	Span :: fill( void )
-{
-	_array.resize(_N);
-	std::generate(_array.begin(), _array.end(), generateRandom);
-}
-
-//EXCEPTIONS
-const char	*Span :: NoSpanException :: what ( void ) const throw()
-{
-	return ("No span can be calculated on an object of less than 2 elements");
-}
-
-const char	*Span :: FullSpanException :: what ( void ) const throw()
-{
-	return ("No span can be calculated on an object of less than 2 elements");
+    return ("No span can be calculated on an object of less than 2 elements");
 }

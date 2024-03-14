@@ -18,18 +18,18 @@
 
 class Dog : public Animal
 {
-	public:
-		Dog( void );
-		Dog( const Dog &copy );
-		~Dog( void );
+    public:
+        Dog(void);
+        Dog(const Dog &copy);
+        ~Dog(void);
 
-		Dog		&operator=( const Dog &rhs );
-		
-		void	makeSound( void )	const;
-		Brain	*getBrain( void )	const;
+        Dog &operator=(const Dog &rhs);
 
-	private:
-		Brain *_brain;
+        void makeSound(void) const;
+        Brain *getBrain(void) const;
+
+    private:
+        Brain *_brain;
 };
 
 #endif

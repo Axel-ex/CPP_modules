@@ -10,27 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	POINT__HPP
+#ifndef POINT__HPP
 #define POINT__HPP
 
-#include <iostream>
 #include "Fixed.hpp"
+#include <iostream>
 
 class Point
 {
-	public:
-		Point( void );
-		Point( const float x, const float y);
-		Point( const Point &point);
-		~Point( void );
+    public:
+        Point(void);
+        Point(const float x, const float y);
+        Point(const Point &point);
+        ~Point(void);
 
-		Point	&operator=(const Point &point);
-		Fixed	getX( void ) const;
-		Fixed	getY( void ) const;
+        Point &operator=(const Point &point);
+        Fixed getX(void) const;
+        Fixed getY(void) const;
 
-	private:
-		Fixed	_x;
-		Fixed	_y;
+    private:
+        Fixed _x;
+        Fixed _y;
 };
 
 #endif

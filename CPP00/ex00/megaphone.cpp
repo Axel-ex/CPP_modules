@@ -10,24 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include <cctype>
+#include <iostream>
 
-void	print_upper(const char *s)
+void print_upper(const char *s)
 {
-	for (int i = 0; s[i]; i++)
-		std::cout << static_cast<char>(toupper(s[i]));
+    for (int i = 0; s[i]; i++)
+        std::cout << static_cast<char>(toupper(s[i]));
 }
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	int	i;
+    int i;
 
-	i = 0;
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
-		while (argv[++i])
-			print_upper(argv[i]);
-	return (EXIT_SUCCESS);
+    i = 0;
+    if (argc == 1)
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+    else
+        while (argv[++i])
+            print_upper(argv[i]);
+    return (EXIT_SUCCESS);
 }

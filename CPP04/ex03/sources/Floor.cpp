@@ -12,79 +12,80 @@
 
 #include "../includes/Floor.hpp"
 
-Floor :: Floor( void ) : _materia_list()
+Floor ::Floor(void) : _materia_list()
 {
-	LOG("Floor default constructor called");
+    LOG("Floor default constructor called");
 }
 
-Floor :: ~Floor( void )
+Floor ::~Floor(void)
 {
-	LOG("Floor destructor called");
-	deleteMaterias();
+    LOG("Floor destructor called");
+    deleteMaterias();
 }
 
-void	Floor :: pushFront( AMateria *materia )
+void Floor ::pushFront(AMateria *materia)
 {
-	if (materia->getIsTaken())
-	{
-		LOG("Can't put a taken materia on the floor");
-		return ;
-	}
-	LOG("Materia droped on the floor");
-	
-	MateriaList *new_node = new MateriaList;
-	new_node->materia = materia;
-	new_node->next = _materia_list;
-	_materia_list = new_node;
+    if (materia->getIsTaken())
+    {
+        LOG("Can't put a taken materia on the floor");
+        return;
+    }
+    LOG("Materia droped on the floor");
+
+    MateriaList *new_node = new MateriaList;
+    new_node->materia = materia;
+    new_node->next = _materia_list;
+    _materia_list = new_node;
 }
 
-void	Floor :: deleteMaterias( void )
+void Floor ::deleteMaterias(void)
 {
-	LOG("Cleaning the floor");
-	MateriaList *tmp;
+    LOG("Cleaning the floor");
+    MateriaList *tmp;
 
-	while (_materia_list)
-	{
-		tmp = _materia_list;
-		_materia_list = _materia_list->next;
-		delete tmp->materia;
-		delete tmp;
-	}
+    while (_materia_list)
+    {
+        tmp = _materia_list;
+        _materia_list = _materia_list->next;
+        delete tmp->materia;
+        delete tmp;
+    }
 }
 
-void	Floor :: Idisplaylist( void )
+void Floor ::Idisplaylist(void)
 {
-	MateriaList *current = _materia_list;
+    MateriaList *current = _materia_list;
 
-	while (current)
-	{
-		std::cout << "\t" << current->materia->getType() << std::endl;
-		current = current->next;
-	}
+    while (current)
+    {
+        std::cout << "\t" << current->materia->getType() << std::endl;
+        current = current->next;
+    }
 }
 
-//STATIC MEMBERS
+// STATIC MEMBERS
 /**
  * @brief return the instance of Floor. SINGLETON pattern
- * 
- * @return Floor& 
+ *
+ * @return Floor&
  */
-Floor	&Floor :: getInstance( void )
+Floor &Floor ::getInstance(void)
 {
-	static Floor instance;
-	
-	return (instance);
+    static Floor instance;
+
+    return (instance);
 }
 
-//The following functions are made to avoid heavy synthax Floor::getInstance().pushFront()
-//could adopt a convention like: Idisplaylist(internal), displayList(accessible)
-void	Floor :: dropMateria( AMateria *materia)
+// The following functions are made to avoid heavy synthax
+// Floor::getInstance().pushFront() could adopt a convention like:
+// Idisplaylist(internal), displayList(accessible)
+void Floor ::dropMateria(AMateria *materia)
 {
-	getInstance().pushFront(materia);
+    getInstance().pushFront(materia);
 }
 
-void	Floor :: displayList( void )
+void Floor ::displayList(void)
 {
-	std::cout << "Currently on the floor: " << std::endl;
-	getInstance().Idisplaylist();
+    std::cout << "Currently on the floor: " << std::endl;
+    getInstance().Idisplaylist();
 }

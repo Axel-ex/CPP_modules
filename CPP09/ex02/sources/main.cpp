@@ -12,18 +12,18 @@
 
 #include "../includes/PmergeMe.hpp"
 
-int	main( int argc, char **argv)
+int main(int argc, char **argv)
 {
-	try
-	{
-		if (argc < 2)
-			throw std::runtime_error("Enter a valid nb of args");
-		PmergeMe	merger;
-		merger.readArgs(argv, argc);
-		merger.compute();
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+    try
+    {
+        if (argc < 2)
+            throw std::runtime_error("Enter a valid nb of args");
+        PmergeMe merger;
+        merger.readArgs(argv, argc);
+        merger.compute();
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
 }

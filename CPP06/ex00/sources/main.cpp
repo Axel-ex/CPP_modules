@@ -14,22 +14,25 @@
 
 void clearScreen(void) { std::cout << "\033c"; }
 
-void pressEnter(void) {
-  std::cout << "\nPress ENTER to continue...";
-  std::cin.get();
-  std::cin.ignore(10000, '\n');
-  clearScreen();
+void pressEnter(void)
+{
+    std::cout << "\nPress ENTER to continue...";
+    std::cin.get();
+    std::cin.ignore(10000, '\n');
+    clearScreen();
 }
 
-int main(void) {
-  std::string scalar;
+int main(void)
+{
+    std::string scalar;
 
-  while (42) {
-    clearScreen();
-    std::cout << "Enter a scalar to convert" << std::endl;
-    std::cin >> scalar;
-    ScalarConverter::convert(scalar);
-    pressEnter();
-  }
-  return (EXIT_SUCCESS);
+    while (42)
+    {
+        clearScreen();
+        std::cout << "Enter a scalar to convert" << std::endl;
+        std::cin >> scalar;
+        ScalarConverter::convert(scalar);
+        pressEnter();
+    }
+    return (EXIT_SUCCESS);
 }

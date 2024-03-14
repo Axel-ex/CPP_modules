@@ -14,37 +14,38 @@
 #define PMERGEME_HPP
 
 #include <chrono>
+#include <deque>
 #include <iostream>
 #include <vector>
-#include <deque>
 
 class PmergeMe
 {
-	private:
-		std::vector<int>	_input1;
-		std::deque<int>		_input2;
+    private:
+        std::vector<int> _input1;
+        std::deque<int> _input2;
 
-	public:
-		PmergeMe( void );
-		PmergeMe( const PmergeMe &src );
-		~PmergeMe( void );
+    public:
+        PmergeMe(void);
+        PmergeMe(const PmergeMe &src);
+        ~PmergeMe(void);
 
-		PmergeMe &operator=( const PmergeMe &rhs );
+        PmergeMe &operator=(const PmergeMe &rhs);
 
-		void	readArgs( char **argv, int argc );
-		void	compute( void );
-		std::chrono::high_resolution_clock::duration	timeExecution( std::string t_container );
+        void readArgs(char **argv, int argc);
+        void compute(void);
+        std::chrono::high_resolution_clock::duration
+        timeExecution(std::string t_container);
 
-		//MERGE SORT
-		void	mergeSortVec( std::vector<int>	&vec );
-		void	mergeVec( std::vector<int> &left, std::vector<int> &right,
-					  std::vector<int> &origin);
+        // MERGE SORT
+        void mergeSortVec(std::vector<int> &vec);
+        void mergeVec(std::vector<int> &left, std::vector<int> &right,
+                      std::vector<int> &origin);
 
-		void	mergeSortDeq( std::deque<int> &queue );
-		void	mergeDeq( std::deque<int> &left, std::deque<int> &right,
-					  std::deque<int> &origin );
+        void mergeSortDeq(std::deque<int> &queue);
+        void mergeDeq(std::deque<int> &left, std::deque<int> &right,
+                      std::deque<int> &origin);
 };
 
-std::ostream	&operator<<( std::ostream &ofs, const std::vector<int> &rhs);
+std::ostream &operator<<(std::ostream &ofs, const std::vector<int> &rhs);
 
 #endif

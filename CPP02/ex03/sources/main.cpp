@@ -38,7 +38,7 @@
 // 		std::cout << "a == b:\t" << (a == b) << std::endl;
 // 		std::cout << "a != b:\t" << (a != b) << std::endl;
 // 		std::cout << std::endl;
-		
+
 // 		std::cout << "OPERATION" << std::endl;
 // 		std::cout << "a + b:\t" << (a + b) << std::endl;
 // 		std::cout << "a - b:\t" << (a - b) << std::endl;
@@ -49,16 +49,16 @@
 // 		std::cout << "MIN and MAX" << std::endl;
 // 		std::cout << "min(a,b):\t" << Fixed::min(a, b) << std::endl;
 // 		std::cout << "max(a,b):\t" << Fixed::max(a, b) << std::endl;
-// 		std::cout << "min(a,b):\t" << Fixed::min(static_cast<const Fixed>(a), static_cast<const Fixed>(b)) << std::endl;
-// 		std::cout << "max(a,b):\t" << Fixed::max(static_cast<const Fixed>(a), static_cast<const Fixed>(b)) << std::endl;
-// 		std::cout << std::endl;
+// 		std::cout << "min(a,b):\t" << Fixed::min(static_cast<const Fixed>(a),
+// static_cast<const Fixed>(b)) << std::endl; 		std::cout << "max(a,b):\t" <<
+// Fixed::max(static_cast<const Fixed>(a), static_cast<const Fixed>(b)) <<
+// std::endl; 		std::cout << std::endl;
 
 // 		std::cout << "INCREMENTS/DECREMENTS" << std::endl;
 // 		std::cout << "b++:\t" << b++ << std::endl;
 // 		std::cout << "++b:\t" << ++b << std::endl;
 // 		std::cout << "b--:\t" << b-- << std::endl;
 // 		std::cout << "--b:\t" << --b << std::endl;
-
 
 // 		std::cout << "a is " << a.toInt() << " as integer" << std::endl;
 // 		std::cout << "b is " << b.toInt() << " as integer" << std::endl;
@@ -76,11 +76,11 @@
 // 	return (EXIT_SUCCESS);
 // }
 
-int main( void )
+int main(void)
 {
-	Fixed a = Fixed(42);
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << ++a << std::endl;
-	}
+    Fixed a = Fixed(42);
+    for (int i = 0; i < 5; i++)
+    {
+        std::cout << ++a << std::endl;
+    }
 }

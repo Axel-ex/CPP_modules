@@ -12,14 +12,14 @@
 
 #include "../includes/Harl.hpp"
 
-int	main(void)
+int main(void)
 {
-	Harl harl;
+    Harl harl;
 
-	harl.complain("DEBUG");
-	harl.complain("INFO");
-	harl.complain("WARNING");
-	harl.complain("ERROR");
-	harl.complain("blabla");
-	return(EXIT_SUCCESS);
+    harl.complain("DEBUG");
+    harl.complain("INFO");
+    harl.complain("WARNING");
+    harl.complain("ERROR");
+    harl.complain("blabla");
+    return (EXIT_SUCCESS);
 }

@@ -12,33 +12,27 @@
 
 #include "../includes/Cat.hpp"
 
-Cat :: Cat( void )
+Cat ::Cat(void)
 {
-	Animal::setType("Cat");
-	std::cout << "Cat default constructor called" << std::endl;
+    Animal::setType("Cat");
+    std::cout << "Cat default constructor called" << std::endl;
 }
 
-Cat :: Cat( const Cat &copy) : Animal(copy)
+Cat ::Cat(const Cat &copy) : Animal(copy)
 {
-	*this = copy;
-	std::cout << "Cat copy constructor called" << std::endl;
+    *this = copy;
+    std::cout << "Cat copy constructor called" << std::endl;
 }
 
-Cat :: ~Cat( void )
+Cat ::~Cat(void) { std::cout << "Cat destructor called" << std::endl; }
+
+// OPERATOR OVERLOAD
+Cat &Cat ::operator=(const Cat &rhs)
 {
-	std::cout << "Cat destructor called" << std::endl;
+    if (this != &rhs)
+        Animal::operator=(rhs);
+    return (*this);
 }
 
-//OPERATOR OVERLOAD
-Cat &Cat :: operator=( const Cat &rhs)
-{
-	if (this != &rhs)
-		Animal::operator=(rhs);
-	return (*this);
-}
-
-//METHOD
-void	Cat :: makeSound( void ) const
-{
-	std::cout << "MIAOW" << std::endl;
-}
+// METHOD
+void Cat ::makeSound(void) const { std::cout << "MIAOW" << std::endl; }

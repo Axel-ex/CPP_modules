@@ -18,20 +18,20 @@
 
 class DiamondTrap : public FragTrap, public ScavTrap
 {
-	public:
-		DiamondTrap( void );
-		DiamondTrap( std::string name );
-		DiamondTrap( const DiamondTrap &trap );
-		~DiamondTrap( void );
+    public:
+        DiamondTrap(void);
+        DiamondTrap(std::string name);
+        DiamondTrap(const DiamondTrap &trap);
+        ~DiamondTrap(void);
 
-		DiamondTrap &operator=(const DiamondTrap &trap);
+        DiamondTrap &operator=(const DiamondTrap &trap);
 
-		void		attack( const std::string &target );
-		void		whoAmI( void )	const;
-		std::string	getName( void ) const;
+        void attack(const std::string &target);
+        void whoAmI(void) const;
+        std::string getName(void) const;
 
-	private:
-		std::string _name;
+    private:
+        std::string _name;
 };
 
 std::ostream &operator<<(std::ostream &ofs, const DiamondTrap &rhs);

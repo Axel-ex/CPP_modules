@@ -12,42 +12,42 @@
 
 #include "../includes/DiamonTrap.hpp"
 
-void	pressEnter(void)
+void pressEnter(void)
 {
-	std::cout << "\nPress ENTER to continue...";
-	std::cin.ignore(10000, '\n');
-	std::cout << "\033c";
+    std::cout << "\nPress ENTER to continue...";
+    std::cin.ignore(10000, '\n');
+    std::cout << "\033c";
 }
 
-void	printBanner( std::string msg)
+void printBanner(std::string msg)
 {
-	std::cout << "----->" << msg << "<-----" << std::endl;
-	std::cout << std::endl;
+    std::cout << "----->" << msg << "<-----" << std::endl;
+    std::cout << std::endl;
 }
 
-int	main(void)
+int main(void)
 {
 
-	printBanner("CREATION");
-	DiamondTrap trap = DiamondTrap("Axel");
-	DiamondTrap copy = DiamondTrap(trap);
-	pressEnter();
+    printBanner("CREATION");
+    DiamondTrap trap = DiamondTrap("Axel");
+    DiamondTrap copy = DiamondTrap(trap);
+    pressEnter();
 
-	printBanner("ORIGINAL AND COPY");
-	std::cout << trap << std::endl << std::endl;
-	std::cout << copy << std::endl << std::endl;
-	pressEnter();
+    printBanner("ORIGINAL AND COPY");
+    std::cout << trap << std::endl << std::endl;
+    std::cout << copy << std::endl << std::endl;
+    pressEnter();
 
-	printBanner("WHO ARE YOU");	
-	trap.whoAmI();
-	std::cout << std::endl;
-	pressEnter();
+    printBanner("WHO ARE YOU");
+    trap.whoAmI();
+    std::cout << std::endl;
+    pressEnter();
 
-	printBanner("MEMBER FCTS TEST");
-	trap.attack("Denis");
-	trap.guardGate();
-	trap.highFiveGuys();
-	pressEnter();
+    printBanner("MEMBER FCTS TEST");
+    trap.attack("Denis");
+    trap.guardGate();
+    trap.highFiveGuys();
+    pressEnter();
 
-	return (EXIT_SUCCESS);
+    return (EXIT_SUCCESS);
 }

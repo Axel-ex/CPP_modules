@@ -12,18 +12,18 @@
 
 #include "../includes/BitcoinExchange.hpp"
 
-int	main( int argc, char **argv )
+int main(int argc, char **argv)
 {
-	try
-	{
-		if (argc < 2)
-			throw std::runtime_error(FILE_NT_FND);
-		BitcoinExchange	btc(argv[1]);
-		btc.compute();
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	return (EXIT_SUCCESS);
+    try
+    {
+        if (argc < 2)
+            throw std::runtime_error(FILE_NT_FND);
+        BitcoinExchange btc(argv[1]);
+        btc.compute();
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    return (EXIT_SUCCESS);
 }

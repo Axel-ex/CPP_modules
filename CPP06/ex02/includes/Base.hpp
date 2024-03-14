@@ -15,11 +15,10 @@
 
 #include <iostream>
 
-class	Base
+class Base
 {
-	public:
-		virtual ~Base( void );
-
+    public:
+        virtual ~Base(void);
 };
 
 #endif

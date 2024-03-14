@@ -19,22 +19,21 @@
 
 class Brain
 {
-	private:
-		std::string _ideas[MAX_IDEAS];
-		int			_nb_ideas;
+    private:
+        std::string _ideas[MAX_IDEAS];
+        int _nb_ideas;
 
-	public:
-		Brain( void );
-		Brain( const Brain &copy );
-		~Brain( void );
+    public:
+        Brain(void);
+        Brain(const Brain &copy);
+        ~Brain(void);
 
-		Brain &operator=( const Brain &rhs );
+        Brain &operator=(const Brain &rhs);
 
-		void		setIdea( const std::string &idea, int index );
-		std::string getIdea( int index )	const;
-		int			getNbIdea( void )		const;
-		void		print( void )			const;
-
+        void setIdea(const std::string &idea, int index);
+        std::string getIdea(int index) const;
+        int getNbIdea(void) const;
+        void print(void) const;
 };
 
 #endif

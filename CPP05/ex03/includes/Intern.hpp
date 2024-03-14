@@ -13,30 +13,30 @@
 #ifndef INTERN_HPP
 #define INTERN_HPP
 
-
-#include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-class	Intern
+class Intern
 {
-	public:
-		Intern( void );
-		Intern( const Intern &src );
-		~Intern( void );
+    public:
+        Intern(void);
+        Intern(const Intern &src);
+        ~Intern(void);
 
-		Intern &operator=( const Intern &rhs );
+        Intern &operator=(const Intern &rhs);
 
-		AForm	*makeForm(const std::string &name, const std::string &target)	const;
-		AForm	*makeShrubberyForm( const std::string &target )		const;
-		AForm	*makeRobotomyForm( const std::string &target )		const;
-		AForm	*makePresidentialForm( const std::string &target )	const;
+        AForm *makeForm(const std::string &name,
+                        const std::string &target) const;
+        AForm *makeShrubberyForm(const std::string &target) const;
+        AForm *makeRobotomyForm(const std::string &target) const;
+        AForm *makePresidentialForm(const std::string &target) const;
 
-		class	FormRequestException : public std::exception
-		{
-			public:
-				virtual const char	*what( void )	const throw();
-		};
+        class FormRequestException : public std::exception
+        {
+            public:
+                virtual const char *what(void) const throw();
+        };
 };
 
 #endif

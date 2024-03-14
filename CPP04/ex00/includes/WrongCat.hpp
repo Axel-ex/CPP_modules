@@ -17,14 +17,14 @@
 
 class WrongCat : public WrongAnimal
 {
-	public:
-		WrongCat( void );
-		WrongCat( const WrongCat &copy );
-		~WrongCat( void );
-		
-		WrongCat &operator=( const WrongCat &rhs );
-		
-		void	makeSound( void )	const;
+    public:
+        WrongCat(void);
+        WrongCat(const WrongCat &copy);
+        ~WrongCat(void);
+
+        WrongCat &operator=(const WrongCat &rhs);
+
+        void makeSound(void) const;
 };
 
 #endif

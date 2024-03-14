@@ -18,20 +18,20 @@
 
 class Cat : public Animal
 {
-	public:
-		Cat( void );
-		Cat( const Cat &copy );
-		~Cat( void );
-		
-		Cat &operator=( const Cat &rhs );
+    public:
+        Cat(void);
+        Cat(const Cat &copy);
+        ~Cat(void);
 
-		void	makeSound( void )	const;
-		Brain	*getBrain( void )	const;
+        Cat &operator=(const Cat &rhs);
 
-		private:
-			Brain *_brain;
+        void makeSound(void) const;
+        Brain *getBrain(void) const;
+
+    private:
+        Brain *_brain;
 };
 
-std::ostream	&operator<<( std::ostream &ofs, const Cat &rhs );
+std::ostream &operator<<(std::ostream &ofs, const Cat &rhs);
 
 #endif

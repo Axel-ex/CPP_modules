@@ -15,22 +15,20 @@
 
 #include <iostream>
 
-
 class WrongAnimal
 {
-	public:
-		WrongAnimal( void );
-		WrongAnimal( const WrongAnimal &copy );
-		virtual ~WrongAnimal( void );
+    public:
+        WrongAnimal(void);
+        WrongAnimal(const WrongAnimal &copy);
+        virtual ~WrongAnimal(void);
 
-		WrongAnimal 			&operator=(const WrongAnimal &rhs );
-		std::string		getType( void )	const;
-		void			setType( const std::string &type );
-		void	makeSound( void ) const;
-		
-	protected:
-		std::string _type;
-	
+        WrongAnimal &operator=(const WrongAnimal &rhs);
+        std::string getType(void) const;
+        void setType(const std::string &type);
+        void makeSound(void) const;
+
+    protected:
+        std::string _type;
 };
 
 #endif

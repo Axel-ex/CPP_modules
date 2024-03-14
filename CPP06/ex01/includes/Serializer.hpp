@@ -17,15 +17,15 @@
 
 typedef struct s_data
 {
-	int			x;
-	std::string str;
-}	t_data;
+        int x;
+        std::string str;
+} t_data;
 
-class	Serializer
+class Serializer
 {
-	public:
-		static uintptr_t	serialize(t_data *ptr);
-		static t_data		*deserialize(uintptr_t raw);
+    public:
+        static uintptr_t serialize(t_data *ptr);
+        static t_data *deserialize(uintptr_t raw);
 };
 
 #endif

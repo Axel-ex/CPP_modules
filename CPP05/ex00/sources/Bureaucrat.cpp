@@ -12,75 +12,67 @@
 
 #include "../includes/Bureaucrat.hpp"
 
-Bureaucrat :: Bureaucrat( const std::string &name, int grade) : _name(name), _grade(grade)
+Bureaucrat ::Bureaucrat(const std::string &name, int grade)
+    : _name(name), _grade(grade)
 {
-	LOG("Bureaucrat parametrised constructor called");
-	if (grade < MAX_GRADE)
-		throw Bureaucrat::GradeTooHighException();
-	if (grade > MIN_GRADE)
-		throw Bureaucrat::GradeTooLowException();
+    LOG("Bureaucrat parametrised constructor called");
+    if (grade < MAX_GRADE)
+        throw Bureaucrat::GradeTooHighException();
+    if (grade > MIN_GRADE)
+        throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat :: Bureaucrat( const Bureaucrat &src )
+Bureaucrat ::Bureaucrat(const Bureaucrat &src)
 {
-	LOG("Bureaucrat copy constructor called");
-	*this = src;	
+    LOG("Bureaucrat copy constructor called");
+    *this = src;
 }
 
-Bureaucrat :: ~Bureaucrat( void )
+Bureaucrat ::~Bureaucrat(void) { LOG("Bureaucrat destructor called"); }
+
+// OPERATOR OVERLOAD
+Bureaucrat &Bureaucrat ::operator=(const Bureaucrat &rhs)
 {
-	LOG("Bureaucrat destructor called");
+    if (this != &rhs)
+        _grade = rhs._grade;
+    return (*this);
 }
 
-//OPERATOR OVERLOAD
-Bureaucrat &Bureaucrat :: operator=( const Bureaucrat &rhs )
+std::ostream &operator<<(std::ostream &ofs, const Bureaucrat &rhs)
 {
-	if (this != &rhs)
-		_grade = rhs._grade;
-	return (*this);
+    ofs << rhs.getName() << std::endl;
+    ofs << rhs.getGrade() << std::endl;
+    return (ofs);
 }
 
-std::ostream &operator<<( std::ostream &ofs, const Bureaucrat &rhs)
+// GETTERS/SETTERS
+std::string Bureaucrat ::getName(void) const { return (_name); }
+
+int Bureaucrat ::getGrade(void) const { return (_grade); }
+
+void Bureaucrat ::incrementGrade(void)
 {
-	ofs << rhs.getName() << std::endl;
-	ofs << rhs.getGrade() << std::endl;
-	return (ofs);
+    LOG("incrementing the grade");
+    if (_grade == MAX_GRADE)
+        throw Bureaucrat ::GradeTooHighException();
+    _grade--;
 }
 
-//GETTERS/SETTERS
-std::string Bureaucrat :: getName( void )	const
+void Bureaucrat ::decrementGrade(void)
 {
-	return (_name);
+    LOG("decrementing the grade");
+    if (_grade == MIN_GRADE)
+        throw Bureaucrat ::GradeTooLowException();
+    _grade++;
 }
 
-int			Bureaucrat :: getGrade( void )	const
+// EXCEPTION
+const char *Bureaucrat ::GradeTooHighException ::what(void) const throw()
 {
-	return (_grade);
+    return ("Grade is too high");
 }
 
-void		Bureaucrat :: incrementGrade( void )
+const char *Bureaucrat ::GradeTooLowException ::what(void) const throw()
 {
-	LOG("incrementing the grade");
-	if (_grade == MAX_GRADE)
-		throw Bureaucrat :: GradeTooHighException();
-	_grade--;
-}
-
-void		Bureaucrat :: decrementGrade( void )
-{
-	LOG("decrementing the grade");
-	if (_grade == MIN_GRADE)
-		throw Bureaucrat :: GradeTooLowException();
-	_grade++;
-}
-
-//EXCEPTION
-const char	*Bureaucrat :: GradeTooHighException :: what( void ) const throw()
-{
-	return ("Grade is too high");
-}
-
-const char	*Bureaucrat :: GradeTooLowException :: what( void ) const throw()
-{
-	return ("Grade is too low");
+    return ("Grade is too low");
 }

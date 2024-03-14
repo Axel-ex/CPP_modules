@@ -12,18 +12,15 @@
 
 #include "../includes/Zombie.hpp"
 
-Zombie::Zombie(){}
+Zombie::Zombie() {}
 
-Zombie::~Zombie(){}
+Zombie::~Zombie() {}
 
-Zombie::Zombie( std::string name ) : _name(name){}
+Zombie::Zombie(std::string name) : _name(name) {}
 
-void	Zombie::announce( void )
+void Zombie::announce(void)
 {
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void	Zombie::setName( std::string name )
-{
-	this->_name = name;
-}
+void Zombie::setName(std::string name) { this->_name = name; }

@@ -17,36 +17,36 @@
 
 struct MateriaList
 {
-	AMateria	*materia;
-	MateriaList	*next;
+        AMateria *materia;
+        MateriaList *next;
 };
 
 /**
- * @brief Singleton class: Floor can't be instanciated more than once. The class globally 
- * keeps track of pointers that are not fitting in the storage of the MateriaSource or the
- * Character. (member fcts can be called from anywhere without manually having to
- * create an instance)
- * 
+ * @brief Singleton class: Floor can't be instanciated more than once. The class
+ * globally keeps track of pointers that are not fitting in the storage of the
+ * MateriaSource or the Character. (member fcts can be called from anywhere
+ * without manually having to create an instance)
+ *
  */
 class Floor
 {
-	private:
-		MateriaList *_materia_list;
-		Floor( const Floor&); //= delete; c++11
-		Floor( void );
-		~Floor( void );
+    private:
+        MateriaList *_materia_list;
+        Floor(const Floor &); //= delete; c++11
+        Floor(void);
+        ~Floor(void);
 
-		Floor &operator=(const Floor&); //= delete; c++11
-		
-		void			pushFront( AMateria *materia );
-		void			deleteMaterias( void );
-		void			Idisplaylist( void );
+        Floor &operator=(const Floor &); //= delete; c++11
 
-		static Floor	&getInstance( void );
-	
-	public:
-		static void	dropMateria( AMateria *materia );
-		static void	displayList( void );
+        void pushFront(AMateria *materia);
+        void deleteMaterias(void);
+        void Idisplaylist(void);
+
+        static Floor &getInstance(void);
+
+    public:
+        static void dropMateria(AMateria *materia);
+        static void displayList(void);
 };
 
 #endif

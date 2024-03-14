@@ -12,106 +12,89 @@
 
 #include "../includes/ClapTrap.hpp"
 
-//CONSTRUCORS
-ClapTrap::ClapTrap( void ) : _name("bob"), _hit_point(10), _energy_point(10),
-_attack_damage(0)
+// CONSTRUCORS
+ClapTrap::ClapTrap(void)
+    : _name("bob"), _hit_point(10), _energy_point(10), _attack_damage(0)
 {
-	std::cout << "Constructor called" << std::endl;
+    std::cout << "Constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap( std::string name ) : _name(name), _hit_point(10),
-_energy_point(10), _attack_damage(10)
+ClapTrap::ClapTrap(std::string name)
+    : _name(name), _hit_point(10), _energy_point(10), _attack_damage(10)
 {
-	std::cout << "Constructor called" << std::endl;
+    std::cout << "Constructor called" << std::endl;
 }
 
-ClapTrap::~ClapTrap( void )
-{
-	std::cout << "Destructor called" << std::endl;
-}
+ClapTrap::~ClapTrap(void) { std::cout << "Destructor called" << std::endl; }
 
-ClapTrap::ClapTrap( const ClapTrap &copy )
-{
-	*this = copy;
-}
+ClapTrap::ClapTrap(const ClapTrap &copy) { *this = copy; }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
 {
-	if (this != &rhs)
-	{
-		_name = rhs.getName();
-		_hit_point = rhs.getHitPoints();
-		_energy_point = rhs.getEnergyPoints();
-		_attack_damage = rhs.getAttackDammage();
-	}
-	return (*this);
+    if (this != &rhs)
+    {
+        _name = rhs.getName();
+        _hit_point = rhs.getHitPoints();
+        _energy_point = rhs.getEnergyPoints();
+        _attack_damage = rhs.getAttackDammage();
+    }
+    return (*this);
 }
 
-//GETTERS
-std::string	ClapTrap::getName( void ) const
+// GETTERS
+std::string ClapTrap::getName(void) const { return (_name); }
+
+int ClapTrap::getAttackDammage(void) const { return (_attack_damage); }
+
+int ClapTrap::getEnergyPoints(void) const { return (_energy_point); }
+
+int ClapTrap::getHitPoints(void) const { return (_hit_point); }
+
+// FUNCTIONS
+void ClapTrap::attack(const std::string &target)
 {
-	return (_name);
+    if (_energy_point == 0)
+    {
+        std::cout << "ClapTrap " << _name
+                  << " doesn't have enough energy point to attack" << std::endl;
+        return;
+    }
+    if (_hit_point == 0)
+    {
+        std::cout << "ClapTrap " << _name << " is dead and can't attack"
+                  << std::endl;
+        return;
+    }
+    std::cout << "ClapTrap " << _name << " attacks " << target << ", causing "
+              << _attack_damage << " points of damage!" << std::endl;
+    _energy_point--;
 }
 
-int	ClapTrap::getAttackDammage( void ) const
+void ClapTrap::takeDamage(unsigned int amount)
 {
-	return (_attack_damage);
+    if (_hit_point == 0)
+    {
+        std::cout << "ClapTrap " << _name << " is already dead!" << std::endl;
+        return;
+    }
+    std::cout << "ClapTrap " << _name << " takes " << amount
+              << " points of dammage" << std::endl;
+    _hit_point -= amount;
 }
 
-int	ClapTrap::getEnergyPoints( void ) const
+void ClapTrap::beRepaired(unsigned int amount)
 {
-	return (_energy_point);
+    std::cout << "ClapTrap " << _name << " was repaired of " << amount
+              << std::endl;
+    _hit_point += amount;
 }
 
-int	ClapTrap::getHitPoints( void ) const
-{
-	return (_hit_point);
-}
-
-//FUNCTIONS
-void	ClapTrap::attack( const std::string &target )
-{
-	if (_energy_point == 0)
-	{
-		std::cout << "ClapTrap " << _name << " doesn't have enough energy point to attack"
-		<< std::endl;
-		return ;
-	}
-	if (_hit_point == 0)
-	{
-		std::cout << "ClapTrap " << _name << " is dead and can't attack" << std::endl;
-		return ;
-	}
-	std::cout << "ClapTrap " << _name << " attacks " << target << ", causing "
-	<< _attack_damage << " points of damage!" << std::endl;
-	_energy_point--;
-}
-
-void	ClapTrap::takeDamage( unsigned int amount )
-{
-	if (_hit_point == 0)
-	{
-		std::cout << "ClapTrap " << _name << " is already dead!"
-		<< std::endl;
-		return ;	
-	}
-	std::cout << "ClapTrap " << _name << " takes " << amount << " points of dammage"
-	<<std::endl;
-	_hit_point -= amount;
-}
-
-void	ClapTrap::beRepaired( unsigned int amount )
-{
-	std::cout << "ClapTrap " << _name << " was repaired of " << amount << std::endl;
-	_hit_point += amount;
-}
-
-//NON-MEMBER OVERLOAD
+// NON-MEMBER OVERLOAD
 std::ostream &operator<<(std::ostream &ofs, const ClapTrap &rhs)
 {
-	std::cout << "name: " << rhs.getName() << std::endl;
-	std::cout << "\thit points: " << rhs.getHitPoints() << std::endl;
-	std::cout << "\tattack points: " << rhs.getAttackDammage() << std::endl;
-	std::cout << "\tenergy points: " << rhs.getEnergyPoints() << std::endl;
-	return (ofs);
+    std::cout << "name: " << rhs.getName() << std::endl;
+    std::cout << "\thit points: " << rhs.getHitPoints() << std::endl;
+    std::cout << "\tattack points: " << rhs.getAttackDammage() << std::endl;
+    std::cout << "\tenergy points: " << rhs.getEnergyPoints() << std::endl;
+    return (ofs);
 }

@@ -13,28 +13,27 @@
 #ifndef MATERIASOURCE_HPP
 #define MATERIASOURCE_HPP
 
-#include "IMateriaSource.hpp"
 #include "Character.hpp"
 #include "Floor.hpp"
+#include "IMateriaSource.hpp"
 
 class MateriaSource : public IMateriaSource
 {
-	public:
-		MateriaSource( void );
-		MateriaSource( const MateriaSource &copy );
-		~MateriaSource( void );
+    public:
+        MateriaSource(void);
+        MateriaSource(const MateriaSource &copy);
+        ~MateriaSource(void);
 
-		MateriaSource &operator=( const MateriaSource &rhs );
-		
-		void		learnMateria( AMateria *m );
-		AMateria	*createMateria( const std::string &type );
-		void		displayMateria( int idx, std::ostream &ofs )	const;
-		
-	private:
-		AMateria	*_source[MAX_ITEMS];
-		
+        MateriaSource &operator=(const MateriaSource &rhs);
+
+        void learnMateria(AMateria *m);
+        AMateria *createMateria(const std::string &type);
+        void displayMateria(int idx, std::ostream &ofs) const;
+
+    private:
+        AMateria *_source[MAX_ITEMS];
 };
 
-std::ostream &operator<<( std::ostream &ofs, const MateriaSource &rhs );
+std::ostream &operator<<(std::ostream &ofs, const MateriaSource &rhs);
 
 #endif

@@ -13,21 +13,20 @@
 #ifndef __HUMANA_H
 #define __HUMANA_H
 
-#include <iostream>
 #include "Weapon.hpp"
+#include <iostream>
 
 class HumanA
 {
-	public:
-		HumanA(std::string name, Weapon &weapon);
-		~HumanA();
+    public:
+        HumanA(std::string name, Weapon &weapon);
+        ~HumanA();
 
-		void	attack(void)	const;
+        void attack(void) const;
 
-	private:
-	std::string	_name;
-	Weapon		&_weapon;
-
+    private:
+        std::string _name;
+        Weapon &_weapon;
 };
 
 #endif

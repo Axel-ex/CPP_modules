@@ -12,44 +12,38 @@
 
 #include "../includes/WrongAnimal.hpp"
 
-//CONSTRUCTORS
-WrongAnimal :: WrongAnimal( void ) : _type("WrongAnimal")
+// CONSTRUCTORS
+WrongAnimal ::WrongAnimal(void) : _type("WrongAnimal")
 {
-	std::cout << "WrongAnimal default constructor called" << std::endl;
+    std::cout << "WrongAnimal default constructor called" << std::endl;
 }
 
-WrongAnimal :: WrongAnimal( const WrongAnimal &copy )
+WrongAnimal ::WrongAnimal(const WrongAnimal &copy)
 {
-	*this = copy;	
-	std::cout << "WrongAnimal copy constructor called" << std::endl;
+    *this = copy;
+    std::cout << "WrongAnimal copy constructor called" << std::endl;
 }
 
-WrongAnimal :: ~WrongAnimal( void )
+WrongAnimal ::~WrongAnimal(void)
 {
-	std::cout << "WrongAnimal default destructor called" << std::endl;
+    std::cout << "WrongAnimal default destructor called" << std::endl;
 }
 
-//OPERATOR OVERLOAD
-WrongAnimal &WrongAnimal :: operator=( const WrongAnimal &rhs)
+// OPERATOR OVERLOAD
+WrongAnimal &WrongAnimal ::operator=(const WrongAnimal &rhs)
 {
-	if (this != &rhs)
-		_type = rhs.getType();
-	return (*this);
+    if (this != &rhs)
+        _type = rhs.getType();
+    return (*this);
 }
 
-//GETTERS AND SETTERS
-std::string	WrongAnimal :: getType( void )	const
-{
-	return (_type);
-}
+// GETTERS AND SETTERS
+std::string WrongAnimal ::getType(void) const { return (_type); }
 
-void	WrongAnimal :: setType( const std::string &type)
-{
-	_type = type;
-}
+void WrongAnimal ::setType(const std::string &type) { _type = type; }
 
-//METHODS
-void	WrongAnimal :: makeSound( void )	const
+// METHODS
+void WrongAnimal ::makeSound(void) const
 {
-	std::cout << "AAAAARRRGH" << std::endl;
+    std::cout << "AAAAARRRGH" << std::endl;
 }

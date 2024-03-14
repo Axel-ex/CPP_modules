@@ -12,35 +12,26 @@
 
 #include "../includes/Cure.hpp"
 
-Cure :: Cure( void )
+Cure ::Cure(void)
 {
-	LOG("Cure constructor called");
-	_type = "cure";
+    LOG("Cure constructor called");
+    _type = "cure";
 }
 
-Cure :: Cure( const Cure &copy ) : AMateria(copy)
+Cure ::Cure(const Cure &copy) : AMateria(copy) { *this = copy; }
+
+Cure ::~Cure(void) { LOG("Cure destructor called"); }
+
+Cure &Cure ::operator=(const Cure &rhs)
 {
-	*this = copy;
+    if (this != &rhs)
+        AMateria::operator=(rhs);
+    return (*this);
 }
 
-Cure :: ~Cure(void)
+void Cure ::use(ICharacter &target)
 {
-	LOG("Cure destructor called");
+    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
 
-Cure &Cure :: operator=( const Cure &rhs )
-{
-	if (this != &rhs)
-		AMateria::operator=(rhs);
-	return (*this);
-}
-
-void	Cure :: use( ICharacter &target)
-{
-	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
-}
-
-AMateria	*Cure :: clone( void )	const
-{
-	return (new Cure(*this));
-}
+AMateria *Cure ::clone(void) const { return (new Cure(*this)); }

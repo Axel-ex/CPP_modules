@@ -12,64 +12,53 @@
 
 #include "../includes/Intern.hpp"
 
-Intern :: Intern( void )
+Intern ::Intern(void) { LOG("Intern constructor called"); }
+
+Intern ::Intern(const Intern &src)
 {
-	LOG("Intern constructor called");
+    LOG("Intern copy constructor called");
+    *this = src;
 }
 
-Intern :: Intern( const Intern &src )
+Intern ::~Intern(void) { LOG("Intern destructor called"); }
+
+Intern &Intern ::operator=(const Intern &rhs)
 {
-	LOG("Intern copy constructor called");
-	*this = src;
+    (void)rhs;
+    return (*this);
 }
 
-Intern :: ~Intern( void )
+AForm *Intern ::makeForm(const std::string &name,
+                         const std::string &target) const
 {
-	LOG("Intern destructor called");
+    AForm *(Intern::*factory[3])(const std::string &) const = {
+        &Intern::makeShrubberyForm,
+        &Intern::makeRobotomyForm,
+        &Intern::makePresidentialForm,
+    };
+    std::string names[3] = {"shrubbery", "robotomy", "presidential"};
+    for (int i = 0; i < 3; i++)
+        if (name == names[i])
+            return ((this->*factory[i])(target));
+    throw Intern::FormRequestException();
 }
 
-Intern &Intern :: operator=( const Intern &rhs )
+AForm *Intern ::makeShrubberyForm(const std::string &target) const
 {
-	(void)rhs;
-	return (*this);
+    return (new ShrubberyCreationForm(target));
 }
 
-AForm *Intern :: makeForm( const std::string &name, const std::string &target)	const
+AForm *Intern ::makeRobotomyForm(const std::string &target) const
 {
-	AForm *(Intern::*factory[3])(const std::string &) const = 
-	{
-		&Intern::makeShrubberyForm,
-		&Intern::makeRobotomyForm,
-		&Intern::makePresidentialForm,
-	};
-	std::string names[3] = 
-	{
-		"shrubbery",
-		"robotomy",
-		"presidential"
-	};
-	for (int i = 0; i < 3; i++)
-		if (name == names[i])
-			return ((this->*factory[i])(target));
-	throw Intern::FormRequestException();
+    return (new RobotomyRequestForm(target));
 }
 
-AForm	*Intern :: makeShrubberyForm( const std::string &target )	const
+AForm *Intern ::makePresidentialForm(const std::string &target) const
 {
-	return (new ShrubberyCreationForm(target));
+    return (new PresidentialPardonForm(target));
 }
 
-AForm	*Intern :: makeRobotomyForm( const std::string &target )	const
+const char *Intern ::FormRequestException ::what(void) const throw()
 {
-	return (new RobotomyRequestForm(target));
-}
-
-AForm	*Intern :: makePresidentialForm( const std::string &target) const
-{
-	return (new PresidentialPardonForm(target));
-}
-
-const char 	*Intern :: FormRequestException :: what( void ) const throw()
-{
-	return ("Invalid form type requested");
+    return ("Invalid form type requested");
 }

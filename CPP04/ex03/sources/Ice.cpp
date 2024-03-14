@@ -12,40 +12,34 @@
 
 #include "../includes/Ice.hpp"
 
-Ice :: Ice( void )
+Ice ::Ice(void)
 {
-	_type = "ice";
-	LOG("Ice constructor called");
+    _type = "ice";
+    LOG("Ice constructor called");
 }
 
-Ice :: Ice( const Ice &copy ) : AMateria(copy)
+Ice ::Ice(const Ice &copy) : AMateria(copy)
 {
-	*this = copy;
-	LOG("Ice copy constructor called");
+    *this = copy;
+    LOG("Ice copy constructor called");
 }
 
-Ice :: ~Ice( void )
+Ice ::~Ice(void) { LOG("Ice destructor called"); }
+
+// OVERLOADS
+Ice &Ice ::operator=(const Ice &rhs)
 {
-	LOG("Ice destructor called");
+    if (this != &rhs)
+        AMateria::operator=(rhs);
+    return (*this);
 }
 
-//OVERLOADS
-Ice &Ice :: operator=(const Ice &rhs)
+// METHODS
+void Ice ::use(ICharacter &target)
 {
-	if (this != &rhs)
-		AMateria::operator=(rhs);
-	return (*this);
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *"
+              << std::endl;
 }
 
-//METHODS
-void	Ice :: use( ICharacter &target)
-{
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *" 
-	<< std::endl;
-}
-
-//Should I return the abstract base class?
-AMateria	*Ice :: clone( void )	const
-{
-	return (new Ice(*this));
-}
+// Should I return the abstract base class?
+AMateria *Ice ::clone(void) const { return (new Ice(*this)); }

@@ -12,29 +12,29 @@
 
 #include "../includes/main.hpp"
 
-int	main(void)
+int main(void)
 {
-	PhoneBook	phonebook;
-	std::string	cmd;
+    PhoneBook phonebook;
+    std::string cmd;
 
-	PhoneBook::printMenu();
-	while (42)
-	{
-		std::cout << "input> ";
-		if (!std::getline(std::cin, cmd, '\n'))
-			return (PhoneBook::printError("EOF"), EXIT_FAILURE);
-		if (cmd == "ADD")
-			phonebook.add();
-		else if (cmd == "SEARCH")
-			phonebook.search();
-		else if (cmd == "EXIT")
-			break;
-		else
-		{
-			PhoneBook::printError("invalid command");
-			continue;
-		}
-		PhoneBook::printMenu();
-	}
-	return (EXIT_SUCCESS);
+    PhoneBook::printMenu();
+    while (42)
+    {
+        std::cout << "input> ";
+        if (!std::getline(std::cin, cmd, '\n'))
+            return (PhoneBook::printError("EOF"), EXIT_FAILURE);
+        if (cmd == "ADD")
+            phonebook.add();
+        else if (cmd == "SEARCH")
+            phonebook.search();
+        else if (cmd == "EXIT")
+            break;
+        else
+        {
+            PhoneBook::printError("invalid command");
+            continue;
+        }
+        PhoneBook::printMenu();
+    }
+    return (EXIT_SUCCESS);
 }

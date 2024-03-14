@@ -13,37 +13,34 @@
 #include "../includes/Base.hpp"
 #include "../includes/functions.hpp"
 
-void	clearScreen( void )
+void clearScreen(void) { std::cout << "\033c"; }
+
+void pressEnter(void)
 {
-	std::cout << "\033c";
+    std::cout << "\nPress ENTER to continue...";
+    std::cin.ignore(10000, '\n');
 }
 
-void	pressEnter( void )
+int main()
 {
-	std::cout << "\nPress ENTER to continue...";
-	std::cin.ignore(10000, '\n');
-}
+    Base *ptr[5];
 
-int	main()
-{
-	Base	*ptr[5];
+    std::srand(time(NULL));
+    clearScreen();
 
-	std::srand(time(NULL));
-	clearScreen();
+    std::cout << "Identify pointers type" << std::endl;
+    for (int i = 0; i < 5; i++)
+    {
+        ptr[i] = generate();
+        identify(ptr[i]);
+    }
+    pressEnter();
 
-	std::cout << "Identify pointers type" << std::endl;
-	for (int i = 0; i < 5; i++)
-	{
-		ptr[i] = generate();
-		identify(ptr[i]);
-	}
-	pressEnter();
+    std::cout << std::endl << "Identify reference type" << std::endl;
+    for (int i = 0; i < 5; i++)
+        identify(*ptr[i]);
+    pressEnter();
 
-	std::cout << std::endl << "Identify reference type" << std::endl;
-	for (int i = 0; i < 5; i++)
-		identify(*ptr[i]);
-	pressEnter();
-	
-	for (int i = 0; i < 5; i++)
-		delete	ptr[i];
+    for (int i = 0; i < 5; i++)
+        delete ptr[i];
 }

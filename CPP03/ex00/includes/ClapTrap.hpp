@@ -17,28 +17,28 @@
 
 class ClapTrap
 {
-	public:
-		ClapTrap( void );
-		ClapTrap( std::string name);
-		ClapTrap( const ClapTrap &copy );
-		~ClapTrap( void );
+    public:
+        ClapTrap(void);
+        ClapTrap(std::string name);
+        ClapTrap(const ClapTrap &copy);
+        ~ClapTrap(void);
 
-		ClapTrap &operator=( const ClapTrap &rhs);
-		
-		void		attack( const std::string &target);
-		void		takeDamage( unsigned int amount );
-		void		beRepaired( unsigned int amount );
+        ClapTrap &operator=(const ClapTrap &rhs);
 
-		std::string	getName( void )const;
-		int			getHitPoints( void )const;
-		int			getEnergyPoints( void )const;
-		int			getAttackDammage( void )const;
-		
-	private:
-		std::string	_name;
-		int			_hit_point;
-		int			_energy_point;
-		int			_attack_damage;
+        void attack(const std::string &target);
+        void takeDamage(unsigned int amount);
+        void beRepaired(unsigned int amount);
+
+        std::string getName(void) const;
+        int getHitPoints(void) const;
+        int getEnergyPoints(void) const;
+        int getAttackDammage(void) const;
+
+    private:
+        std::string _name;
+        int _hit_point;
+        int _energy_point;
+        int _attack_damage;
 };
 
 std::ostream &operator<<(std::ostream &ofs, const ClapTrap &rhs);

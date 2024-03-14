@@ -16,24 +16,24 @@
 #include <iostream>
 
 #ifdef DEBUG
-#	define LOG(str) std::cout << str << std::endl
+#define LOG(str) std::cout << str << std::endl
 #else
-#	define LOG(str)
+#define LOG(str)
 #endif
 class Animal
 {
-	protected:
-		std::string _type;
-	
-	public:
-		Animal( void );
-		Animal( const Animal &copy );
-		virtual ~Animal( void );
+    protected:
+        std::string _type;
 
-		Animal 			&operator=(const Animal &rhs );
-		std::string		getType( void )	const;
-		void			setType( const std::string &type );
-		virtual void	makeSound( void ) const;
+    public:
+        Animal(void);
+        Animal(const Animal &copy);
+        virtual ~Animal(void);
+
+        Animal &operator=(const Animal &rhs);
+        std::string getType(void) const;
+        void setType(const std::string &type);
+        virtual void makeSound(void) const;
 };
 
 #endif

@@ -13,57 +13,48 @@
 #include "../includes/Brain.hpp"
 #include "../includes/Animal.hpp"
 
-Brain :: Brain( void ) : _nb_ideas(0)
+Brain ::Brain(void) : _nb_ideas(0) { LOG("Brain default constructor called"); }
+
+Brain ::Brain(const Brain &copy)
 {
-	LOG("Brain default constructor called");
+    *this = copy;
+    LOG("Brain copy constructor called");
 }
 
-Brain :: Brain( const Brain &copy )
+Brain ::~Brain(void) { LOG("Brain destructor called"); }
+
+// OPERATOR OVERLOAD
+Brain &Brain ::operator=(const Brain &rhs)
 {
-	*this = copy;
-	LOG("Brain copy constructor called");
+    if (this != &rhs)
+    {
+        for (int i = 0; i < MAX_IDEAS; i++)
+            _ideas[i] = rhs._ideas[i];
+        _nb_ideas = rhs._nb_ideas;
+    }
+    return (*this);
 }
 
-Brain :: ~Brain( void )
+// MEMBER FUNCTIONS
+std::string Brain ::getIdea(int index) const
 {
-	LOG("Brain destructor called");
+    if (index < 0 || index > MAX_IDEAS)
+        throw std::runtime_error("Ideas index out of range");
+    return (_ideas[index]);
 }
 
-//OPERATOR OVERLOAD
-Brain &Brain :: operator=( const Brain &rhs )
+void Brain ::setIdea(const std::string &idea, int index)
 {
-	if (this != &rhs)
-	{
-		for (int i = 0; i < MAX_IDEAS; i++)
-			_ideas[i] = rhs._ideas[i];
-		_nb_ideas = rhs._nb_ideas;
-	}
-	return (*this);
+    if (index < 0 || index > MAX_IDEAS)
+        throw std::runtime_error("Ideas index out of range");
+    _ideas[index] = idea;
+    _nb_ideas++;
 }
 
-//MEMBER FUNCTIONS
-std::string Brain :: getIdea( int index ) const
-{
-	if (index < 0 || index > MAX_IDEAS)
-		throw std::runtime_error("Ideas index out of range");
-	return (_ideas[index]);
-}
+int Brain ::getNbIdea(void) const { return (_nb_ideas); }
 
-void	Brain :: setIdea( const std::string &idea, int index )
+void Brain ::print(void) const
 {
-	if (index < 0 || index > MAX_IDEAS)
-		throw std::runtime_error("Ideas index out of range");
-	_ideas[index] = idea;
-	_nb_ideas++;
-}
-
-int		Brain :: getNbIdea( void )	const
-{
-	return (_nb_ideas);
-}
-
-void	Brain :: print( void )		const
-{
-	for (int i = 0; i < _nb_ideas; i++)
-		std::cout << "\t" << _ideas[i] << std::endl;
+    for (int i = 0; i < _nb_ideas; i++)
+        std::cout << "\t" << _ideas[i] << std::endl;
 }

@@ -17,15 +17,15 @@
 
 class FragTrap : virtual public ClapTrap
 {
-	public:
-		FragTrap( void );
-		FragTrap( std::string name );
-		FragTrap( const FragTrap &trap );
-		~FragTrap( void );
+    public:
+        FragTrap(void);
+        FragTrap(std::string name);
+        FragTrap(const FragTrap &trap);
+        ~FragTrap(void);
 
-		FragTrap &operator=( const FragTrap &trap );
+        FragTrap &operator=(const FragTrap &trap);
 
-		void	highFiveGuys( void );
+        void highFiveGuys(void);
 };
 
 std::ostream &operator<<(std::ostream &ofs, const FragTrap &rhs);

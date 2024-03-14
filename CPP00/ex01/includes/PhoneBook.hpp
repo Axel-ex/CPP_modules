@@ -11,31 +11,30 @@
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#define PHONEBOOK_H
 
-# include "Contact.hpp"
+#include "Contact.hpp"
 
-# define MAX_CONTACTS 	8
-# define ADD_TITLE		"\t\t-->ADD<--\n"
-# define SEARCH_TITLE 	"\t\t-->SEARCH<--\n"
+#define MAX_CONTACTS 8
+#define ADD_TITLE "\t\t-->ADD<--\n"
+#define SEARCH_TITLE "\t\t-->SEARCH<--\n"
 
 class PhoneBook
 {
-	public:
-		PhoneBook(void);
-		~PhoneBook(void);
+    public:
+        PhoneBook(void);
+        ~PhoneBook(void);
 
-		void	add(void);
-		void	search(void);
+        void add(void);
+        void search(void);
 
-		static void	printMenu(void);
-		static void	printError(std::string msg);
+        static void printMenu(void);
+        static void printError(std::string msg);
 
-
-	private:
-		Contact _contacts[MAX_CONTACTS];
-		int		_id;
-		void	_display(void)	const;
+    private:
+        Contact _contacts[MAX_CONTACTS];
+        int _id;
+        void _display(void) const;
 };
 
 #endif

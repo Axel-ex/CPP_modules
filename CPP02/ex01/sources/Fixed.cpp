@@ -14,69 +14,63 @@
 
 const int Fixed::_bits = 8;
 
-Fixed :: Fixed( void ) : _raw_bits(0)
+Fixed ::Fixed(void) : _raw_bits(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+    std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed :: Fixed(const int value)
+Fixed ::Fixed(const int value)
 {
-	std::cout << "Int constructor called" << std::endl;
-	this->_raw_bits = value << Fixed::_bits;
+    std::cout << "Int constructor called" << std::endl;
+    this->_raw_bits = value << Fixed::_bits;
 }
 
-//all float can not be converted in int with the 8 bit shift =
-// tradeof accurracy / precision
-Fixed :: Fixed(const float value)
+// all float can not be converted in int with the 8 bit shift =
+//  tradeof accurracy / precision
+Fixed ::Fixed(const float value)
 {
-	std::cout << "Float constructor called" << std::endl;
-	this->_raw_bits = value * (1 << Fixed::_bits);
+    std::cout << "Float constructor called" << std::endl;
+    this->_raw_bits = value * (1 << Fixed::_bits);
 }
 
-//Copy constructor
-Fixed :: Fixed( const Fixed &to_copy) : _raw_bits(to_copy._raw_bits)
+// Copy constructor
+Fixed ::Fixed(const Fixed &to_copy) : _raw_bits(to_copy._raw_bits)
 {
-	std::cout << "copy constructor called" << std::endl;
+    std::cout << "copy constructor called" << std::endl;
 }
 
-Fixed :: ~Fixed( void )
+Fixed ::~Fixed(void) { std::cout << "Destructor called" << std::endl; }
+
+Fixed &Fixed::operator=(const Fixed &to_copy)
 {
-	std::cout << "Destructor called" << std::endl;
+    std::cout << "copy assignement operator called" << std::endl;
+    if (this != &to_copy)
+        this->_raw_bits = to_copy._raw_bits;
+    return (*this);
 }
 
-Fixed &Fixed::operator=(const Fixed& to_copy)
+int Fixed::getRawBits() const
 {
-	std::cout << "copy assignement operator called" << std::endl;
-	if (this != &to_copy)
-		this->_raw_bits = to_copy._raw_bits;
-	return (*this);
+    std::cout << "getRawBits member function called" << std::endl;
+    return (this->_raw_bits);
 }
 
-int	Fixed::getRawBits() const
+void Fixed::setRawBits(int const raw)
 {
-	std::cout << "getRawBits member function called" << std::endl;
-	return (this->_raw_bits);
+    std::cout << "setRawBits member function called" << std::endl;
+    this->_raw_bits = raw;
 }
 
-void Fixed::setRawBits( int const raw )
+float Fixed ::toFloat(void) const
 {
-	std::cout << "setRawBits member function called" << std::endl;
-	this->_raw_bits = raw;
+    return ((float)this->_raw_bits / (float)(1 << Fixed::_bits));
 }
 
-float Fixed :: toFloat(void) const
-{
-	return ((float)this->_raw_bits / (float)(1 << Fixed::_bits));
-}
-
-int Fixed :: toInt(void) const
-{
-	return (this->_raw_bits >> Fixed::_bits);
-}
-//insertion overload operator. binary op should be nonmember.
-// return the output stream for chaining purpose
+int Fixed ::toInt(void) const { return (this->_raw_bits >> Fixed::_bits); }
+// insertion overload operator. binary op should be nonmember.
+//  return the output stream for chaining purpose
 std::ostream &operator<<(std::ostream &ofs, const Fixed &fixed)
 {
-	ofs << fixed.toFloat();
-	return (ofs);
+    ofs << fixed.toFloat();
+    return (ofs);
 }

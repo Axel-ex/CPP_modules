@@ -15,23 +15,23 @@
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
-#include <thread>
 #include <chrono>
 #include <random>
+#include <thread>
 
-class	RobotomyRequestForm : public AForm
+class RobotomyRequestForm : public AForm
 {
-	public:
-		RobotomyRequestForm( const std::string &target );
-		RobotomyRequestForm( const RobotomyRequestForm &src );
-		~RobotomyRequestForm( void );
+    public:
+        RobotomyRequestForm(const std::string &target);
+        RobotomyRequestForm(const RobotomyRequestForm &src);
+        ~RobotomyRequestForm(void);
 
-		RobotomyRequestForm &operator=( const RobotomyRequestForm &rhs );
+        RobotomyRequestForm &operator=(const RobotomyRequestForm &rhs);
 
-		virtual void	execute( void )	const;
-		
-	private:
-		std::string _target;
+        virtual void execute(void) const;
+
+    private:
+        std::string _target;
 };
 
 #endif

@@ -17,14 +17,14 @@
 
 class ScavTrap : public ClapTrap
 {
-	public:
-		ScavTrap( void );
-		ScavTrap( std::string name );
-		ScavTrap( const ScavTrap &copy );
-		~ScavTrap( void );
+    public:
+        ScavTrap(void);
+        ScavTrap(std::string name);
+        ScavTrap(const ScavTrap &copy);
+        ~ScavTrap(void);
 
-		ScavTrap &operator=(const ScavTrap &rhs);
-		void	guardGate( void ) const;
+        ScavTrap &operator=(const ScavTrap &rhs);
+        void guardGate(void) const;
 };
 
 #endif

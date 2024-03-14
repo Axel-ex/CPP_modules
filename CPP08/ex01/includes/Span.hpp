@@ -15,43 +15,42 @@
 
 #include <iostream>
 
-class	Span
+class Span
 {
-	public:
-		Span( void );
-		Span( unsigned int N );
-		Span( const Span &src );
-		~Span( void );
-		
-		Span	&operator=( const Span &rhs );
+    public:
+        Span(void);
+        Span(unsigned int N);
+        Span(const Span &src);
+        ~Span(void);
 
-		void	setMax( unsigned int max );
-		int		getElement( unsigned int idx )	const;
-		int		getSize( void )					const;
-		int		min( void )						const;
-		int		max( void )						const;
+        Span &operator=(const Span &rhs);
 
-		void	addNumber( int to_add );
-		int		shortestSpan( void )			const;
-		int		longestSpan( void )				const;
-		void	fill( void );
+        void setMax(unsigned int max);
+        int getElement(unsigned int idx) const;
+        int getSize(void) const;
+        int min(void) const;
+        int max(void) const;
 
+        void addNumber(int to_add);
+        int shortestSpan(void) const;
+        int longestSpan(void) const;
+        void fill(void);
 
-		class	FullSpanException : public std::exception
-		{
-			virtual const char	*what( void )	const throw();
-		};
+        class FullSpanException : public std::exception
+        {
+                virtual const char *what(void) const throw();
+        };
 
-		class	NoSpanException : public std::exception
-		{
-			virtual const char *what( void ) const throw();
-		};
-		
-	private:
-		unsigned int		_N;
-		std::vector<int>	_array;
+        class NoSpanException : public std::exception
+        {
+                virtual const char *what(void) const throw();
+        };
+
+    private:
+        unsigned int _N;
+        std::vector<int> _array;
 };
 
-std::ostream &operator<<( std::ostream &ofs, const Span &rhs );
+std::ostream &operator<<(std::ostream &ofs, const Span &rhs);
 
 #endif

@@ -17,9 +17,9 @@
 
 class A : public Base
 {
-	public:
-		A( void );
-		~A( void );
+    public:
+        A(void);
+        ~A(void);
 };
 
 #endif

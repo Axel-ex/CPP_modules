@@ -17,15 +17,15 @@
 
 class Cure : public AMateria
 {
-	public:
-		Cure( void );
-		Cure( const Cure &copy );
-		~Cure( void );
+    public:
+        Cure(void);
+        Cure(const Cure &copy);
+        ~Cure(void);
 
-		Cure	&operator=( const Cure &rhs );
+        Cure &operator=(const Cure &rhs);
 
-		AMateria		*clone( void )	const;
-		void			use( ICharacter &target );
+        AMateria *clone(void) const;
+        void use(ICharacter &target);
 };
 
 #endif

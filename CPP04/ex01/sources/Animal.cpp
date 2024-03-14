@@ -12,44 +12,32 @@
 
 #include "../includes/Animal.hpp"
 
-//CONSTRUCTORS
-Animal :: Animal( void ) : _type("animal")
+// CONSTRUCTORS
+Animal ::Animal(void) : _type("animal")
 {
-	LOG("Animal default constructor called");
+    LOG("Animal default constructor called");
 }
 
-Animal :: Animal( const Animal &copy )
+Animal ::Animal(const Animal &copy)
 {
-	*this = copy;	
-	LOG("Animal copy constructor called")
+    *this = copy;
+    LOG("Animal copy constructor called")
 }
 
-Animal :: ~Animal( void )
+Animal ::~Animal(void){LOG("Animal default destructor called")}
+
+// OPERATOR OVERLOAD
+Animal &Animal ::operator=(const Animal & rhs)
 {
-	LOG("Animal default destructor called")
+    if (this != &rhs)
+        _type = rhs.getType();
+    return (*this);
 }
 
-//OPERATOR OVERLOAD
-Animal &Animal :: operator=( const Animal &rhs)
-{
-	if (this != &rhs)
-		_type = rhs.getType();
-	return (*this);
-}
+// GETTERS AND SETTERS
+std::string Animal ::getType(void) const { return (_type); }
 
-//GETTERS AND SETTERS
-std::string	Animal :: getType( void )	const
-{
-	return (_type);
-}
+void Animal ::setType(const std::string &type) { _type = type; }
 
-void	Animal :: setType( const std::string &type)
-{
-	_type = type;
-}
-
-//METHODS
-void	Animal :: makeSound( void )	const
-{
-	return ;
-}
+// METHODS
+void Animal ::makeSound(void) const { return; }

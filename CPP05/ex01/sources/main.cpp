@@ -12,7 +12,7 @@
 
 #include "../includes/Bureaucrat.hpp"
 
-void printBanner(const std::string& msg)
+void printBanner(const std::string &msg)
 {
     const int bannerWidth = 15;
     int padding = std::max(0, (bannerWidth - static_cast<int>(msg.size())) / 2);
@@ -21,20 +21,20 @@ void printBanner(const std::string& msg)
     std::cout << "<----" << std::endl;
 }
 
-void	limitTest( void )
+void limitTest(void)
 {
-	Bureaucrat	Axel = Bureaucrat("Axel", 56);
-	Form		promotion = Form("promotion", 1, 2);
+    Bureaucrat Axel = Bureaucrat("Axel", 56);
+    Form promotion = Form("promotion", 1, 2);
 
-	printBanner("INVALID GRADE TEST");
-	std::cout << Axel << std::endl;
-	std::cout << promotion << std::endl;
-	Axel.signForm(promotion);
-	std::cout << promotion << std::endl;
+    printBanner("INVALID GRADE TEST");
+    std::cout << Axel << std::endl;
+    std::cout << promotion << std::endl;
+    Axel.signForm(promotion);
+    std::cout << promotion << std::endl;
 }
 
-int	main( void )
+int main(void)
 {
-	limitTest();
-	return (EXIT_SUCCESS);
+    limitTest();
+    return (EXIT_SUCCESS);
 }

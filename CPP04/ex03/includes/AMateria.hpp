@@ -13,35 +13,34 @@
 #ifndef AMATERIA_HPP
 #define AMATERIA_HPP
 
-#include <iostream>
 #include "ICharacter.hpp"
+#include <iostream>
 
 #ifdef DEBUG
-#	define LOG(str)	std::cout << str << std::endl
+#define LOG(str) std::cout << str << std::endl
 #else
-#	define LOG(str)
+#define LOG(str)
 #endif
 
 class ICharacter;
 
 class AMateria
 {
-	public:
-		AMateria( void );
-		AMateria( const std::string &type );
-		virtual ~AMateria( void );
+    public:
+        AMateria(void);
+        AMateria(const std::string &type);
+        virtual ~AMateria(void);
 
-		bool				getIsTaken( void ) const;
-		void				setIsTaken( bool set_value );
-		const std::string	&getType( void )	const;
-		
-		virtual void		use( ICharacter &target );
-		virtual AMateria	*clone( void ) const = 0;
+        bool getIsTaken(void) const;
+        void setIsTaken(bool set_value);
+        const std::string &getType(void) const;
 
-	protected:
-		std::string _type;
-		bool		_is_taken;
+        virtual void use(ICharacter &target);
+        virtual AMateria *clone(void) const = 0;
 
+    protected:
+        std::string _type;
+        bool _is_taken;
 };
 
 #endif

@@ -11,18 +11,18 @@
 /* ************************************************************************** */
 
 #ifndef MAIN_H
-# define MAIN_H
+#define MAIN_H
 
-# include <iostream>
-# include <string>
-# include "Contact.hpp"
-# include "PhoneBook.hpp"
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
+#include <iostream>
+#include <string>
 
-# define RED	"\033[38;5;196m"
-# define YELLOW	"\033[38;5;226m"
-# define RESET	"\033[0m"
-# define CLEAR	"\033[2J\033[H"
+#define RED "\033[38;5;196m"
+#define YELLOW "\033[38;5;226m"
+#define RESET "\033[0m"
+#define CLEAR "\033[2J\033[H"
 
-# define TITLE	"\t\t-->WELCOME TO YOUR PHONEBOOK!<--\n"
+#define TITLE "\t\t-->WELCOME TO YOUR PHONEBOOK!<--\n"
 
 #endif

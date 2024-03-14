@@ -18,17 +18,17 @@
 
 class ShrubberyCreationForm : public AForm
 {
-	public:
-		ShrubberyCreationForm( const std::string &target );
-		ShrubberyCreationForm( const ShrubberyCreationForm &src );
-		~ShrubberyCreationForm( void );
+    public:
+        ShrubberyCreationForm(const std::string &target);
+        ShrubberyCreationForm(const ShrubberyCreationForm &src);
+        ~ShrubberyCreationForm(void);
 
-		ShrubberyCreationForm	&operator=( const ShrubberyCreationForm &rhs );
-		
-		virtual void			execute( void )	const;
+        ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
 
-	private:
-		std::string _target;
+        virtual void execute(void) const;
+
+    private:
+        std::string _target;
 };
 
 #endif

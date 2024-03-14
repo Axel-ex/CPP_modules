@@ -24,33 +24,30 @@
 
 #include "../includes/WrongCat.hpp"
 
-WrongCat :: WrongCat( void )
+WrongCat ::WrongCat(void)
 {
-	WrongAnimal::setType("WrongCat");
-	std::cout << "WrongCat default constructor called" << std::endl;
+    WrongAnimal::setType("WrongCat");
+    std::cout << "WrongCat default constructor called" << std::endl;
 }
 
-WrongCat :: WrongCat( const WrongCat &copy) : WrongAnimal(copy)
+WrongCat ::WrongCat(const WrongCat &copy) : WrongAnimal(copy)
 {
-	*this = copy;
-	std::cout << "WrongCat copy constructor called" << std::endl;
+    *this = copy;
+    std::cout << "WrongCat copy constructor called" << std::endl;
 }
 
-WrongCat :: ~WrongCat( void )
+WrongCat ::~WrongCat(void)
 {
-	std::cout << "WrongCat destructor called" << std::endl;
+    std::cout << "WrongCat destructor called" << std::endl;
 }
 
-//OPERATOR OVERLOAD
-WrongCat &WrongCat :: operator=( const WrongCat &rhs)
+// OPERATOR OVERLOAD
+WrongCat &WrongCat ::operator=(const WrongCat &rhs)
 {
-	if (this != &rhs)
-		WrongAnimal::operator=(rhs);
-	return (*this);
+    if (this != &rhs)
+        WrongAnimal::operator=(rhs);
+    return (*this);
 }
 
-//METHOD
-void	WrongCat :: makeSound( void ) const
-{
-	std::cout << "MIAOW" << std::endl;
-}
+// METHOD
+void WrongCat ::makeSound(void) const { std::cout << "MIAOW" << std::endl; }

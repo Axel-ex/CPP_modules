@@ -12,35 +12,38 @@
 
 #include "../includes/PresidentialPardonForm.hpp"
 
-PresidentialPardonForm :: PresidentialPardonForm( const std::string &target )
-: AForm("presidential pardon form", 25, 5), _target(target)
+PresidentialPardonForm ::PresidentialPardonForm(const std::string &target)
+    : AForm("presidential pardon form", 25, 5), _target(target)
 {
-	LOG("Presidential constructor called");
+    LOG("Presidential constructor called");
 }
 
-PresidentialPardonForm :: PresidentialPardonForm( const PresidentialPardonForm &src )
-: AForm(src)
+PresidentialPardonForm ::PresidentialPardonForm(
+    const PresidentialPardonForm &src)
+    : AForm(src)
 {
-	LOG("presidential copy constructor called");
-	*this = src;
+    LOG("presidential copy constructor called");
+    *this = src;
 }
 
-PresidentialPardonForm :: ~PresidentialPardonForm( void )
+PresidentialPardonForm ::~PresidentialPardonForm(void)
 {
-	LOG("presidential destructor called");
+    LOG("presidential destructor called");
 }
 
-PresidentialPardonForm &PresidentialPardonForm :: operator=( const PresidentialPardonForm &rhs )
+PresidentialPardonForm &
+PresidentialPardonForm ::operator=(const PresidentialPardonForm &rhs)
 {
-	if (this != &rhs)
-	{
-		AForm::operator=(rhs);
-		_target = rhs._target;
-	}
-	return (*this);
+    if (this != &rhs)
+    {
+        AForm::operator=(rhs);
+        _target = rhs._target;
+    }
+    return (*this);
 }
 
-void	PresidentialPardonForm :: execute( void ) const
+void PresidentialPardonForm ::execute(void) const
 {
-	std::cout << _target << " has been pardonned by Zaphod Beeblebrox" << std::endl;
+    std::cout << _target << " has been pardonned by Zaphod Beeblebrox"
+              << std::endl;
 }

@@ -12,54 +12,48 @@
 
 #include "../includes/Cat.hpp"
 
-Cat :: Cat( void )
+Cat ::Cat(void)
 {
-	Animal::setType("Cat");
-	_brain = new Brain();
-	LOG("Cat default constructor called");
+    Animal::setType("Cat");
+    _brain = new Brain();
+    LOG("Cat default constructor called");
 }
 
-Cat :: Cat( const Cat &copy ) : Animal(copy)
+Cat ::Cat(const Cat &copy) : Animal(copy)
 {
-	*this = copy;
-	LOG("Cat copy constructor called");
+    *this = copy;
+    LOG("Cat copy constructor called");
 }
 
-Cat :: ~Cat( void )
+Cat ::~Cat(void)
 {
-	delete _brain;
-	LOG("Cat destructor called")
+    delete _brain;
+    LOG("Cat destructor called")
 }
 
-//OPERATOR OVERLOAD
-Cat &Cat :: operator=( const Cat &rhs )
+// OPERATOR OVERLOAD
+Cat &Cat ::operator=(const Cat &rhs)
 {
-	if (this != &rhs)
-	{
-		Animal::operator=(rhs);
-		if (_brain != nullptr)
-			delete _brain;
-		_brain = new Brain(*(rhs._brain));
-	}
-	return (*this);
+    if (this != &rhs)
+    {
+        Animal::operator=(rhs);
+        if (_brain != nullptr)
+            delete _brain;
+        _brain = new Brain(*(rhs._brain));
+    }
+    return (*this);
 }
 
-std::ostream	&operator<<( std::ostream &ofs, const Cat &rhs )
+std::ostream &operator<<(std::ostream &ofs, const Cat &rhs)
 {
-	ofs << "CAT" << std::endl;
-	ofs << "type: " << rhs.getType() << std::endl;
-	ofs << "ideas: " << std::endl;
-	rhs.getBrain()->print();
-	return (ofs);
+    ofs << "CAT" << std::endl;
+    ofs << "type: " << rhs.getType() << std::endl;
+    ofs << "ideas: " << std::endl;
+    rhs.getBrain()->print();
+    return (ofs);
 }
 
-//METHOD
-void	Cat :: makeSound( void )	const
-{
-	std::cout << "MIAOW" << std::endl;
-}
+// METHOD
+void Cat ::makeSound(void) const { std::cout << "MIAOW" << std::endl; }
 
-Brain	*Cat :: getBrain( void )	const
-{
-	return (_brain);
-}
+Brain *Cat ::getBrain(void) const { return (_brain); }
