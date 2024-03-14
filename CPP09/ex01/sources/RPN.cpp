@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 14:11:56 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/04 22:47:22 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/03/14 18:53:39 by Axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void RPN ::lexer(void)
     {
         token.content = tokenString;
         getTokenType(token);
-        _token_list.push_front(token); // Push tokens to the back of the list
+        _token_list.push_front(token);
     }
     _token_list.reverse();
 }
