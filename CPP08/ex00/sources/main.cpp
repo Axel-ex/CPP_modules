@@ -6,12 +6,11 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 10:11:56 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/29 11:36:28 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/03/12 18:33:25 by Axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/easyfind.hpp"
-#include <forward_list>
 #include <deque>
 #include <list>
 

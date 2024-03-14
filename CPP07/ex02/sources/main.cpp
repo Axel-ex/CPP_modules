@@ -6,12 +6,11 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 15:11:58 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/28 16:34:51 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/03/12 18:29:19 by Axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Array.hpp"
-#include <iomanip>
 
 void	clearScreen( void )
 {
@@ -25,9 +24,13 @@ void	pressEnter( void )
 	clearScreen();
 }
 
-void	printBanner( std::string msg )
+void printBanner(const std::string& msg)
 {
-	std::cout << std::setw(5) << msg << std::setw(5) << std::endl;
+    const int bannerWidth = 15;
+    int padding = std::max(0, (bannerWidth - static_cast<int>(msg.size())) / 2);
+    std::cout << "---->";
+    std::cout << std::string(padding, ' ') << msg << std::string(padding, ' ');
+    std::cout << "<----" << std::endl;
 }
 
 void	outOfRangeTest( void )

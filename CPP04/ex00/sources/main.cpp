@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:00:51 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/24 10:01:07 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:08:17 by Axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "../includes/Dog.hpp"
 #include "../includes/WrongAnimal.hpp"
 #include "../includes/WrongCat.hpp"
-#include <iomanip>
 
 void	clearScreen( void )
 {
@@ -29,10 +28,13 @@ void	pressEnter( void )
 	clearScreen();
 }
 
-void	printBanner( const std::string &msg )
+void printBanner(const std::string& msg)
 {
-	std::cout << "----->" << std::setw(10) << msg << "<-----" << std::endl;
-	std::cout << std::endl;
+    const int bannerWidth = 15;
+    int padding = std::max(0, (bannerWidth - static_cast<int>(msg.size())) / 2);
+    std::cout << "---->";
+    std::cout << std::string(padding, ' ') << msg << std::string(padding, ' ');
+    std::cout << "<----" << std::endl;
 }
 
 void	basicTest( void )

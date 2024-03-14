@@ -6,14 +6,11 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 17:24:21 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/26 15:50:19 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:04:37 by Axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
-#include "../includes/ShrubberyCreationForm.hpp"
-#include "../includes/RobotomyRequestForm.hpp"
-#include "../includes/PresidentialPardonForm.hpp"
 #include "../includes/Intern.hpp"
 
 
@@ -29,9 +26,13 @@ void	pressEnter( void )
 	clearScreen();
 }
 
-void	printBanner( const std::string &msg )
+void printBanner(const std::string& msg)
 {
-	std::cout << "----->" << msg << "<-----" << std::endl;
+    const int bannerWidth = 15;
+    int padding = std::max(0, (bannerWidth - static_cast<int>(msg.size())) / 2);
+    std::cout << "---->";
+    std::cout << std::string(padding, ' ') << msg << std::string(padding, ' ');
+    std::cout << "<----" << std::endl;
 }
 
 void	makeFormTest()

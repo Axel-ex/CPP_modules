@@ -6,13 +6,12 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 10:47:42 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/12 16:16:28 by Axel             ###   ########.fr       */
+/*   Updated: 2024/03/12 18:31:13 by Axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/functions.hpp"
 #include <iostream>
-#include <iomanip>
 
 void	clearScreen( void )
 {
@@ -26,9 +25,13 @@ void	pressEnter( void )
 	clearScreen();
 }
 
-void	printBanner( const std::string &msg )
+void printBanner(const std::string& msg)
 {
-	std::cout << "--->" << std::setw(10) << msg << "<---" << std::endl;
+    const int bannerWidth = 15;
+    int padding = std::max(0, (bannerWidth - static_cast<int>(msg.size())) / 2);
+    std::cout << "---->";
+    std::cout << std::string(padding, ' ') << msg << std::string(padding, ' ');
+    std::cout << "<----" << std::endl;
 }
 
 template <typename T>

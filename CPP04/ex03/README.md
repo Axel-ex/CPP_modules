@@ -1,7 +1,6 @@
 # Exercice03: 
 
-Welcome to the world of Magical Materias! In this project, you'll be implementing a game framework where characters can interact with various magical materials to cast spells and perform enchantments. Let's dive into the components of this project:
-
+This exercice aims to get acquinted with the concept of pure abstract class or Interface by implementing a pure abstract class AMateria representing a type of materia one can potentially use in a game. Since Materias can't be deleted by the player, a singleton class was implemented to keep track of allocated memory to be able to properly free it upon exit.
 ## Components
 
 1. **AMateria Class**: 
@@ -30,28 +29,13 @@ Welcome to the world of Magical Materias! In this project, you'll be implementin
    - Concrete class implementing `IMateriaSource`.
    - Handles the learning and creation of materials.
 
-## Additional Considerations
-
-- **Memory Management**: Ensure proper memory allocation and deallocation to avoid memory leaks.
-- **Testing**: Thoroughly test the functionality of each class and interface to ensure correctness.
-- **Deep Copy**: Pay special attention to deep copying of the `Character` class as it involves managing inventory.
-
 ## Memory Management Approach
 
 1. **Dynamic Memory Allocation**: 
    - Use dynamic memory allocation for materials to ensure proper lifetime management.
 
-2. **Unequip Functionality**:
-   - Materials unequipped by characters are not immediately deleted but are stored for later cleanup.
 
 3. **Floor Singleton Class**:
+   - Materials unequipped by characters are not immediately deleted but are stored for later cleanup.
    - Utilize a singleton class called `Floor` to manage dropped materials that are not currently equipped.
    - This approach prevents immediate deletion of unequipped materials and allows for centralized cleanup.
-
-4. **Singleton Pattern**: 
-   - Implement `Floor` as a singleton to ensure global access and centralized management of dropped materials.
-
-## How the Floor Singleton Works
-
-- **Dropping Materias**: Unequipped materials are dropped onto the `Floor` using the `dropMateria()` function.
-- **Later Deletion**: Materials dropped on the `Floor` are kept track of until they are explicitly deleted during cleanup.

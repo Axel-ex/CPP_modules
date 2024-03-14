@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 10:47:44 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/01 11:38:08 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/03/12 18:33:47 by Axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,13 @@ void	clearScreen( void )
 	std::cout << "\033c";
 }
 
-void	printBanner( std::string msg )
+void printBanner(const std::string& msg)
 {
-	std::cout << "\t--->" << msg << "<---" << std::endl << std::endl;
+    const int bannerWidth = 15;
+    int padding = std::max(0, (bannerWidth - static_cast<int>(msg.size())) / 2);
+    std::cout << "---->";
+    std::cout << std::string(padding, ' ') << msg << std::string(padding, ' ');
+    std::cout << "<----" << std::endl;
 }
 
 void	pressEnter( void )
