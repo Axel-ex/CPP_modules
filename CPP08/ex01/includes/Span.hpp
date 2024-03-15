@@ -20,10 +20,10 @@ class Span
     public:
         Span(void);
         Span(unsigned int N);
-        Span(const Span &src);
+        Span(const Span& src);
         ~Span(void);
 
-        Span &operator=(const Span &rhs);
+        Span& operator=(const Span& rhs);
 
         void setMax(unsigned int max);
         int getElement(unsigned int idx) const;
@@ -38,12 +38,12 @@ class Span
 
         class FullSpanException : public std::exception
         {
-                virtual const char *what(void) const throw();
+                virtual const char* what(void) const throw();
         };
 
         class NoSpanException : public std::exception
         {
-                virtual const char *what(void) const throw();
+                virtual const char* what(void) const throw();
         };
 
     private:
@@ -51,6 +51,6 @@ class Span
         std::vector<int> _array;
 };
 
-std::ostream &operator<<(std::ostream &ofs, const Span &rhs);
+std::ostream& operator<<(std::ostream& ofs, const Span& rhs);
 
 #endif

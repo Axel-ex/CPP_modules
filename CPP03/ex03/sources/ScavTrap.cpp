@@ -33,12 +33,12 @@ ScavTrap ::ScavTrap(std::string name) : ClapTrap(name)
     _attack_damage = 20;
 }
 
-ScavTrap ::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
+ScavTrap ::ScavTrap(const ScavTrap& copy) : ClapTrap(copy)
 {
     std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
-ScavTrap &ScavTrap ::operator=(const ScavTrap &rhs)
+ScavTrap& ScavTrap ::operator=(const ScavTrap& rhs)
 {
     if (this != &rhs)
     {
@@ -55,7 +55,7 @@ void ScavTrap::guardGate(void) const
     std::cout << "ScavTrap " << _name << " is in guardGate mode" << std::endl;
 }
 
-std::ostream &operator<<(std::ostream &ofs, const ScavTrap &rhs)
+std::ostream& operator<<(std::ostream& ofs, const ScavTrap& rhs)
 {
     std::cout << "name: " << rhs.getName() << std::endl;
     std::cout << "\thit points: " << rhs.getHitPoints() << std::endl;

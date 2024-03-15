@@ -18,7 +18,7 @@ Cat ::Cat(void)
     std::cout << "Cat default constructor called" << std::endl;
 }
 
-Cat ::Cat(const Cat &copy) : Animal(copy)
+Cat ::Cat(const Cat& copy) : Animal(copy)
 {
     *this = copy;
     std::cout << "Cat copy constructor called" << std::endl;
@@ -27,7 +27,7 @@ Cat ::Cat(const Cat &copy) : Animal(copy)
 Cat ::~Cat(void) { std::cout << "Cat destructor called" << std::endl; }
 
 // OPERATOR OVERLOAD
-Cat &Cat ::operator=(const Cat &rhs)
+Cat& Cat ::operator=(const Cat& rhs)
 {
     if (this != &rhs)
         Animal::operator=(rhs);

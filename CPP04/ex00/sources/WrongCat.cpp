@@ -30,7 +30,7 @@ WrongCat ::WrongCat(void)
     std::cout << "WrongCat default constructor called" << std::endl;
 }
 
-WrongCat ::WrongCat(const WrongCat &copy) : WrongAnimal(copy)
+WrongCat ::WrongCat(const WrongCat& copy) : WrongAnimal(copy)
 {
     *this = copy;
     std::cout << "WrongCat copy constructor called" << std::endl;
@@ -42,7 +42,7 @@ WrongCat ::~WrongCat(void)
 }
 
 // OPERATOR OVERLOAD
-WrongCat &WrongCat ::operator=(const WrongCat &rhs)
+WrongCat& WrongCat ::operator=(const WrongCat& rhs)
 {
     if (this != &rhs)
         WrongAnimal::operator=(rhs);

@@ -18,7 +18,7 @@ AAnimal ::AAnimal(void) : _type("Animal")
     LOG("Animal default constructor called");
 }
 
-AAnimal ::AAnimal(const AAnimal &copy)
+AAnimal ::AAnimal(const AAnimal& copy)
 {
     *this = copy;
     LOG("Animal copy constructor called");
@@ -27,7 +27,7 @@ AAnimal ::AAnimal(const AAnimal &copy)
 AAnimal ::~AAnimal(void) { LOG("Animal default destructor called"); }
 
 // OPERATOR OVERLOAD
-AAnimal &AAnimal ::operator=(const AAnimal &rhs)
+AAnimal& AAnimal ::operator=(const AAnimal& rhs)
 {
     if (this != &rhs)
         _type = rhs.getType();
@@ -37,4 +37,4 @@ AAnimal &AAnimal ::operator=(const AAnimal &rhs)
 // GETTERS AND SETTERS
 std::string AAnimal ::getType(void) const { return (_type); }
 
-void AAnimal ::setType(const std::string &type) { _type = type; }
+void AAnimal ::setType(const std::string& type) { _type = type; }

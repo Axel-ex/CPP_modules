@@ -23,7 +23,7 @@ void pressEnter(void)
 
 int main()
 {
-    Base *ptr[5];
+    Base* ptr[5];
 
     std::srand(time(NULL));
     clearScreen();

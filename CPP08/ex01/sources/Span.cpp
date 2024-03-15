@@ -16,12 +16,12 @@ Span ::Span(void) : _N(0) {}
 
 Span ::Span(unsigned int N) : _N(N) {}
 
-Span ::Span(const Span &src) { *this = src; }
+Span ::Span(const Span& src) { *this = src; }
 
 Span ::~Span(void) {}
 
 // OPERATOR OVERLOAD
-Span &Span ::operator=(const Span &rhs)
+Span& Span ::operator=(const Span& rhs)
 {
     if (this != &rhs)
     {
@@ -31,7 +31,7 @@ Span &Span ::operator=(const Span &rhs)
     return (*this);
 }
 
-std::ostream &operator<<(std::ostream &ofs, const Span &rhs)
+std::ostream& operator<<(std::ostream& ofs, const Span& rhs)
 {
     for (int i = 0; i < rhs.getSize(); i++)
     {
@@ -106,12 +106,12 @@ void Span ::fill(void)
 }
 
 // EXCEPTIONS
-const char *Span ::NoSpanException ::what(void) const throw()
+const char* Span ::NoSpanException ::what(void) const throw()
 {
     return ("No span can be calculated on an object of less than 2 elements");
 }
 
-const char *Span ::FullSpanException ::what(void) const throw()
+const char* Span ::FullSpanException ::what(void) const throw()
 {
     return ("No span can be calculated on an object of less than 2 elements");
 }

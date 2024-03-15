@@ -33,10 +33,10 @@ class MutantStack : public std::stack<T, C>
 {
     public:
         MutantStack(void);
-        MutantStack(const MutantStack &src);
+        MutantStack(const MutantStack& src);
         ~MutantStack(void);
 
-        MutantStack &operator=(const MutantStack &rhs);
+        MutantStack& operator=(const MutantStack& rhs);
 
         typedef typename C::iterator iterator;
         iterator begin(void);

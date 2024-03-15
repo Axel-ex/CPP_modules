@@ -13,12 +13,12 @@
 #include "../includes/ScalarConverter.hpp"
 
 // HELPER FCTS
-static bool isChar(const std::string &str)
+static bool isChar(const std::string& str)
 {
     return (str.size() == 1 && !std::isdigit(str[0]) && std::isprint(str[0]));
 }
 
-static bool isInt(const std::string &str)
+static bool isInt(const std::string& str)
 {
     int idx = 0;
 
@@ -30,7 +30,7 @@ static bool isInt(const std::string &str)
     return (true);
 }
 
-static bool isFloat(const std::string &str)
+static bool isFloat(const std::string& str)
 {
     size_t dot = str.find(".");
     size_t f = str.find("f");
@@ -55,7 +55,7 @@ static bool isFloat(const std::string &str)
     return (left.size() > 0 && right.size() > 0);
 }
 
-static bool isDouble(const std::string &str)
+static bool isDouble(const std::string& str)
 {
     size_t dot = str.find(".");
     size_t sign = str.find("-");
@@ -78,13 +78,13 @@ static bool isDouble(const std::string &str)
     return (left.size() > 0 && right.size() > 0);
 }
 
-static bool isPseudo(const std::string &str)
+static bool isPseudo(const std::string& str)
 {
     return (str == "nan" || str == "-inff" || str == "+inff" || str == "-inf" ||
             str == "+inf");
 }
 
-static void print(const std::string &str, long double nb)
+static void print(const std::string& str, long double nb)
 {
     printChar(static_cast<char>(nb), str);
     printInt(static_cast<int>(nb), str);
@@ -93,7 +93,7 @@ static void print(const std::string &str, long double nb)
 }
 
 // STATIC MEMBER
-void ScalarConverter ::convert(const std::string &str)
+void ScalarConverter ::convert(const std::string& str)
 {
     if (isChar(str))
         print(str, str[0]);

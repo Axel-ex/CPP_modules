@@ -14,17 +14,17 @@
 
 BitcoinExchange ::BitcoinExchange(void) { loadDataBase(); }
 
-BitcoinExchange ::BitcoinExchange(const std::string &file) : _file_name(file)
+BitcoinExchange ::BitcoinExchange(const std::string& file) : _file_name(file)
 {
     loadDataBase();
 }
 
-BitcoinExchange ::BitcoinExchange(const BitcoinExchange &src) { *this = src; }
+BitcoinExchange ::BitcoinExchange(const BitcoinExchange& src) { *this = src; }
 
 BitcoinExchange ::~BitcoinExchange(void) {}
 
 // OPERATOR OVERLOAD
-BitcoinExchange &BitcoinExchange ::operator=(const BitcoinExchange &rhs)
+BitcoinExchange& BitcoinExchange ::operator=(const BitcoinExchange& rhs)
 {
     if (this != &rhs)
     {
@@ -77,8 +77,8 @@ void BitcoinExchange ::compute(void)
     ifs.close();
 }
 
-void BitcoinExchange ::processLine(const std::string &date,
-                                   const std::string &value)
+void BitcoinExchange ::processLine(const std::string& date,
+                                   const std::string& value)
 {
     float num_value = std::strtof(value.c_str(), nullptr);
     float match;
@@ -95,7 +95,7 @@ void BitcoinExchange ::processLine(const std::string &date,
               << std::endl;
 }
 
-std::time_t BitcoinExchange::matchDate(const std::string &date) const
+std::time_t BitcoinExchange::matchDate(const std::string& date) const
 {
     std::map<std::time_t, float>::const_iterator it = _data.begin();
     std::time_t value = strToTime(date);
@@ -111,7 +111,7 @@ std::time_t BitcoinExchange::matchDate(const std::string &date) const
 }
 
 // HELPER FCT
-std::time_t BitcoinExchange::strToTime(const std::string &str) const
+std::time_t BitcoinExchange::strToTime(const std::string& str) const
 {
     std::tm tm = {};
     std::stringstream date(str);
@@ -121,9 +121,9 @@ std::time_t BitcoinExchange::strToTime(const std::string &str) const
     return (mktime(&tm));
 }
 
-std::string BitcoinExchange ::timeToStr(const time_t &time) const
+std::string BitcoinExchange ::timeToStr(const time_t& time) const
 {
-    std::tm *tm = std::localtime(&time);
+    std::tm* tm = std::localtime(&time);
     char buffer[20];
 
     std::strftime(buffer, sizeof(buffer), "%Y-%m-%d", tm);
@@ -140,7 +140,7 @@ std::string BitcoinExchange ::timeToStr(const time_t &time) const
  *
  * @param date
  */
-bool BitcoinExchange::isDateFormat(const std::string &date) const
+bool BitcoinExchange::isDateFormat(const std::string& date) const
 {
     std::string res = timeToStr(strToTime(date));
     return (date == res);

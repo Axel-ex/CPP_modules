@@ -14,11 +14,11 @@
 
 void adressTest(void)
 {
-    t_data *original = new t_data;
+    t_data* original = new t_data;
     original->str = "hey guys";
     original->x = 42;
 
-    t_data *tmp = original;
+    t_data* tmp = original;
 
     tmp = Serializer::deserialize(Serializer::serialize(tmp));
     if (tmp == original)
@@ -57,7 +57,7 @@ void operationTest(void)
     // adress are added. it serialize the adress into an int
     tmp1 += tmp2;
     // res here will have an invalid adress
-    t_data *res = Serializer::deserialize(tmp1);
+    t_data* res = Serializer::deserialize(tmp1);
     (void)res;
 
     // dereferencing ---> ERROR

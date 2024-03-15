@@ -13,13 +13,13 @@
 #include <cctype>
 #include <iostream>
 
-void print_upper(const char *s)
+void print_upper(const char* s)
 {
     for (int i = 0; s[i]; i++)
         std::cout << static_cast<char>(toupper(s[i]));
 }
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     int i;
 

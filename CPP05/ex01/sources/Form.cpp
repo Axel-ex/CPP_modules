@@ -12,7 +12,7 @@
 
 #include "../includes/Form.hpp"
 
-Form ::Form(const std::string &name, int sign_grade, int exec_grade)
+Form ::Form(const std::string& name, int sign_grade, int exec_grade)
     : _name(name), _is_signed(false), SIGN_GRADE(sign_grade),
       EXEC_GRADE(exec_grade)
 {
@@ -22,7 +22,7 @@ Form ::Form(const std::string &name, int sign_grade, int exec_grade)
         throw Form::GradeTooLowException();
 }
 
-Form ::Form(const Form &src)
+Form ::Form(const Form& src)
     : _name(src._name), SIGN_GRADE(src.SIGN_GRADE), EXEC_GRADE(src.EXEC_GRADE)
 {
     *this = src;
@@ -31,14 +31,14 @@ Form ::Form(const Form &src)
 Form ::~Form(void) {}
 
 // OPERATOR OVERLOAD
-Form &Form ::operator=(const Form &rhs)
+Form& Form ::operator=(const Form& rhs)
 {
     if (this != &rhs)
         _is_signed = rhs._is_signed;
     return (*this);
 }
 
-std::ostream &operator<<(std::ostream &ofs, const Form &rhs)
+std::ostream& operator<<(std::ostream& ofs, const Form& rhs)
 {
     std::string sign = rhs.IsSigned() ? " ✅ " : " ❌ ";
 
@@ -58,7 +58,7 @@ int Form ::getSignGrade(void) const { return (SIGN_GRADE); }
 
 int Form ::getExecGrade(void) const { return (EXEC_GRADE); }
 
-void Form ::beSigned(const Bureaucrat &bureaucrat)
+void Form ::beSigned(const Bureaucrat& bureaucrat)
 {
     if (bureaucrat.getGrade() > SIGN_GRADE)
         throw Form ::GradeTooLowException();
@@ -66,12 +66,12 @@ void Form ::beSigned(const Bureaucrat &bureaucrat)
 }
 
 // EXCEPTIONS
-const char *Form ::GradeTooHighException ::what(void) const throw()
+const char* Form ::GradeTooHighException ::what(void) const throw()
 {
     return ("Grade too high");
 }
 
-const char *Form ::GradeTooLowException ::what(void) const throw()
+const char* Form ::GradeTooLowException ::what(void) const throw()
 {
     return ("Grade too low");
 }

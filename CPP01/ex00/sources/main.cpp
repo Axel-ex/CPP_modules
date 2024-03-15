@@ -12,7 +12,7 @@
 
 #include "../includes/Zombie.hpp"
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     std::string name_1, name_2;
 
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
     name_2 = argv[2];
 
     std::cout << "ZOMBIE ALLOCATED ON HEAP" << std::endl;
-    Zombie *zombie1 = newZombie(name_1);
+    Zombie* zombie1 = newZombie(name_1);
     zombie1->announce();
     std::cout << std::endl;
 

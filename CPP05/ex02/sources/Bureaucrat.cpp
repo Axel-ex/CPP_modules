@@ -12,7 +12,7 @@
 
 #include "../includes/Bureaucrat.hpp"
 
-Bureaucrat ::Bureaucrat(const std::string &name, int grade)
+Bureaucrat ::Bureaucrat(const std::string& name, int grade)
     : _name(name), _grade(grade)
 {
     LOG("Bureaucrat parametrised constructor called");
@@ -22,7 +22,7 @@ Bureaucrat ::Bureaucrat(const std::string &name, int grade)
         throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat ::Bureaucrat(const Bureaucrat &src)
+Bureaucrat ::Bureaucrat(const Bureaucrat& src)
 {
     LOG("Bureaucrat copy constructor called");
     *this = src;
@@ -31,14 +31,14 @@ Bureaucrat ::Bureaucrat(const Bureaucrat &src)
 Bureaucrat ::~Bureaucrat(void) { LOG("Bureaucrat destructor called"); }
 
 // OPERATOR OVERLOAD
-Bureaucrat &Bureaucrat ::operator=(const Bureaucrat &rhs)
+Bureaucrat& Bureaucrat ::operator=(const Bureaucrat& rhs)
 {
     if (this != &rhs)
         _grade = rhs._grade;
     return (*this);
 }
 
-std::ostream &operator<<(std::ostream &ofs, const Bureaucrat &rhs)
+std::ostream& operator<<(std::ostream& ofs, const Bureaucrat& rhs)
 {
     ofs << "BUREAUCRAT" << std::endl;
     ofs << "name: " << rhs.getName() << std::endl;
@@ -67,39 +67,39 @@ void Bureaucrat ::decrementGrade(void)
     _grade++;
 }
 
-void Bureaucrat ::signForm(AForm &to_sign) const
+void Bureaucrat ::signForm(AForm& to_sign) const
 {
     try
     {
         to_sign.beSigned(*this);
         std::cout << _name << " signed " << to_sign.getName() << std::endl;
     }
-    catch (std::exception &e)
+    catch (std::exception& e)
     {
         std::cout << _name << " couldn't sign the " << to_sign.getName()
                   << " because " << RED << e.what() << RESET << std::endl;
     }
 }
 
-void Bureaucrat ::executeForm(AForm &to_execute) const
+void Bureaucrat ::executeForm(AForm& to_execute) const
 {
     try
     {
         to_execute.execute(*this);
     }
-    catch (std::exception &e)
+    catch (std::exception& e)
     {
         std::cout << RED << e.what() << RESET << std::endl;
     }
 }
 
 // EXCEPTION
-const char *Bureaucrat ::GradeTooHighException ::what(void) const throw()
+const char* Bureaucrat ::GradeTooHighException ::what(void) const throw()
 {
     return ("Grade is too high");
 }
 
-const char *Bureaucrat ::GradeTooLowException ::what(void) const throw()
+const char* Bureaucrat ::GradeTooLowException ::what(void) const throw()
 {
     return ("Grade is too low");
 }

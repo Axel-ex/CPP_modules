@@ -33,12 +33,12 @@ ScavTrap ::ScavTrap(std::string name) : ClapTrap(name)
     _attack_damage = 20;
 }
 
-ScavTrap ::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
+ScavTrap ::ScavTrap(const ScavTrap& copy) : ClapTrap(copy)
 {
     std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
-ScavTrap &ScavTrap ::operator=(const ScavTrap &rhs)
+ScavTrap& ScavTrap ::operator=(const ScavTrap& rhs)
 {
     if (this != &rhs)
     {

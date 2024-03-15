@@ -21,7 +21,7 @@ void pressEnter(void)
     clearScreen();
 }
 
-void printBanner(const std::string &msg)
+void printBanner(const std::string& msg)
 {
     const int bannerWidth = 15;
     int padding = std::max(0, (bannerWidth - static_cast<int>(msg.size())) / 2);
@@ -39,7 +39,7 @@ void outOfRangeTest(void)
     {
         arr1[10];
     }
-    catch (std::exception &e)
+    catch (std::exception& e)
     {
         std::cout << e.what() << std::endl;
     }

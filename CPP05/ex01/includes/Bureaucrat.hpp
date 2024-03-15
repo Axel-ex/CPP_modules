@@ -30,30 +30,30 @@ class Form;
 class Bureaucrat
 {
     public:
-        Bureaucrat(const std::string &name, int grade);
-        Bureaucrat(const Bureaucrat &src);
+        Bureaucrat(const std::string& name, int grade);
+        Bureaucrat(const Bureaucrat& src);
         ~Bureaucrat(void);
 
-        Bureaucrat &operator=(const Bureaucrat &rhs);
+        Bureaucrat& operator=(const Bureaucrat& rhs);
 
         std::string getName(void) const;
         int getGrade(void) const;
         void incrementGrade(void);
         void decrementGrade(void);
 
-        void signForm(Form &to_sign) const;
+        void signForm(Form& to_sign) const;
 
         // Exceptions. nested class to be able to use
         // Bureaucrat::GradeTooHighException
         class GradeTooHighException : public std::exception
         {
             public:
-                virtual const char *what() const throw();
+                virtual const char* what() const throw();
         };
         class GradeTooLowException : public std::exception
         {
             public:
-                virtual const char *what() const throw();
+                virtual const char* what() const throw();
         };
 
     private:
@@ -63,6 +63,6 @@ class Bureaucrat
         static const int MIN_GRADE = 150;
 };
 
-std::ostream &operator<<(std::ostream &ofs, const Bureaucrat &rhs);
+std::ostream& operator<<(std::ostream& ofs, const Bureaucrat& rhs);
 
 #endif

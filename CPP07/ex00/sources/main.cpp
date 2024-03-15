@@ -22,7 +22,7 @@ void pressEnter(void)
     clearScreen();
 }
 
-void printBanner(const std::string &msg)
+void printBanner(const std::string& msg)
 {
     const int bannerWidth = 15;
     int padding = std::max(0, (bannerWidth - static_cast<int>(msg.size())) / 2);
@@ -31,7 +31,7 @@ void printBanner(const std::string &msg)
     std::cout << "<----" << std::endl;
 }
 
-template <typename T> void test(const T &c, const T &d, std::string test_type)
+template <typename T> void test(const T& c, const T& d, std::string test_type)
 {
     T a = c;
     T b = d;

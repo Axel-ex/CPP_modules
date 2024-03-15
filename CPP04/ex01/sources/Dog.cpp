@@ -19,7 +19,7 @@ Dog ::Dog(void)
     LOG("Dog default constructor called");
 }
 
-Dog ::Dog(const Dog &copy) : Animal(copy)
+Dog ::Dog(const Dog& copy) : Animal(copy)
 {
     *this = copy;
     LOG("Dog copy constructor called");
@@ -32,7 +32,7 @@ Dog ::~Dog(void)
 }
 
 // OPERATOR OVERLOAD
-Dog &Dog ::operator=(const Dog &rhs)
+Dog& Dog ::operator=(const Dog& rhs)
 {
     if (this != &rhs)
     {
@@ -47,4 +47,4 @@ Dog &Dog ::operator=(const Dog &rhs)
 // METHODS
 void Dog ::makeSound(void) const { std::cout << "WOAF" << std::endl; }
 
-Brain *Dog ::getBrain(void) const { return (_brain); }
+Brain* Dog ::getBrain(void) const { return (_brain); }

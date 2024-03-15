@@ -18,7 +18,7 @@ void printUsage(void)
     std::cout << "ex: 7 7 * 7 -" << std::endl;
 }
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     try
     {
@@ -27,7 +27,7 @@ int main(int argc, char **argv)
         RPN rpn(argv[1]);
         rpn.compute();
     }
-    catch (std::exception &e)
+    catch (std::exception& e)
     {
         std::cout << e.what() << std::endl;
         printUsage();

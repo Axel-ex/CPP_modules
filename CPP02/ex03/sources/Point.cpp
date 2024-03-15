@@ -6,32 +6,34 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:07:07 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/19 10:31:43 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/03/15 13:20:13 by Axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Point.hpp"
 
-// CONSTRUCOR / DESTRUCTOR
 Point::Point(void) : _x(0), _y(0) {}
+
+Point::Point(const Fixed& x, const Fixed& y) : _x(x), _y(y) {}
+
+Point::Point(const Point& src) { *this = src; }
 
 Point::~Point(void) {}
 
-Point::Point(const float x, const float y) : _x(x), _y(y) {}
-
-// COPY
-Point::Point(const Point &point) : _x(point.getX()), _y(point.getY()) {}
-
-Point &Point::operator=(const Point &point)
+Point& Point::operator=(const Point& rhs)
 {
-    if (this != &point)
+    if (this != &rhs)
     {
-        _x = point.getX();
-        _y = point.getY();
+        const_cast<Fixed&>(_x) = rhs._x;
+        const_cast<Fixed&>(_y) = rhs._y;
     }
     return (*this);
 }
 
-Fixed Point::getX(void) const { return (_x); }
+bool Point::operator==(const Point& rhs)
+{
+    return (_x == rhs._x && _y == rhs._y);
+}
 
-Fixed Point::getY(void) const { return (_y); }
+Fixed Point::getX(void) const { return _x; }
+Fixed Point::getY(void) const { return _y; }

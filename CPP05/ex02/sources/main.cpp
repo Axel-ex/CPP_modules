@@ -24,7 +24,7 @@ void pressEnter(void)
     clearScreen();
 }
 
-void printBanner(const std::string &msg)
+void printBanner(const std::string& msg)
 {
     const int bannerWidth = 15;
     int padding = std::max(0, (bannerWidth - static_cast<int>(msg.size())) / 2);
@@ -35,7 +35,7 @@ void printBanner(const std::string &msg)
 
 void shrubberyFormTest(void)
 {
-    AForm *shrub = new ShrubberyCreationForm("home");
+    AForm* shrub = new ShrubberyCreationForm("home");
     Bureaucrat axel = Bureaucrat("Axel", 137);
 
     printBanner("SHRUBBERY");

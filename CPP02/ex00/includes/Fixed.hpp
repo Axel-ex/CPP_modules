@@ -19,8 +19,8 @@ class Fixed
 {
     public:
         Fixed(void);
-        Fixed(const Fixed &to_copy);
-        Fixed &operator=(const Fixed &to_copy);
+        Fixed(const Fixed& to_copy);
+        Fixed& operator=(const Fixed& to_copy);
         ~Fixed(void);
 
         int getRawBits(void) const;

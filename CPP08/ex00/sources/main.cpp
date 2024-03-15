@@ -23,13 +23,13 @@ void pressEnter(void)
     clearScreen();
 }
 
-template <typename T> void fillContainer(T &cont)
+template <typename T> void fillContainer(T& cont)
 {
     for (int i = 0; i < 100; i++)
         cont.push_back(rand() % 100);
 }
 
-template <typename T> void basicTest(T &cont, std::string test_name)
+template <typename T> void basicTest(T& cont, std::string test_name)
 {
     std::cout << "\t" << test_name << std::endl << std::endl;
     fillContainer(cont);
@@ -38,7 +38,7 @@ template <typename T> void basicTest(T &cont, std::string test_name)
         int pos = easyfind(cont, 42);
         std::cout << "Found 42 at the index [" << pos << "]" << std::endl;
     }
-    catch (std::exception &e)
+    catch (std::exception& e)
     {
         std::cout << e.what() << std::endl;
     }

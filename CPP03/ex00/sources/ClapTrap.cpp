@@ -25,12 +25,12 @@ ClapTrap::ClapTrap(std::string name)
     std::cout << "Constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &copy) { *this = copy; }
+ClapTrap::ClapTrap(const ClapTrap& copy) { *this = copy; }
 
 ClapTrap::~ClapTrap(void) { std::cout << "Destructor called" << std::endl; }
 
 // OPERATOR OVERLOAD
-ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
+ClapTrap& ClapTrap::operator=(const ClapTrap& rhs)
 {
     if (this != &rhs)
     {
@@ -42,7 +42,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
     return (*this);
 }
 
-std::ostream &operator<<(std::ostream &ofs, const ClapTrap &rhs)
+std::ostream& operator<<(std::ostream& ofs, const ClapTrap& rhs)
 {
     std::cout << "name: " << rhs.getName() << std::endl;
     std::cout << "\thit points: " << rhs.getHitPoints() << std::endl;
@@ -61,7 +61,7 @@ int ClapTrap::getEnergyPoints(void) const { return (_energy_point); }
 int ClapTrap::getHitPoints(void) const { return (_hit_point); }
 
 // OTHER MEMBER FUNCTIONS
-void ClapTrap::attack(const std::string &target)
+void ClapTrap::attack(const std::string& target)
 {
     if (_energy_point == 0)
     {

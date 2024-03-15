@@ -18,8 +18,8 @@
 #include "Base.hpp"
 #include "C.hpp"
 
-Base *generate(void);
-void identify(Base *p);
-void identify(Base &p);
+Base* generate(void);
+void identify(Base* p);
+void identify(Base& p);
 
 #endif

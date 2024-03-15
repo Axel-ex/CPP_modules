@@ -18,7 +18,7 @@ WrongAnimal ::WrongAnimal(void) : _type("WrongAnimal")
     std::cout << "WrongAnimal default constructor called" << std::endl;
 }
 
-WrongAnimal ::WrongAnimal(const WrongAnimal &copy)
+WrongAnimal ::WrongAnimal(const WrongAnimal& copy)
 {
     *this = copy;
     std::cout << "WrongAnimal copy constructor called" << std::endl;
@@ -30,7 +30,7 @@ WrongAnimal ::~WrongAnimal(void)
 }
 
 // OPERATOR OVERLOAD
-WrongAnimal &WrongAnimal ::operator=(const WrongAnimal &rhs)
+WrongAnimal& WrongAnimal ::operator=(const WrongAnimal& rhs)
 {
     if (this != &rhs)
         _type = rhs.getType();
@@ -40,7 +40,7 @@ WrongAnimal &WrongAnimal ::operator=(const WrongAnimal &rhs)
 // GETTERS AND SETTERS
 std::string WrongAnimal ::getType(void) const { return (_type); }
 
-void WrongAnimal ::setType(const std::string &type) { _type = type; }
+void WrongAnimal ::setType(const std::string& type) { _type = type; }
 
 // METHODS
 void WrongAnimal ::makeSound(void) const

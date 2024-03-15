@@ -29,7 +29,7 @@ FragTrap ::FragTrap(std::string name) : ClapTrap(name)
     _attack_damage = 30;
 }
 
-FragTrap ::FragTrap(const FragTrap &trap) : ClapTrap(trap)
+FragTrap ::FragTrap(const FragTrap& trap) : ClapTrap(trap)
 {
     std::cout << "FragTrap copy constructor called" << std::endl;
 }
@@ -40,7 +40,7 @@ FragTrap ::~FragTrap(void)
 }
 
 // OPERATOR OVERLOADING
-FragTrap &FragTrap ::operator=(const FragTrap &trap)
+FragTrap& FragTrap ::operator=(const FragTrap& trap)
 {
     if (this != &trap)
     {
@@ -52,7 +52,7 @@ FragTrap &FragTrap ::operator=(const FragTrap &trap)
     return (*this);
 }
 
-std::ostream &operator<<(std::ostream &ofs, const FragTrap &rhs)
+std::ostream& operator<<(std::ostream& ofs, const FragTrap& rhs)
 {
     std::cout << "name: " << rhs.getName() << std::endl;
     std::cout << "\thit points: " << rhs.getHitPoints() << std::endl;

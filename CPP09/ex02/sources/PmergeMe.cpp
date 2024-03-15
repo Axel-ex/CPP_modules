@@ -15,12 +15,12 @@
 
 PmergeMe ::PmergeMe(void) {}
 
-PmergeMe ::PmergeMe(const PmergeMe &src) { *this = src; }
+PmergeMe ::PmergeMe(const PmergeMe& src) { *this = src; }
 
 PmergeMe ::~PmergeMe(void) {}
 
 // OPERATOR OVERLOAD
-PmergeMe &PmergeMe ::operator=(const PmergeMe &rhs)
+PmergeMe& PmergeMe ::operator=(const PmergeMe& rhs)
 {
     if (this != &rhs)
     {
@@ -30,7 +30,7 @@ PmergeMe &PmergeMe ::operator=(const PmergeMe &rhs)
     return (*this);
 }
 
-std::ostream &operator<<(std::ostream &ofs, const std::vector<int> &rhs)
+std::ostream& operator<<(std::ostream& ofs, const std::vector<int>& rhs)
 {
     size_t i = -1;
 
@@ -43,7 +43,7 @@ std::ostream &operator<<(std::ostream &ofs, const std::vector<int> &rhs)
 }
 
 // MEMBER FCTS
-void PmergeMe ::readArgs(char **argv, int argc)
+void PmergeMe ::readArgs(char** argv, int argc)
 {
     int i = 0;
     int elem;
@@ -61,11 +61,11 @@ void PmergeMe ::readArgs(char **argv, int argc)
                 _input1.push_back(elem);
                 _input2.push_back(elem);
             }
-            catch (std::invalid_argument &e)
+            catch (std::invalid_argument& e)
             {
                 std::cout << "Invalid argument: " << e.what() << std::endl;
             }
-            catch (std::out_of_range &e)
+            catch (std::out_of_range& e)
             {
                 std::cout << "Out of range: " << e.what() << std::endl;
             }
@@ -106,7 +106,7 @@ PmergeMe ::timeExecution(std::string t_container)
     return (std::chrono::duration_cast<std::chrono::microseconds>(end - start));
 }
 
-void PmergeMe ::mergeSortVec(std::vector<int> &vec)
+void PmergeMe ::mergeSortVec(std::vector<int>& vec)
 {
     size_t size = vec.size();
     std::vector<int> left;
@@ -127,8 +127,8 @@ void PmergeMe ::mergeSortVec(std::vector<int> &vec)
     mergeVec(left, right, vec);
 }
 
-void PmergeMe ::mergeVec(std::vector<int> &left, std::vector<int> &right,
-                         std::vector<int> &origin)
+void PmergeMe ::mergeVec(std::vector<int>& left, std::vector<int>& right,
+                         std::vector<int>& origin)
 {
     size_t l = 0;
     size_t r = 0;
@@ -146,7 +146,7 @@ void PmergeMe ::mergeVec(std::vector<int> &left, std::vector<int> &right,
         origin[o++] = right[r++];
 }
 
-void PmergeMe ::mergeSortDeq(std::deque<int> &queue)
+void PmergeMe ::mergeSortDeq(std::deque<int>& queue)
 {
     size_t size = queue.size();
     std::deque<int> left;
@@ -167,8 +167,8 @@ void PmergeMe ::mergeSortDeq(std::deque<int> &queue)
     mergeDeq(left, right, queue);
 }
 
-void PmergeMe ::mergeDeq(std::deque<int> &left, std::deque<int> &right,
-                         std::deque<int> &origin)
+void PmergeMe ::mergeDeq(std::deque<int>& left, std::deque<int>& right,
+                         std::deque<int>& origin)
 {
     size_t l = 0;
     size_t r = 0;

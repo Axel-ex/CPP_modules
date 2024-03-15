@@ -20,12 +20,12 @@ class ClapTrap
     public:
         ClapTrap(void);
         ClapTrap(std::string name);
-        ClapTrap(const ClapTrap &copy);
+        ClapTrap(const ClapTrap& copy);
         ~ClapTrap(void);
 
-        ClapTrap &operator=(const ClapTrap &rhs);
+        ClapTrap& operator=(const ClapTrap& rhs);
 
-        void attack(const std::string &target);
+        void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 
@@ -41,6 +41,6 @@ class ClapTrap
         int _attack_damage;
 };
 
-std::ostream &operator<<(std::ostream &ofs, const ClapTrap &rhs);
+std::ostream& operator<<(std::ostream& ofs, const ClapTrap& rhs);
 
 #endif

@@ -28,12 +28,12 @@ class AAnimal
 
     public:
         AAnimal(void);
-        AAnimal(const AAnimal &copy);
+        AAnimal(const AAnimal& copy);
         virtual ~AAnimal(void);
 
-        AAnimal &operator=(const AAnimal &rhs);
+        AAnimal& operator=(const AAnimal& rhs);
         std::string getType(void) const;
-        void setType(const std::string &type);
+        void setType(const std::string& type);
         virtual void makeSound(void) const = 0;
 };
 

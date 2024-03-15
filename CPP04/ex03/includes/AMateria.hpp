@@ -28,15 +28,15 @@ class AMateria
 {
     public:
         AMateria(void);
-        AMateria(const std::string &type);
+        AMateria(const std::string& type);
         virtual ~AMateria(void);
 
         bool getIsTaken(void) const;
         void setIsTaken(bool set_value);
-        const std::string &getType(void) const;
+        const std::string& getType(void) const;
 
-        virtual void use(ICharacter &target);
-        virtual AMateria *clone(void) const = 0;
+        virtual void use(ICharacter& target);
+        virtual AMateria* clone(void) const = 0;
 
     protected:
         std::string _type;

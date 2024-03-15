@@ -21,11 +21,11 @@ class Bureaucrat;
 class AForm
 {
     public:
-        AForm(const std::string &name, int sign_grade, int exec_grade);
-        AForm(const AForm &src);
+        AForm(const std::string& name, int sign_grade, int exec_grade);
+        AForm(const AForm& src);
         virtual ~AForm(void);
 
-        AForm &operator=(const AForm &rhs);
+        AForm& operator=(const AForm& rhs);
 
         std::string getName(void) const;
         int getSignGrade(void) const;
@@ -33,24 +33,24 @@ class AForm
         bool IsSigned(void) const;
         void setIsSigned(bool to_set);
 
-        void beSigned(const Bureaucrat &bureaucrat);
-        void execute(const Bureaucrat &execute) const;
+        void beSigned(const Bureaucrat& bureaucrat);
+        void execute(const Bureaucrat& execute) const;
         virtual void execute(void) const = 0;
 
         class GradeTooHighException : public std::exception
         {
             public:
-                virtual const char *what() const throw();
+                virtual const char* what() const throw();
         };
         class GradeTooLowException : public std::exception
         {
             public:
-                virtual const char *what() const throw();
+                virtual const char* what() const throw();
         };
         class UnsignedException : public std::exception
         {
             public:
-                virtual const char *what() const throw();
+                virtual const char* what() const throw();
         };
 
     private:
@@ -62,6 +62,6 @@ class AForm
         static const int MIN_GRADE = 150;
 };
 
-std::ostream &operator<<(std::ostream &ofs, const AForm &rhs);
+std::ostream& operator<<(std::ostream& ofs, const AForm& rhs);
 
 #endif

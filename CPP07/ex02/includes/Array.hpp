@@ -20,16 +20,16 @@ template <typename T = int> class Array
     public:
         Array(void);
         Array(unsigned int n);
-        Array(const Array &src);
+        Array(const Array& src);
         ~Array(void);
 
-        Array &operator=(const Array<T> &rhs);
-        T &operator[](int i);
+        Array& operator=(const Array<T>& rhs);
+        T& operator[](int i);
 
         int size(void) const;
 
     private:
-        T *_array;
+        T* _array;
         int _size;
 };
 

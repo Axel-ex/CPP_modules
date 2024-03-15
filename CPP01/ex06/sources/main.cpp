@@ -18,7 +18,7 @@ int print_error(std::string msg)
     exit(EXIT_FAILURE);
 }
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     if (argc < 2)
         print_error("Enter a log level");

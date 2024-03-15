@@ -21,10 +21,10 @@ class ClapTrap
         ClapTrap(void);
         ClapTrap(std::string name);
         virtual ~ClapTrap(void);
-        ClapTrap(const ClapTrap &copy);
-        ClapTrap &operator=(const ClapTrap &rhs);
+        ClapTrap(const ClapTrap& copy);
+        ClapTrap& operator=(const ClapTrap& rhs);
 
-        void attack(const std::string &target);
+        void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 
@@ -40,6 +40,6 @@ class ClapTrap
         int _attack_damage;
 };
 
-std::ostream &operator<<(std::ostream &ofs, const ClapTrap &rhs);
+std::ostream& operator<<(std::ostream& ofs, const ClapTrap& rhs);
 
 #endif

@@ -50,8 +50,8 @@
 // 		std::cout << "min(a,b):\t" << Fixed::min(a, b) << std::endl;
 // 		std::cout << "max(a,b):\t" << Fixed::max(a, b) << std::endl;
 // 		std::cout << "min(a,b):\t" << Fixed::min(static_cast<const Fixed>(a),
-// static_cast<const Fixed>(b)) << std::endl; 		std::cout << "max(a,b):\t" <<
-// Fixed::max(static_cast<const Fixed>(a), static_cast<const Fixed>(b)) <<
+// static_cast<const Fixed>(b)) << std::endl; 		std::cout << "max(a,b):\t"
+// << Fixed::max(static_cast<const Fixed>(a), static_cast<const Fixed>(b)) <<
 // std::endl; 		std::cout << std::endl;
 
 // 		std::cout << "INCREMENTS/DECREMENTS" << std::endl;

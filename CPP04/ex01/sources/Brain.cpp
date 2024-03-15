@@ -15,7 +15,7 @@
 
 Brain ::Brain(void) : _nb_ideas(0) { LOG("Brain default constructor called"); }
 
-Brain ::Brain(const Brain &copy)
+Brain ::Brain(const Brain& copy)
 {
     *this = copy;
     LOG("Brain copy constructor called");
@@ -24,7 +24,7 @@ Brain ::Brain(const Brain &copy)
 Brain ::~Brain(void) { LOG("Brain destructor called"); }
 
 // OPERATOR OVERLOAD
-Brain &Brain ::operator=(const Brain &rhs)
+Brain& Brain ::operator=(const Brain& rhs)
 {
     if (this != &rhs)
     {
@@ -43,7 +43,7 @@ std::string Brain ::getIdea(int index) const
     return (_ideas[index]);
 }
 
-void Brain ::setIdea(const std::string &idea, int index)
+void Brain ::setIdea(const std::string& idea, int index)
 {
     if (index < 0 || index > MAX_IDEAS)
         throw std::runtime_error("Ideas index out of range");

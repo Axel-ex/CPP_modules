@@ -22,7 +22,7 @@ bool isValidNb(std::string s)
     return (true);
 }
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     int size;
 
@@ -40,7 +40,7 @@ int main(int argc, char **argv)
         std::cout << "Enter a value in the integer range" << std::endl;
         exit(EXIT_FAILURE);
     }
-    Zombie *zombie_horde = zombieHorde(size, argv[2]);
+    Zombie* zombie_horde = zombieHorde(size, argv[2]);
     if (!zombie_horde)
         return (EXIT_FAILURE);
     for (int i = 0; i < size; i++)

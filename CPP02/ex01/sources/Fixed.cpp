@@ -34,14 +34,14 @@ Fixed ::Fixed(const float value)
 }
 
 // Copy constructor
-Fixed ::Fixed(const Fixed &to_copy) : _raw_bits(to_copy._raw_bits)
+Fixed ::Fixed(const Fixed& to_copy) : _raw_bits(to_copy._raw_bits)
 {
     std::cout << "copy constructor called" << std::endl;
 }
 
 Fixed ::~Fixed(void) { std::cout << "Destructor called" << std::endl; }
 
-Fixed &Fixed::operator=(const Fixed &to_copy)
+Fixed& Fixed::operator=(const Fixed& to_copy)
 {
     std::cout << "copy assignement operator called" << std::endl;
     if (this != &to_copy)
@@ -69,7 +69,7 @@ float Fixed ::toFloat(void) const
 int Fixed ::toInt(void) const { return (this->_raw_bits >> Fixed::_bits); }
 // insertion overload operator. binary op should be nonmember.
 //  return the output stream for chaining purpose
-std::ostream &operator<<(std::ostream &ofs, const Fixed &fixed)
+std::ostream& operator<<(std::ostream& ofs, const Fixed& fixed)
 {
     ofs << fixed.toFloat();
     return (ofs);

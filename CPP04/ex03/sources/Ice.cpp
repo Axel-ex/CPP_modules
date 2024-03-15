@@ -18,7 +18,7 @@ Ice ::Ice(void)
     LOG("Ice constructor called");
 }
 
-Ice ::Ice(const Ice &copy) : AMateria(copy)
+Ice ::Ice(const Ice& copy) : AMateria(copy)
 {
     *this = copy;
     LOG("Ice copy constructor called");
@@ -27,7 +27,7 @@ Ice ::Ice(const Ice &copy) : AMateria(copy)
 Ice ::~Ice(void) { LOG("Ice destructor called"); }
 
 // OVERLOADS
-Ice &Ice ::operator=(const Ice &rhs)
+Ice& Ice ::operator=(const Ice& rhs)
 {
     if (this != &rhs)
         AMateria::operator=(rhs);
@@ -35,11 +35,11 @@ Ice &Ice ::operator=(const Ice &rhs)
 }
 
 // METHODS
-void Ice ::use(ICharacter &target)
+void Ice ::use(ICharacter& target)
 {
     std::cout << "* shoots an ice bolt at " << target.getName() << " *"
               << std::endl;
 }
 
 // Should I return the abstract base class?
-AMateria *Ice ::clone(void) const { return (new Ice(*this)); }
+AMateria* Ice ::clone(void) const { return (new Ice(*this)); }

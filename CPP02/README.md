@@ -11,3 +11,6 @@ Exercise 01 extends the Fixed Point Number class to handle integer and floating-
 ### Exercise02: Now we’re talking
 Exercise 02 enhances the Fixed Point Number class with operator overloading for comparison, arithmetic, and increment/decrement operations. Static member functions are added for computing minimum and maximum values between fixed-point numbers.
 
+### Exercise03: BSP
+Exercise03 implements a function to determine whether a given point lies inside a triangle or not. It includes the implementation of a `Point` class in Orthodox Canonical Form to represent 2D points using The `Fixed` class implemented in the previous exercises.
+

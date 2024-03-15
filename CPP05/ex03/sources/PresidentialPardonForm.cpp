@@ -12,14 +12,14 @@
 
 #include "../includes/PresidentialPardonForm.hpp"
 
-PresidentialPardonForm ::PresidentialPardonForm(const std::string &target)
+PresidentialPardonForm ::PresidentialPardonForm(const std::string& target)
     : AForm("presidential pardon form", 25, 5), _target(target)
 {
     LOG("Presidential constructor called");
 }
 
 PresidentialPardonForm ::PresidentialPardonForm(
-    const PresidentialPardonForm &src)
+    const PresidentialPardonForm& src)
     : AForm(src)
 {
     LOG("presidential copy constructor called");
@@ -31,8 +31,8 @@ PresidentialPardonForm ::~PresidentialPardonForm(void)
     LOG("presidential destructor called");
 }
 
-PresidentialPardonForm &
-PresidentialPardonForm ::operator=(const PresidentialPardonForm &rhs)
+PresidentialPardonForm&
+PresidentialPardonForm ::operator=(const PresidentialPardonForm& rhs)
 {
     if (this != &rhs)
     {

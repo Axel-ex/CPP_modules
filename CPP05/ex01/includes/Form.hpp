@@ -21,28 +21,28 @@ class Bureaucrat;
 class Form
 {
     public:
-        Form(const std::string &name, int sign_grade, int exec_grade);
-        Form(const Form &src);
+        Form(const std::string& name, int sign_grade, int exec_grade);
+        Form(const Form& src);
         ~Form(void);
 
-        Form &operator=(const Form &rhs);
+        Form& operator=(const Form& rhs);
 
         std::string getName(void) const;
         int getSignGrade(void) const;
         int getExecGrade(void) const;
         bool IsSigned(void) const;
 
-        void beSigned(const Bureaucrat &bureaucrat);
+        void beSigned(const Bureaucrat& bureaucrat);
 
         class GradeTooHighException : public std::exception
         {
             public:
-                virtual const char *what() const throw();
+                virtual const char* what() const throw();
         };
         class GradeTooLowException : public std::exception
         {
             public:
-                virtual const char *what() const throw();
+                virtual const char* what() const throw();
         };
 
     private:
@@ -54,6 +54,6 @@ class Form
         static const int MIN_GRADE = 150;
 };
 
-std::ostream &operator<<(std::ostream &ofs, const Form &rhs);
+std::ostream& operator<<(std::ostream& ofs, const Form& rhs);
 
 #endif

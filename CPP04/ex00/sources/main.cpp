@@ -25,7 +25,7 @@ void pressEnter(void)
     clearScreen();
 }
 
-void printBanner(const std::string &msg)
+void printBanner(const std::string& msg)
 {
     const int bannerWidth = 15;
     int padding = std::max(0, (bannerWidth - static_cast<int>(msg.size())) / 2);
@@ -40,7 +40,7 @@ void basicTest(void)
     pressEnter();
 
     printBanner("CREATION");
-    Animal *ptr[3] = {new Cat(), new Cat(), new Dog()};
+    Animal* ptr[3] = {new Cat(), new Cat(), new Dog()};
     pressEnter();
 
     printBanner("METHOD make");
@@ -60,7 +60,7 @@ void WrongAnimalTest(void)
     pressEnter();
 
     printBanner("CREATION");
-    WrongAnimal *wrong = new WrongCat();
+    WrongAnimal* wrong = new WrongCat();
     pressEnter();
 
     printBanner("METHOD");

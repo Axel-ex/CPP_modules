@@ -23,7 +23,7 @@ Floor ::~Floor(void)
     deleteMaterias();
 }
 
-void Floor ::pushFront(AMateria *materia)
+void Floor ::pushFront(AMateria* materia)
 {
     if (materia->getIsTaken())
     {
@@ -32,7 +32,7 @@ void Floor ::pushFront(AMateria *materia)
     }
     LOG("Materia droped on the floor");
 
-    MateriaList *new_node = new MateriaList;
+    MateriaList* new_node = new MateriaList;
     new_node->materia = materia;
     new_node->next = _materia_list;
     _materia_list = new_node;
@@ -41,7 +41,7 @@ void Floor ::pushFront(AMateria *materia)
 void Floor ::deleteMaterias(void)
 {
     LOG("Cleaning the floor");
-    MateriaList *tmp;
+    MateriaList* tmp;
 
     while (_materia_list)
     {
@@ -54,7 +54,7 @@ void Floor ::deleteMaterias(void)
 
 void Floor ::Idisplaylist(void)
 {
-    MateriaList *current = _materia_list;
+    MateriaList* current = _materia_list;
 
     while (current)
     {
@@ -69,7 +69,7 @@ void Floor ::Idisplaylist(void)
  *
  * @return Floor&
  */
-Floor &Floor ::getInstance(void)
+Floor& Floor ::getInstance(void)
 {
     static Floor instance;
 
@@ -79,7 +79,7 @@ Floor &Floor ::getInstance(void)
 // The following functions are made to avoid heavy synthax
 // Floor::getInstance().pushFront() could adopt a convention like:
 // Idisplaylist(internal), displayList(accessible)
-void Floor ::dropMateria(AMateria *materia)
+void Floor ::dropMateria(AMateria* materia)
 {
     getInstance().pushFront(materia);
 }

@@ -12,7 +12,7 @@
 
 #include "../includes/AForm.hpp"
 
-AForm ::AForm(const std::string &name, int sign_grade, int exec_grade)
+AForm ::AForm(const std::string& name, int sign_grade, int exec_grade)
     : _name(name), _is_signed(false), SIGN_GRADE(sign_grade),
       EXEC_GRADE(exec_grade)
 {
@@ -22,7 +22,7 @@ AForm ::AForm(const std::string &name, int sign_grade, int exec_grade)
         throw AForm::GradeTooLowException();
 }
 
-AForm ::AForm(const AForm &src)
+AForm ::AForm(const AForm& src)
     : _name(src._name), SIGN_GRADE(src.SIGN_GRADE), EXEC_GRADE(src.EXEC_GRADE)
 {
     *this = src;
@@ -31,14 +31,14 @@ AForm ::AForm(const AForm &src)
 AForm ::~AForm(void) {}
 
 // OPERATOR OVERLOAD
-AForm &AForm ::operator=(const AForm &rhs)
+AForm& AForm ::operator=(const AForm& rhs)
 {
     if (this != &rhs)
         _is_signed = rhs._is_signed;
     return (*this);
 }
 
-std::ostream &operator<<(std::ostream &ofs, const AForm &rhs)
+std::ostream& operator<<(std::ostream& ofs, const AForm& rhs)
 {
     std::string sign = rhs.IsSigned() ? " ✅ " : " ❌ ";
 
@@ -59,7 +59,7 @@ int AForm ::getSignGrade(void) const { return (SIGN_GRADE); }
 
 int AForm ::getExecGrade(void) const { return (EXEC_GRADE); }
 
-void AForm ::beSigned(const Bureaucrat &bureaucrat)
+void AForm ::beSigned(const Bureaucrat& bureaucrat)
 {
     if (bureaucrat.getGrade() > SIGN_GRADE)
         throw AForm ::GradeTooLowException();
@@ -68,7 +68,7 @@ void AForm ::beSigned(const Bureaucrat &bureaucrat)
 
 void AForm ::setIsSigned(bool to_set) { _is_signed = to_set; }
 
-void AForm ::execute(const Bureaucrat &executor) const
+void AForm ::execute(const Bureaucrat& executor) const
 {
     if (executor.getGrade() > EXEC_GRADE)
         throw AForm::GradeTooLowException();
@@ -80,17 +80,17 @@ void AForm ::execute(const Bureaucrat &executor) const
 }
 
 // EXCEPTIONS
-const char *AForm ::GradeTooHighException ::what(void) const throw()
+const char* AForm ::GradeTooHighException ::what(void) const throw()
 {
     return ("Grade too high");
 }
 
-const char *AForm ::GradeTooLowException ::what(void) const throw()
+const char* AForm ::GradeTooLowException ::what(void) const throw()
 {
     return ("Grade too low");
 }
 
-const char *AForm ::UnsignedException ::what(void) const throw()
+const char* AForm ::UnsignedException ::what(void) const throw()
 {
     return ("The form was not signed");
 }

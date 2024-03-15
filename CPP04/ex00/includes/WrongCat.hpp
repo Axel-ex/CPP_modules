@@ -19,10 +19,10 @@ class WrongCat : public WrongAnimal
 {
     public:
         WrongCat(void);
-        WrongCat(const WrongCat &copy);
+        WrongCat(const WrongCat& copy);
         ~WrongCat(void);
 
-        WrongCat &operator=(const WrongCat &rhs);
+        WrongCat& operator=(const WrongCat& rhs);
 
         void makeSound(void) const;
 };

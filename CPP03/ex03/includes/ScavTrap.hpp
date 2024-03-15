@@ -20,13 +20,13 @@ class ScavTrap : virtual public ClapTrap
     public:
         ScavTrap(void);
         ScavTrap(std::string name);
-        ScavTrap(const ScavTrap &copy);
+        ScavTrap(const ScavTrap& copy);
         ~ScavTrap(void);
 
-        ScavTrap &operator=(const ScavTrap &rhs);
+        ScavTrap& operator=(const ScavTrap& rhs);
         void guardGate(void) const;
 };
 
-std::ostream &operator<<(std::ostream &ofs, const ScavTrap &rhs);
+std::ostream& operator<<(std::ostream& ofs, const ScavTrap& rhs);
 
 #endif

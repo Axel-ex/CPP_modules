@@ -1,4 +1,4 @@
-NAME		= Fixed
+NAME		= bsp
 
 OBJ_DIR		= bin
 

@@ -21,19 +21,19 @@ class MateriaSource : public IMateriaSource
 {
     public:
         MateriaSource(void);
-        MateriaSource(const MateriaSource &copy);
+        MateriaSource(const MateriaSource& copy);
         ~MateriaSource(void);
 
-        MateriaSource &operator=(const MateriaSource &rhs);
+        MateriaSource& operator=(const MateriaSource& rhs);
 
-        void learnMateria(AMateria *m);
-        AMateria *createMateria(const std::string &type);
-        void displayMateria(int idx, std::ostream &ofs) const;
+        void learnMateria(AMateria* m);
+        AMateria* createMateria(const std::string& type);
+        void displayMateria(int idx, std::ostream& ofs) const;
 
     private:
-        AMateria *_source[MAX_ITEMS];
+        AMateria* _source[MAX_ITEMS];
 };
 
-std::ostream &operator<<(std::ostream &ofs, const MateriaSource &rhs);
+std::ostream& operator<<(std::ostream& ofs, const MateriaSource& rhs);
 
 #endif

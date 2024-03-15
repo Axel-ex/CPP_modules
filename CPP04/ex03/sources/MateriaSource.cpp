@@ -18,7 +18,7 @@ MateriaSource ::MateriaSource(void) : _source()
     LOG("MateriaSource constructor called");
 }
 
-MateriaSource ::MateriaSource(const MateriaSource &copy)
+MateriaSource ::MateriaSource(const MateriaSource& copy)
 {
     LOG("MateriaSource copy constructor called");
     *this = copy;
@@ -36,7 +36,7 @@ MateriaSource ::~MateriaSource(void)
 }
 
 // OPERATOR OVERLOAD
-std::ostream &operator<<(std::ostream &ofs, const MateriaSource &rhs)
+std::ostream& operator<<(std::ostream& ofs, const MateriaSource& rhs)
 {
     for (int i = 0; i < MAX_ITEMS; i++)
         rhs.displayMateria(i, ofs);
@@ -53,7 +53,7 @@ std::ostream &operator<<(std::ostream &ofs, const MateriaSource &rhs)
  * @param rhs
  * @return MateriaSource&
  */
-MateriaSource &MateriaSource ::operator=(const MateriaSource &rhs)
+MateriaSource& MateriaSource ::operator=(const MateriaSource& rhs)
 {
     if (this == &rhs)
         return (*this);
@@ -71,7 +71,7 @@ MateriaSource &MateriaSource ::operator=(const MateriaSource &rhs)
 }
 
 // MEMBER FUNCTIONS
-void MateriaSource ::learnMateria(AMateria *m)
+void MateriaSource ::learnMateria(AMateria* m)
 {
     if (m->getIsTaken())
     {
@@ -89,13 +89,13 @@ void MateriaSource ::learnMateria(AMateria *m)
     Floor::dropMateria(m);
 }
 
-AMateria *MateriaSource ::createMateria(const std::string &type)
+AMateria* MateriaSource ::createMateria(const std::string& type)
 {
     for (int i = 0; i < MAX_ITEMS; i++)
     {
         if (_source[i] && _source[i]->getType() == type)
         {
-            AMateria *new_materia = _source[i]->clone();
+            AMateria* new_materia = _source[i]->clone();
             new_materia->setIsTaken(false);
             return (new_materia);
         }
@@ -103,7 +103,7 @@ AMateria *MateriaSource ::createMateria(const std::string &type)
     return (NULL);
 }
 
-void MateriaSource ::displayMateria(int idx, std::ostream &ofs) const
+void MateriaSource ::displayMateria(int idx, std::ostream& ofs) const
 {
     if (idx < 0 || idx >= MAX_ITEMS)
         return;

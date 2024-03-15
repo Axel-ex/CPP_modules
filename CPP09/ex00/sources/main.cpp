@@ -12,7 +12,7 @@
 
 #include "../includes/BitcoinExchange.hpp"
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     try
     {
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
         BitcoinExchange btc(argv[1]);
         btc.compute();
     }
-    catch (std::exception &e)
+    catch (std::exception& e)
     {
         std::cout << e.what() << std::endl;
     }

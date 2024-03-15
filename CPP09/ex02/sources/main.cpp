@@ -12,7 +12,7 @@
 
 #include "../includes/PmergeMe.hpp"
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     try
     {
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
         merger.readArgs(argv, argc);
         merger.compute();
     }
-    catch (std::exception &e)
+    catch (std::exception& e)
     {
         std::cout << e.what() << std::endl;
     }

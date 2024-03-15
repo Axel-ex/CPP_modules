@@ -19,12 +19,12 @@ class WrongAnimal
 {
     public:
         WrongAnimal(void);
-        WrongAnimal(const WrongAnimal &copy);
+        WrongAnimal(const WrongAnimal& copy);
         virtual ~WrongAnimal(void);
 
-        WrongAnimal &operator=(const WrongAnimal &rhs);
+        WrongAnimal& operator=(const WrongAnimal& rhs);
         std::string getType(void) const;
-        void setType(const std::string &type);
+        void setType(const std::string& type);
         void makeSound(void) const;
 
     protected:

@@ -24,7 +24,7 @@ void pressEnter(void)
     clearScreen();
 }
 
-void printBanner(const std::string &msg)
+void printBanner(const std::string& msg)
 {
     const int bannerWidth = 15;
     int padding = std::max(0, (bannerWidth - static_cast<int>(msg.size())) / 2);
@@ -36,16 +36,16 @@ void printBanner(const std::string &msg)
 void subjectTest(void)
 {
     printBanner("SUBJECT TEST");
-    IMateriaSource *src = new MateriaSource();
+    IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
-    ICharacter *me = new Character("me");
-    AMateria *tmp;
+    ICharacter* me = new Character("me");
+    AMateria* tmp;
     tmp = src->createMateria("ice");
     me->equip(tmp);
     tmp = src->createMateria("cure");
     me->equip(tmp);
-    ICharacter *bob = new Character("bob");
+    ICharacter* bob = new Character("bob");
     me->use(0, *bob);
     me->use(1, *bob);
     delete bob;
@@ -59,12 +59,12 @@ void limitsMateriaSourceTest(void)
     printBanner("SOURCE LIMITS");
     pressEnter();
 
-    MateriaSource *source = new MateriaSource();
+    MateriaSource* source = new MateriaSource();
     source->learnMateria(new Ice());
     source->learnMateria(new Cure());
 
     printBanner("ADD MATERIA");
-    AMateria *mat;
+    AMateria* mat;
     for (int i = 0; i < 7; i++)
     {
         mat = source->createMateria("ice");
@@ -92,8 +92,8 @@ void deepCopyTestSource()
     printBanner("SRC DEEP COPY");
     pressEnter();
 
-    MateriaSource *source = new MateriaSource();
-    MateriaSource *source2 = new MateriaSource();
+    MateriaSource* source = new MateriaSource();
+    MateriaSource* source2 = new MateriaSource();
     source->learnMateria(new Ice());
     source->learnMateria(new Cure());
 
@@ -115,9 +115,9 @@ void deepCopyTestSCharacter()
     printBanner("CHAR DEEP COPY");
     pressEnter();
 
-    MateriaSource *source = new MateriaSource();
-    Character *john = new Character("John");
-    Character *jack = new Character("Jack");
+    MateriaSource* source = new MateriaSource();
+    Character* john = new Character("John");
+    Character* jack = new Character("Jack");
 
     source->learnMateria(new Ice());
     for (int i = 0; i < MAX_ITEMS; i++)

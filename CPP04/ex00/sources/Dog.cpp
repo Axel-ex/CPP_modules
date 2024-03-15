@@ -18,7 +18,7 @@ Dog ::Dog(void)
     std::cout << "Dog default constructor called" << std::endl;
 }
 
-Dog ::Dog(const Dog &copy) : Animal(copy)
+Dog ::Dog(const Dog& copy) : Animal(copy)
 {
     *this = copy;
     std::cout << "Dog copy constructor called" << std::endl;
@@ -27,7 +27,7 @@ Dog ::Dog(const Dog &copy) : Animal(copy)
 Dog ::~Dog(void) { std::cout << "Dog default destructor called" << std::endl; }
 
 // OPERATOR OVERLOAD
-Dog &Dog ::operator=(const Dog &rhs)
+Dog& Dog ::operator=(const Dog& rhs)
 {
     if (this != &rhs)
     {

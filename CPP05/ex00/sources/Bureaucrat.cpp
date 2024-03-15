@@ -12,7 +12,7 @@
 
 #include "../includes/Bureaucrat.hpp"
 
-Bureaucrat ::Bureaucrat(const std::string &name, int grade)
+Bureaucrat ::Bureaucrat(const std::string& name, int grade)
     : _name(name), _grade(grade)
 {
     LOG("Bureaucrat parametrised constructor called");
@@ -22,7 +22,7 @@ Bureaucrat ::Bureaucrat(const std::string &name, int grade)
         throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat ::Bureaucrat(const Bureaucrat &src)
+Bureaucrat ::Bureaucrat(const Bureaucrat& src)
 {
     LOG("Bureaucrat copy constructor called");
     *this = src;
@@ -31,14 +31,14 @@ Bureaucrat ::Bureaucrat(const Bureaucrat &src)
 Bureaucrat ::~Bureaucrat(void) { LOG("Bureaucrat destructor called"); }
 
 // OPERATOR OVERLOAD
-Bureaucrat &Bureaucrat ::operator=(const Bureaucrat &rhs)
+Bureaucrat& Bureaucrat ::operator=(const Bureaucrat& rhs)
 {
     if (this != &rhs)
         _grade = rhs._grade;
     return (*this);
 }
 
-std::ostream &operator<<(std::ostream &ofs, const Bureaucrat &rhs)
+std::ostream& operator<<(std::ostream& ofs, const Bureaucrat& rhs)
 {
     ofs << rhs.getName() << std::endl;
     ofs << rhs.getGrade() << std::endl;
@@ -67,12 +67,12 @@ void Bureaucrat ::decrementGrade(void)
 }
 
 // EXCEPTION
-const char *Bureaucrat ::GradeTooHighException ::what(void) const throw()
+const char* Bureaucrat ::GradeTooHighException ::what(void) const throw()
 {
     return ("Grade is too high");
 }
 
-const char *Bureaucrat ::GradeTooLowException ::what(void) const throw()
+const char* Bureaucrat ::GradeTooLowException ::what(void) const throw()
 {
     return ("Grade is too low");
 }

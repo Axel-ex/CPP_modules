@@ -42,19 +42,19 @@ class RPN
 
     public:
         RPN(void);
-        RPN(const std::string &input);
-        RPN(const RPN &src);
+        RPN(const std::string& input);
+        RPN(const RPN& src);
         ~RPN(void);
 
-        RPN &operator=(const RPN &rhs);
+        RPN& operator=(const RPN& rhs);
 
         void compute(void);
         void lexer(void);
         void executor(void);
-        int operate(std::stack<int> &tmp, const std::string &op);
+        int operate(std::stack<int>& tmp, const std::string& op);
 
         // helper
-        void getTokenType(s_token &token);
+        void getTokenType(s_token& token);
         void printTokenList(void) const;
 
         class InvalidTokenException : public std::exception
@@ -64,7 +64,7 @@ class RPN
 
             public:
                 InvalidTokenException(std::string msg) : _err_msg(msg){};
-                const char *what(void) const throw();
+                const char* what(void) const throw();
                 ~InvalidTokenException(void) _NOEXCEPT{};
         };
 };

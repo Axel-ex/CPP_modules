@@ -22,7 +22,7 @@ void pressEnter(void)
     clearScreen();
 }
 
-void printBanner(const std::string &msg)
+void printBanner(const std::string& msg)
 {
     const int bannerWidth = 15;
     int padding = std::max(0, (bannerWidth - static_cast<int>(msg.size())) / 2);
@@ -37,7 +37,7 @@ void makeFormTest()
     pressEnter();
 
     Intern axel;
-    AForm *forms[3];
+    AForm* forms[3];
     Bureaucrat john("john", 1);
 
     printBanner("MAKE FORM TEST");
@@ -48,7 +48,7 @@ void makeFormTest()
         for (int i = 0; i < 3; i++)
             forms[i] = axel.makeForm("shrubbery", "whatever");
     }
-    catch (std::exception &e)
+    catch (std::exception& e)
     {
         std::cout << e.what() << std::endl;
     }
@@ -76,7 +76,7 @@ void invalidFormTest()
     {
         Axel.makeForm("ndjned", "dede");
     }
-    catch (std::exception &e)
+    catch (std::exception& e)
     {
         std::cout << RED << e.what() << RESET << std::endl;
     }

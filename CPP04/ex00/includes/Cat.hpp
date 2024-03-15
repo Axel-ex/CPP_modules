@@ -19,10 +19,10 @@ class Cat : public Animal
 {
     public:
         Cat(void);
-        Cat(const Cat &copy);
+        Cat(const Cat& copy);
         ~Cat(void);
 
-        Cat &operator=(const Cat &rhs);
+        Cat& operator=(const Cat& rhs);
 
         void makeSound(void) const;
 };

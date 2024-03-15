@@ -40,7 +40,7 @@ void Account::displayAccountsInfos(void)
 void Account::_displayTimestamp(void)
 {
     std::time_t time_in_sec = std::time(NULL);
-    std::tm *timemark = std::localtime(&time_in_sec);
+    std::tm* timemark = std::localtime(&time_in_sec);
     char time_buff[20];
 
     std::strftime(time_buff, 20, "[%Y%m%d_%H%M%S]", timemark);

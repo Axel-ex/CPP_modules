@@ -12,13 +12,13 @@
 
 #include "../includes/ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm ::ShrubberyCreationForm(const std::string &target)
+ShrubberyCreationForm ::ShrubberyCreationForm(const std::string& target)
     : AForm("shrubbery", 145, 137), _target(target)
 {
     LOG("Shrubbery constructor called");
 }
 
-ShrubberyCreationForm ::ShrubberyCreationForm(const ShrubberyCreationForm &src)
+ShrubberyCreationForm ::ShrubberyCreationForm(const ShrubberyCreationForm& src)
     : AForm(src)
 {
     LOG("Shrubbery copy constructor called");
@@ -30,8 +30,8 @@ ShrubberyCreationForm ::~ShrubberyCreationForm(void)
     LOG("Shrubbery destructor called");
 }
 
-ShrubberyCreationForm &
-ShrubberyCreationForm ::operator=(const ShrubberyCreationForm &rhs)
+ShrubberyCreationForm&
+ShrubberyCreationForm ::operator=(const ShrubberyCreationForm& rhs)
 {
 
     if (this != &rhs)

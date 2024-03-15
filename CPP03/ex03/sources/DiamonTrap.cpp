@@ -33,7 +33,7 @@ DiamondTrap ::DiamondTrap(std::string name)
     ClapTrap::_name = name + "_clap_name";
 }
 
-DiamondTrap ::DiamondTrap(const DiamondTrap &trap)
+DiamondTrap ::DiamondTrap(const DiamondTrap& trap)
     : ClapTrap(trap), FragTrap(trap), ScavTrap(trap)
 {
     *this = trap;
@@ -46,7 +46,7 @@ DiamondTrap ::~DiamondTrap(void)
 }
 
 // OPERATOR OVERLOAD
-std::ostream &operator<<(std::ostream &ofs, const DiamondTrap &rhs)
+std::ostream& operator<<(std::ostream& ofs, const DiamondTrap& rhs)
 {
     std::cout << "name: " << rhs.getName() << std::endl;
     std::cout << "\thit points: " << rhs.getHitPoints() << std::endl;
@@ -55,7 +55,7 @@ std::ostream &operator<<(std::ostream &ofs, const DiamondTrap &rhs)
     return (ofs);
 }
 
-DiamondTrap &DiamondTrap ::operator=(const DiamondTrap &rhs)
+DiamondTrap& DiamondTrap ::operator=(const DiamondTrap& rhs)
 {
     if (this != &rhs)
     {
@@ -68,7 +68,7 @@ DiamondTrap &DiamondTrap ::operator=(const DiamondTrap &rhs)
 }
 
 // MEMBER FUNCTIONS
-void DiamondTrap ::attack(const std::string &target)
+void DiamondTrap ::attack(const std::string& target)
 {
     ScavTrap::attack(target);
 }

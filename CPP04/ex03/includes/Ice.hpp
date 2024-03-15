@@ -19,13 +19,13 @@ class Ice : public AMateria
 {
     public:
         Ice(void);
-        Ice(const Ice &copy);
+        Ice(const Ice& copy);
         ~Ice(void);
 
-        Ice &operator=(const Ice &rhs);
+        Ice& operator=(const Ice& rhs);
 
-        void use(ICharacter &target);
-        AMateria *clone(void) const;
+        void use(ICharacter& target);
+        AMateria* clone(void) const;
 };
 
 #endif

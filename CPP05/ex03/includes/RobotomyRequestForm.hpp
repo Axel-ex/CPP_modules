@@ -22,11 +22,11 @@
 class RobotomyRequestForm : public AForm
 {
     public:
-        RobotomyRequestForm(const std::string &target);
-        RobotomyRequestForm(const RobotomyRequestForm &src);
+        RobotomyRequestForm(const std::string& target);
+        RobotomyRequestForm(const RobotomyRequestForm& src);
         ~RobotomyRequestForm(void);
 
-        RobotomyRequestForm &operator=(const RobotomyRequestForm &rhs);
+        RobotomyRequestForm& operator=(const RobotomyRequestForm& rhs);
 
         virtual void execute(void) const;
 

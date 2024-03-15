@@ -37,8 +37,8 @@ std::string readFile(std::string name)
     return (content);
 }
 
-std::string searchReplace(std::string &input, std::string &to_replace,
-                          std::string &replace_with)
+std::string searchReplace(std::string& input, std::string& to_replace,
+                          std::string& replace_with)
 {
     size_t pos = 0;
 
@@ -52,7 +52,7 @@ std::string searchReplace(std::string &input, std::string &to_replace,
     return (input);
 }
 
-void writeFile(std::string name, std::string &output)
+void writeFile(std::string name, std::string& output)
 {
     std::ofstream ofs;
 
@@ -63,7 +63,7 @@ void writeFile(std::string name, std::string &output)
     ofs.close();
 }
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     try
     {
@@ -76,7 +76,7 @@ int main(int argc, char **argv)
         writeFile(argv[1], output);
         return (EXIT_SUCCESS);
     }
-    catch (const std::exception &e)
+    catch (const std::exception& e)
     {
         std::cerr << "Error: " << e.what() << std::endl;
         return (EXIT_FAILURE);

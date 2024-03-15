@@ -20,16 +20,16 @@ class Dog : public AAnimal
 {
     public:
         Dog(void);
-        Dog(const Dog &copy);
+        Dog(const Dog& copy);
         ~Dog(void);
 
-        Dog &operator=(const Dog &rhs);
+        Dog& operator=(const Dog& rhs);
 
         void makeSound(void) const;
-        Brain *getBrain(void) const;
+        Brain* getBrain(void) const;
 
     private:
-        Brain *_brain;
+        Brain* _brain;
 };
 
 #endif

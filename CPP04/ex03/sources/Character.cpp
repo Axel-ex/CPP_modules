@@ -17,12 +17,12 @@ Character ::Character(void) : _inventory(), _name("Jack")
     LOG("Character default constructor called");
 }
 
-Character ::Character(const std::string &name) : _inventory(), _name(name)
+Character ::Character(const std::string& name) : _inventory(), _name(name)
 {
     LOG("Character param constructor called");
 }
 
-Character ::Character(const Character &copy)
+Character ::Character(const Character& copy)
 {
     LOG("Character copy constructor called");
     *this = copy;
@@ -48,7 +48,7 @@ Character ::~Character(void)
  * @param rhs
  * @return MateriaSource&
  */
-Character &Character ::operator=(const Character &rhs)
+Character& Character ::operator=(const Character& rhs)
 {
     if (this == &rhs)
         return (*this);
@@ -65,7 +65,7 @@ Character &Character ::operator=(const Character &rhs)
     return (*this);
 }
 
-std::ostream &operator<<(std::ostream &ofs, const Character &rhs)
+std::ostream& operator<<(std::ostream& ofs, const Character& rhs)
 {
     std::cout << "name: " << rhs.getName() << std::endl;
     std::cout << "inventory: " << std::endl;
@@ -78,16 +78,16 @@ std::ostream &operator<<(std::ostream &ofs, const Character &rhs)
 }
 
 // MEMBER FUNCTIONS
-const std::string &Character ::getName(void) const { return (_name); }
+const std::string& Character ::getName(void) const { return (_name); }
 
-AMateria *Character ::getItem(int idx) const
+AMateria* Character ::getItem(int idx) const
 {
     if (idx < 0 || idx > MAX_ITEMS)
         return (NULL);
     return (_inventory[idx]);
 }
 
-void Character ::equip(AMateria *m)
+void Character ::equip(AMateria* m)
 {
     if (!m || m->getIsTaken())
     {
@@ -114,7 +114,7 @@ void Character ::unequip(int idx)
     _inventory[idx] = NULL;
 }
 
-void Character ::use(int idx, ICharacter &target)
+void Character ::use(int idx, ICharacter& target)
 {
     if (idx >= MAX_ITEMS || idx < 0)
         return;

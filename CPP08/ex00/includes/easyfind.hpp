@@ -15,7 +15,7 @@
 
 #include <iostream>
 
-template <typename T> int easyfind(const T &cont, int to_find);
+template <typename T> int easyfind(const T& cont, int to_find);
 
 #include "esayfind.tpp"
 

@@ -12,7 +12,7 @@
 
 #include "../includes/ScalarConverter.hpp"
 
-static bool overflow(e_type type, const std::string &str)
+static bool overflow(e_type type, const std::string& str)
 {
     long double value = std::strtold(str.c_str(), NULL);
 
@@ -35,7 +35,7 @@ static bool overflow(e_type type, const std::string &str)
     }
 }
 
-void printChar(char c, const std::string &str)
+void printChar(char c, const std::string& str)
 {
     if (overflow(CHAR, str))
         return (std::cout << "char overflow" << std::endl, void());
@@ -45,28 +45,28 @@ void printChar(char c, const std::string &str)
         std::cout << "char: Non displayable" << std::endl;
 }
 
-void printInt(int i, const std::string &str)
+void printInt(int i, const std::string& str)
 {
     if (overflow(INT, str))
         return (std::cout << "int overflow" << std::endl, void());
     std::cout << "int: " << i << std::endl;
 }
 
-void printFloat(float f, const std::string &str)
+void printFloat(float f, const std::string& str)
 {
     if (overflow(FLOAT, str))
         return (std::cout << "float overflow" << std::endl, void());
     std::cout << "float: " << f << "f" << std::endl;
 }
 
-void printDouble(double d, const std::string &str)
+void printDouble(double d, const std::string& str)
 {
     if (overflow(DOUBLE, str))
         return (std::cout << "double overflow" << std::endl, void());
     std::cout << "double value: " << d << std::endl;
 }
 
-void printPseudo(const std::string &str)
+void printPseudo(const std::string& str)
 {
     char sign = '+';
     std::cout << "char: impossible" << std::endl;

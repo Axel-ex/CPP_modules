@@ -29,13 +29,13 @@ void pressEnter(void)
     clearScreen();
 }
 
-Bureaucrat init(const std::string &name, int grade)
+Bureaucrat init(const std::string& name, int grade)
 {
     try
     {
         return (Bureaucrat(name, grade));
     }
-    catch (std::exception &e)
+    catch (std::exception& e)
     {
         std::cout << RED << e.what() << RESET << std::endl;
         std::cout << "retry with a valid grade" << std::endl;
@@ -52,7 +52,7 @@ void printCommands(void)
     std::cout << "\texit" << std::endl;
 }
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     std::string name;
     int grade;
@@ -81,7 +81,7 @@ int main(int argc, char **argv)
                 exit(EXIT_SUCCESS);
             pressEnter();
         }
-        catch (std::exception &e)
+        catch (std::exception& e)
         {
             std::cout << RED << e.what() << RESET << std::endl;
             pressEnter();

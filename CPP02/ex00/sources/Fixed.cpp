@@ -20,14 +20,14 @@ Fixed ::Fixed(void) : _val(0)
 }
 
 // Copy constructor
-Fixed ::Fixed(const Fixed &to_copy) : _val(to_copy._val)
+Fixed ::Fixed(const Fixed& to_copy) : _val(to_copy._val)
 {
     std::cout << "copy constructor called" << std::endl;
 }
 
 // Copy assignement operator overload
 //  the = sign is beeing "overloaded"
-Fixed &Fixed::operator=(const Fixed &to_copy)
+Fixed& Fixed::operator=(const Fixed& to_copy)
 {
     std::cout << "copy assignement operator called" << std::endl;
     if (this != &to_copy)

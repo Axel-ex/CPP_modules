@@ -15,7 +15,7 @@
 // CONSTRUCTOR
 AMateria ::AMateria(void) { LOG("AMateria default constructor called"); }
 
-AMateria ::AMateria(const std::string &type) : _type(type)
+AMateria ::AMateria(const std::string& type) : _type(type)
 {
     LOG("AMateria copy constructor called");
 }
@@ -23,9 +23,9 @@ AMateria ::AMateria(const std::string &type) : _type(type)
 AMateria ::~AMateria(void) { LOG("AMateria destructor called"); }
 
 // MEMBER FCTS
-const std::string &AMateria ::getType(void) const { return (_type); }
+const std::string& AMateria ::getType(void) const { return (_type); }
 
-void AMateria ::use(ICharacter &target) { (void)target; }
+void AMateria ::use(ICharacter& target) { (void)target; }
 
 bool AMateria ::getIsTaken(void) const { return (_is_taken); }
 

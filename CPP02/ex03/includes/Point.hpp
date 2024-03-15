@@ -6,31 +6,35 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:02:54 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/19 10:31:13 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/03/15 12:29:13 by Axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT__HPP
-#define POINT__HPP
+#ifndef INCLUDE_INCLUDES_POINT_HPP_
+#define INCLUDE_INCLUDES_POINT_HPP_
 
 #include "Fixed.hpp"
-#include <iostream>
 
 class Point
 {
     public:
         Point(void);
-        Point(const float x, const float y);
-        Point(const Point &point);
+        Point(const Fixed& x, const Fixed& y);
+        Point(const Point& src);
         ~Point(void);
 
-        Point &operator=(const Point &point);
+        Point& operator=(const Point& rhs);
+		bool operator==(const Point& rhs);
+
         Fixed getX(void) const;
         Fixed getY(void) const;
 
     private:
-        Fixed _x;
-        Fixed _y;
+        const Fixed _x;
+        const Fixed _y;
 };
+
+bool bsp(Point const a, Point const b, Point const c, Point const point);
+Fixed GetTriangleArea(Point a, Point b, Point c);
 
 #endif

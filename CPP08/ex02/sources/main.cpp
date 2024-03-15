@@ -14,7 +14,7 @@
 
 void clearScreen(void) { std::cout << "\033c"; }
 
-void printBanner(const std::string &msg)
+void printBanner(const std::string& msg)
 {
     const int bannerWidth = 15;
     int padding = std::max(0, (bannerWidth - static_cast<int>(msg.size())) / 2);

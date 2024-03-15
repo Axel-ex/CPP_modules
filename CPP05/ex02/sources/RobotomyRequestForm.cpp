@@ -12,13 +12,13 @@
 
 #include "../includes/RobotomyRequestForm.hpp"
 
-RobotomyRequestForm ::RobotomyRequestForm(const std::string &target)
+RobotomyRequestForm ::RobotomyRequestForm(const std::string& target)
     : AForm("Robotomy", 72, 45), _target(target)
 {
     LOG("Robotomy constructor called");
 }
 
-RobotomyRequestForm ::RobotomyRequestForm(const RobotomyRequestForm &src)
+RobotomyRequestForm ::RobotomyRequestForm(const RobotomyRequestForm& src)
     : AForm(src)
 {
     LOG("Robotomy copy constructor called");
@@ -30,8 +30,8 @@ RobotomyRequestForm ::~RobotomyRequestForm(void)
     LOG("Robotomy destructor called");
 }
 
-RobotomyRequestForm &
-RobotomyRequestForm ::operator=(const RobotomyRequestForm &rhs)
+RobotomyRequestForm&
+RobotomyRequestForm ::operator=(const RobotomyRequestForm& rhs)
 {
     if (this != &rhs)
     {

@@ -20,10 +20,10 @@ class ScavTrap : public ClapTrap
     public:
         ScavTrap(void);
         ScavTrap(std::string name);
-        ScavTrap(const ScavTrap &copy);
+        ScavTrap(const ScavTrap& copy);
         ~ScavTrap(void);
 
-        ScavTrap &operator=(const ScavTrap &rhs);
+        ScavTrap& operator=(const ScavTrap& rhs);
         void guardGate(void) const;
 };
 

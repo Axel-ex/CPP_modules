@@ -12,7 +12,7 @@
 
 #include "../includes/functions.hpp"
 
-Base *generate(void)
+Base* generate(void)
 {
     switch (rand() % 3)
     {
@@ -27,42 +27,42 @@ Base *generate(void)
     }
 }
 
-void identify(Base *p)
+void identify(Base* p)
 {
-    if (dynamic_cast<A *>(p))
+    if (dynamic_cast<A*>(p))
         std::cout << "it is a pointer on A" << std::endl;
-    else if (dynamic_cast<B *>(p))
+    else if (dynamic_cast<B*>(p))
         std::cout << "it is a pointer on B" << std::endl;
-    else if (dynamic_cast<C *>(p))
+    else if (dynamic_cast<C*>(p))
         std::cout << "it is a pointer on C" << std::endl;
     else
         std::cout << "UNKNOWN" << std::endl;
 }
 
-void identify(Base &p)
+void identify(Base& p)
 {
     try
     {
-        (void)dynamic_cast<A &>(p);
+        (void)dynamic_cast<A&>(p);
         std::cout << "it is a reference on A" << std::endl;
     }
-    catch (std::bad_cast &e)
+    catch (std::bad_cast& e)
     {
     }
     try
     {
-        (void)dynamic_cast<B &>(p);
+        (void)dynamic_cast<B&>(p);
         std::cout << "it is a reference on B" << std::endl;
     }
-    catch (std::bad_cast &e)
+    catch (std::bad_cast& e)
     {
     }
     try
     {
-        (void)dynamic_cast<C &>(p);
+        (void)dynamic_cast<C&>(p);
         std::cout << "it is a reference on C" << std::endl;
     }
-    catch (std::bad_cast &e)
+    catch (std::bad_cast& e)
     {
     }
 }

@@ -20,14 +20,14 @@ class FragTrap : public ClapTrap
     public:
         FragTrap(void);
         FragTrap(std::string name);
-        FragTrap(const FragTrap &trap);
+        FragTrap(const FragTrap& trap);
         ~FragTrap(void);
 
-        FragTrap &operator=(const FragTrap &trap);
+        FragTrap& operator=(const FragTrap& trap);
 
         void highFiveGuys(void);
 };
 
-std::ostream &operator<<(std::ostream &ofs, const FragTrap &rhs);
+std::ostream& operator<<(std::ostream& ofs, const FragTrap& rhs);
 
 #endif

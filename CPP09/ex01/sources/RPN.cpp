@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 14:11:56 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/14 18:53:39 by Axel             ###   ########.fr       */
+/*   Updated: 2024/03/14 18:54:44 by Axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 RPN ::RPN(void) {}
 
-RPN ::RPN(const std::string &input) : _input(input) {}
+RPN ::RPN(const std::string& input) : _input(input) {}
 
-RPN ::RPN(const RPN &src) { *this = src; }
+RPN ::RPN(const RPN& src) { *this = src; }
 
 RPN ::~RPN(void) {}
 
 // OPERATOR OVERLOAD
-RPN &RPN ::operator=(const RPN &rhs)
+RPN& RPN ::operator=(const RPN& rhs)
 {
     if (this != &rhs)
     {
@@ -70,15 +70,15 @@ void RPN ::executor(void)
     std::cout << tmp.top() << std::endl;
 }
 
-int RPN ::operate(std::stack<int> &tmp, const std::string &op)
+int RPN ::operate(std::stack<int>& tmp, const std::string& op)
 {
     int size = tmp.size();
     if (size < 2)
         throw std::runtime_error("Too few elements on the stack");
 
     int b = tmp.top();
-    tmp.pop();
     int a = tmp.top();
+    tmp.pop();
     tmp.pop();
 
     if (op == "*")
@@ -92,7 +92,7 @@ int RPN ::operate(std::stack<int> &tmp, const std::string &op)
 }
 
 // HELPER
-void RPN ::getTokenType(s_token &token)
+void RPN ::getTokenType(s_token& token)
 {
     std::string cnt = token.content;
 
@@ -112,7 +112,7 @@ void RPN ::printTokenList(void) const
         std::cout << it->content << " : " << it->type << std::endl;
 }
 
-const char *RPN ::InvalidTokenException ::what(void) const throw()
+const char* RPN ::InvalidTokenException ::what(void) const throw()
 {
     return (_err_msg.c_str());
 }

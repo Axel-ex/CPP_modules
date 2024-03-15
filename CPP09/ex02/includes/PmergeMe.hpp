@@ -26,26 +26,26 @@ class PmergeMe
 
     public:
         PmergeMe(void);
-        PmergeMe(const PmergeMe &src);
+        PmergeMe(const PmergeMe& src);
         ~PmergeMe(void);
 
-        PmergeMe &operator=(const PmergeMe &rhs);
+        PmergeMe& operator=(const PmergeMe& rhs);
 
-        void readArgs(char **argv, int argc);
+        void readArgs(char** argv, int argc);
         void compute(void);
         std::chrono::high_resolution_clock::duration
         timeExecution(std::string t_container);
 
         // MERGE SORT
-        void mergeSortVec(std::vector<int> &vec);
-        void mergeVec(std::vector<int> &left, std::vector<int> &right,
-                      std::vector<int> &origin);
+        void mergeSortVec(std::vector<int>& vec);
+        void mergeVec(std::vector<int>& left, std::vector<int>& right,
+                      std::vector<int>& origin);
 
-        void mergeSortDeq(std::deque<int> &queue);
-        void mergeDeq(std::deque<int> &left, std::deque<int> &right,
-                      std::deque<int> &origin);
+        void mergeSortDeq(std::deque<int>& queue);
+        void mergeDeq(std::deque<int>& left, std::deque<int>& right,
+                      std::deque<int>& origin);
 };
 
-std::ostream &operator<<(std::ostream &ofs, const std::vector<int> &rhs);
+std::ostream& operator<<(std::ostream& ofs, const std::vector<int>& rhs);
 
 #endif

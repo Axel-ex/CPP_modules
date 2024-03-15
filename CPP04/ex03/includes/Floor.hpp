@@ -17,8 +17,8 @@
 
 struct MateriaList
 {
-        AMateria *materia;
-        MateriaList *next;
+        AMateria* materia;
+        MateriaList* next;
 };
 
 /**
@@ -31,21 +31,21 @@ struct MateriaList
 class Floor
 {
     private:
-        MateriaList *_materia_list;
-        Floor(const Floor &); //= delete; c++11
+        MateriaList* _materia_list;
+        Floor(const Floor&); //= delete; c++11
         Floor(void);
         ~Floor(void);
 
-        Floor &operator=(const Floor &); //= delete; c++11
+        Floor& operator=(const Floor&); //= delete; c++11
 
-        void pushFront(AMateria *materia);
+        void pushFront(AMateria* materia);
         void deleteMaterias(void);
         void Idisplaylist(void);
 
-        static Floor &getInstance(void);
+        static Floor& getInstance(void);
 
     public:
-        static void dropMateria(AMateria *materia);
+        static void dropMateria(AMateria* materia);
         static void displayList(void);
 };
 

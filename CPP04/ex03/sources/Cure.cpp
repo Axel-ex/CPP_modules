@@ -18,20 +18,20 @@ Cure ::Cure(void)
     _type = "cure";
 }
 
-Cure ::Cure(const Cure &copy) : AMateria(copy) { *this = copy; }
+Cure ::Cure(const Cure& copy) : AMateria(copy) { *this = copy; }
 
 Cure ::~Cure(void) { LOG("Cure destructor called"); }
 
-Cure &Cure ::operator=(const Cure &rhs)
+Cure& Cure ::operator=(const Cure& rhs)
 {
     if (this != &rhs)
         AMateria::operator=(rhs);
     return (*this);
 }
 
-void Cure ::use(ICharacter &target)
+void Cure ::use(ICharacter& target)
 {
     std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
 
-AMateria *Cure ::clone(void) const { return (new Cure(*this)); }
+AMateria* Cure ::clone(void) const { return (new Cure(*this)); }

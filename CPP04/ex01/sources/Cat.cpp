@@ -19,7 +19,7 @@ Cat ::Cat(void)
     LOG("Cat default constructor called");
 }
 
-Cat ::Cat(const Cat &copy) : Animal(copy)
+Cat ::Cat(const Cat& copy) : Animal(copy)
 {
     *this = copy;
     LOG("Cat copy constructor called");
@@ -32,7 +32,7 @@ Cat ::~Cat(void)
 }
 
 // OPERATOR OVERLOAD
-Cat &Cat ::operator=(const Cat &rhs)
+Cat& Cat ::operator=(const Cat& rhs)
 {
     if (this != &rhs)
     {
@@ -44,7 +44,7 @@ Cat &Cat ::operator=(const Cat &rhs)
     return (*this);
 }
 
-std::ostream &operator<<(std::ostream &ofs, const Cat &rhs)
+std::ostream& operator<<(std::ostream& ofs, const Cat& rhs)
 {
     ofs << "CAT" << std::endl;
     ofs << "type: " << rhs.getType() << std::endl;
@@ -56,4 +56,4 @@ std::ostream &operator<<(std::ostream &ofs, const Cat &rhs)
 // METHOD
 void Cat ::makeSound(void) const { std::cout << "MIAOW" << std::endl; }
 
-Brain *Cat ::getBrain(void) const { return (_brain); }
+Brain* Cat ::getBrain(void) const { return (_brain); }
