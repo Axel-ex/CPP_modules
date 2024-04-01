@@ -6,11 +6,11 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:06:08 by achabrer          #+#    #+#             */
-/*   Updated: 2024/01/26 10:38:28 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/01 10:30:19 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/main.hpp"
+#include "../includes/PhoneBook.hpp"
 
 int main(void)
 {
@@ -18,7 +18,7 @@ int main(void)
     std::string cmd;
 
     PhoneBook::printMenu();
-    while (42)
+    while (true)
     {
         std::cout << "input> ";
         if (!std::getline(std::cin, cmd, '\n'))

@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:41:25 by achabrer          #+#    #+#             */
-/*   Updated: 2024/01/26 10:36:03 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/01 10:26:04 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iomanip>
 #include <iostream>
+#include <cstdlib>
 
 #define CLEAR "\033[2J\033[H"
 

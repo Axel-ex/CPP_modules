@@ -6,12 +6,13 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:00:23 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/14 11:27:45 by Axel             ###   ########.fr       */
+/*   Updated: 2024/04/01 10:32:06 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PhoneBook.hpp"
-#include "../includes/main.hpp"
+#include <iostream>
+#include <limits>
 
 PhoneBook::PhoneBook(void) { this->_id = -1; }
 
@@ -58,13 +59,13 @@ void PhoneBook::search(void)
     std::cout << "Enter the index of the contact you want to look up"
               << std::endl;
 
-    while (42)
+    while (true)
     {
         std::cin >> id;
         if (std::cin.fail())
         {
             if (std::cin.eof())
-                break;
+				break;
             PhoneBook::printError("Enter an integer value");
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
