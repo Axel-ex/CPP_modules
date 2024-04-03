@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:00:23 by achabrer          #+#    #+#             */
-/*   Updated: 2024/04/01 10:32:06 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/03 12:04:06 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void PhoneBook::add(void)
         "Enter a telephone number", "Enter his/her darkest secret"};
     std::string attributes[5];
 
-    this->_id = (this->_id == MAX_CONTACTS - 1) ? MAX_CONTACTS - 2 : this->_id;
+    this->_id = (this->_id == MAX_CONTACTS - 1) ? -1 : this->_id;
     for (unsigned int j = 0; j < sizeof(prompts) / sizeof(prompts[0]); ++j)
     {
         std::cout << CLEAR;
@@ -64,8 +64,8 @@ void PhoneBook::search(void)
         std::cin >> id;
         if (std::cin.fail())
         {
-            if (std::cin.eof())
-				break;
+				/*         if (std::cin.eof()) */
+				/* break; */
             PhoneBook::printError("Enter an integer value");
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
