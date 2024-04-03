@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:00:23 by achabrer          #+#    #+#             */
-/*   Updated: 2024/04/03 12:04:06 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/03 15:31:37 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void PhoneBook::search(void)
         std::cin >> id;
         if (std::cin.fail())
         {
-				/*         if (std::cin.eof()) */
-				/* break; */
+			if (std::cin.eof())
+				break;
             PhoneBook::printError("Enter an integer value");
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
