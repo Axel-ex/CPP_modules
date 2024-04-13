@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 15:25:00 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/15 09:40:54 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/13 18:03:14 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(int argc, char** argv)
         return (std::cout << "Enter a valid size" << std::endl, EXIT_FAILURE);
     try
     {
-        size = std::stoi(argv[1]);
+        size = std::atoi(argv[1]);
     }
     catch (std::out_of_range)
     {

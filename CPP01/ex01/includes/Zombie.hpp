@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 15:16:05 by achabrer          #+#    #+#             */
-/*   Updated: 2024/01/26 17:05:15 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/13 17:57:36 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define __ZOMBIE__H
 
 #include <iostream>
+#include <cstdlib>
 
 class Zombie
 {

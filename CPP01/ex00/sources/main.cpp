@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 15:25:00 by achabrer          #+#    #+#             */
-/*   Updated: 2024/01/26 16:36:21 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/13 17:13:58 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(int argc, char** argv)
     std::string name_1, name_2;
 
     if (argc < 3)
-        return (std::cout << "Enter 2 zombies name" << std::endl, EXIT_SUCCESS);
+        return (std::cout << "Enter 2 zombies name" << std::endl, 0);
     name_1 = argv[1];
     name_2 = argv[2];
 
@@ -30,5 +30,5 @@ int main(int argc, char** argv)
     Zombie zombie2 = Zombie(name_2);
     zombie2.announce();
 
-    return (delete (zombie1), EXIT_SUCCESS);
+    return (delete (zombie1), 0);
 }
