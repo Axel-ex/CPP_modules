@@ -16,21 +16,18 @@ YELLOW		= \033[38;5;226m
 RED			= \033[38;5;196m
 RESET 		= \033[0m
 
-$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
+%.o: %.cpp
 	@c++ $(FLAGS) -g -c $< -o $@
 	@echo "[$(GREEN)compiling$(RESET)]: $<"
 
 all: $(NAME)
 	@echo "$(GREEN)$(NAME) executable created$(RESET)"
 
-$(OBJ_DIR):
-	@mkdir bin/
-
 $(NAME): $(OBJ)
 	@c++ $(FLAGS) -I $(INC) $(OBJ) -o $(NAME)
 
 clean:
-	@rm -rf $(OBJ_DIR)
+	@rm -rf $(OBJ)
 	@echo "$(YELLOW)Removing $(NAME) objects files$(RESET)"
 
 fclean: clean

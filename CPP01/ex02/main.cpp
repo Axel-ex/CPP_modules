@@ -6,11 +6,12 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 21:00:40 by achabrer          #+#    #+#             */
-/*   Updated: 2024/01/29 10:00:57 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/13 18:47:36 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstdlib>
 
 int main(void)
 {

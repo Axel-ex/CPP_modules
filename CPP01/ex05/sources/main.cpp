@@ -6,11 +6,12 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 11:47:59 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/15 12:17:20 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/13 19:07:20 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Harl.hpp"
+#include <cstdlib>
 
 int main(void)
 {
