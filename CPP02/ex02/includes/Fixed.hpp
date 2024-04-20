@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 15:12:22 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/19 09:48:12 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/16 15:01:52 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define FIXED__HPP
 
 #include <iostream>
+#include <cstdlib>
 
 class Fixed
 {

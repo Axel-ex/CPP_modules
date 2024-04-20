@@ -6,13 +6,14 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 15:45:35 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/15 13:20:43 by Axel             ###   ########.fr       */
+/*   Updated: 2024/04/20 10:54:17 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Point.hpp"
 #include <ios>
 #include <iostream>
+#include <cstdlib>
 
 #define GREEN "\033[38;5;47m"
 #define YELLOW "\033[38;5;226m"

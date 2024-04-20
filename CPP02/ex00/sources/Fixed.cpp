@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 15:15:34 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/15 15:58:32 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/16 14:27:11 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,11 @@ Fixed ::Fixed(void) : _val(0)
     std::cout << "Default constrcutor called" << std::endl;
 }
 
-// Copy constructor
 Fixed ::Fixed(const Fixed& to_copy) : _val(to_copy._val)
 {
     std::cout << "copy constructor called" << std::endl;
 }
 
-// Copy assignement operator overload
-//  the = sign is beeing "overloaded"
 Fixed& Fixed::operator=(const Fixed& to_copy)
 {
     std::cout << "copy assignement operator called" << std::endl;

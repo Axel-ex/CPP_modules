@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 15:15:34 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/14 15:19:15 by Axel             ###   ########.fr       */
+/*   Updated: 2024/04/16 14:34:02 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,12 @@ Fixed ::Fixed(const int value)
     this->_raw_bits = value << Fixed::_bits;
 }
 
-// all float can not be converted in int with the 8 bit shift =
-//  tradeof accurracy / precision
 Fixed ::Fixed(const float value)
 {
     std::cout << "Float constructor called" << std::endl;
     this->_raw_bits = value * (1 << Fixed::_bits);
 }
 
-// Copy constructor
 Fixed ::Fixed(const Fixed& to_copy) : _raw_bits(to_copy._raw_bits)
 {
     std::cout << "copy constructor called" << std::endl;
@@ -67,8 +64,7 @@ float Fixed ::toFloat(void) const
 }
 
 int Fixed ::toInt(void) const { return (this->_raw_bits >> Fixed::_bits); }
-// insertion overload operator. binary op should be nonmember.
-//  return the output stream for chaining purpose
+
 std::ostream& operator<<(std::ostream& ofs, const Fixed& fixed)
 {
     ofs << fixed.toFloat();
