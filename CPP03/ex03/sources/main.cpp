@@ -6,11 +6,12 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 11:27:00 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/20 11:59:45 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/20 11:41:20 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/DiamonTrap.hpp"
+#include "cstdlib"
 
 void pressEnter(void)
 {

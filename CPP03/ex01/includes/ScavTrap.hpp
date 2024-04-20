@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:59:47 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/23 14:22:46 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/20 11:32:00 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class ScavTrap : public ClapTrap
 
         ScavTrap& operator=(const ScavTrap& rhs);
         void guardGate(void) const;
+		void attack(const std::string& target);
 };
 
 #endif

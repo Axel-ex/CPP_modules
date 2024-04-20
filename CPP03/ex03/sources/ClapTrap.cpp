@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:52:36 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/20 12:04:27 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/20 13:05:35 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ClapTrap::ClapTrap(void)
 ClapTrap::ClapTrap(std::string name)
     : _name(name), _hit_point(10), _energy_point(10), _attack_damage(10)
 {
-    std::cout << "Constructor called" << std::endl;
+    std::cout << "ClapTrap name Constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap(void) { std::cout << "Destructor called" << std::endl; }

@@ -6,12 +6,13 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 11:27:00 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/19 16:39:07 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/20 11:24:51 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ClapTrap.hpp"
 #include "../includes/ScavTrap.hpp"
+#include "cstdlib"
 
 int main(void)
 {
