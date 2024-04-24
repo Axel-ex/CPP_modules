@@ -6,13 +6,14 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:00:51 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/14 11:08:10 by Axel             ###   ########.fr       */
+/*   Updated: 2024/04/24 09:51:37 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Animal.hpp"
 #include "../includes/Cat.hpp"
 #include "../includes/Dog.hpp"
+#include <cstdlib>
 
 void clearScreen(void) { std::cout << "\033c"; }
 

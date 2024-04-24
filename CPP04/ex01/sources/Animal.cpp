@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:44:07 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/23 22:28:47 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/24 09:53:00 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ Animal ::Animal(void) : _type("animal")
 Animal ::Animal(const Animal& copy)
 {
     *this = copy;
-    LOG("Animal copy constructor called")
+    LOG("Animal copy constructor called");
 }
 
-Animal ::~Animal(void){LOG("Animal default destructor called")}
+Animal ::~Animal(void){LOG("Animal default destructor called");}
 
 // OPERATOR OVERLOAD
 Animal& Animal ::operator=(const Animal & rhs)

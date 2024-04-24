@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:00:51 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/14 11:08:17 by Axel             ###   ########.fr       */
+/*   Updated: 2024/04/24 09:42:30 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "../includes/Dog.hpp"
 #include "../includes/WrongAnimal.hpp"
 #include "../includes/WrongCat.hpp"
+#include <cstdlib>
 
 void clearScreen(void) { std::cout << "\033c"; }
 

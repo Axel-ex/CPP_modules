@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:56:29 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/14 11:07:52 by Axel             ###   ########.fr       */
+/*   Updated: 2024/04/24 10:05:29 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../includes/Cure.hpp"
 #include "../includes/Ice.hpp"
 #include "../includes/MateriaSource.hpp"
+#include <cstdlib>
 
 void clearScreen(void) { std::cout << "\033c"; }
 
@@ -68,6 +69,8 @@ void limitsMateriaSourceTest(void)
     for (int i = 0; i < 7; i++)
     {
         mat = source->createMateria("ice");
+		if (!mat)
+			continue;
         source->learnMateria(mat);
         std::cout << "trying to add materia " << i << " to the source"
                   << std::endl;

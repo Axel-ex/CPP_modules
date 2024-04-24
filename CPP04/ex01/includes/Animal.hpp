@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:38:27 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/23 22:27:57 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/24 09:52:25 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define ANIMAL__H
 
 #include <iostream>
+
+#define DEBUG
 
 #ifdef DEBUG
 #define LOG(str) std::cout << str << std::endl

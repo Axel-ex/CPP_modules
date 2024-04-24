@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:44:15 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/26 11:55:31 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/24 10:09:12 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Ice ::Ice(void)
 {
     _type = "ice";
+	_is_taken = false;
     LOG("Ice constructor called");
 }
 

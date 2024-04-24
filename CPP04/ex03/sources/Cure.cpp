@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:28:45 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/26 11:55:49 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/24 10:09:31 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ Cure ::Cure(void)
 {
     LOG("Cure constructor called");
     _type = "cure";
+	_is_taken = false;
 }
 
 Cure ::Cure(const Cure& copy) : AMateria(copy) { *this = copy; }

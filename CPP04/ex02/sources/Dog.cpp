@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:21:15 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/24 10:30:53 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/04/24 09:57:08 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Dog& Dog ::operator=(const Dog& rhs)
     if (this != &rhs)
     {
         AAnimal::operator=(rhs);
-        if (_brain != nullptr)
+        if (_brain != NULL)
             delete _brain;
         _brain = new Brain(*(rhs._brain));
     }
