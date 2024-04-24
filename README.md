@@ -10,7 +10,7 @@ Below is a summary of each module along with links to their respective repositor
 | [CPP00](https://github.com/Axel-ex/CPP_modules/tree/main/CPP00) | Basics of C++: namespaces, class, member functions, access specifiers, and more. |
 | [CPP01](https://github.com/Axel-ex/CPP_modules/tree/main/CPP01) | Memory allocation, pointers, references, switch statements, and basic string manipulation. |
 | [CPP02](https://github.com/Axel-ex/CPP_modules/tree/main/CPP02) | Ad-hoc polymorphism, operator overloading, and Orthodox Canonical class form. |
-| [CPP03](https://github.com/Axel-ex/CPP_modules/tree/main/CPP03) |Inheritance, and virtual inheirtance.  |
+| [CPP03](https://github.com/Axel-ex/CPP_modules/tree/main/CPP03) |Inheritance, and virtual inheritance.  |
 | [CPP04](https://github.com/Axel-ex/CPP_modules/tree/main/CPP04) | Subtype polymorphism, abstract classes, and interfaces. |
 | [CPP05](https://github.com/Axel-ex/CPP_modules/tree/main/CPP05) | Exception, pointers to member function and more. |
 | [CPP06](https://github.com/Axel-ex/CPP_modules/tree/main/CPP06) | Type casts. |
