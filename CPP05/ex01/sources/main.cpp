@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 17:24:21 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/14 11:03:38 by Axel             ###   ########.fr       */
+/*   Updated: 2024/05/25 07:17:47 by Axel             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,16 @@ void limitTest(void)
 {
     Bureaucrat Axel = Bureaucrat("Axel", 56);
     Form promotion = Form("promotion", 1, 2);
+	Form whatever = Form("whatever", 57, 2);
 
     printBanner("INVALID GRADE TEST");
     std::cout << Axel << std::endl;
     std::cout << promotion << std::endl;
+	std::cout << whatever << std::endl;
     Axel.signForm(promotion);
-    std::cout << promotion << std::endl;
+	std::cout << std::endl;
+	Axel.signForm(whatever);
+	std::cout << whatever << std::endl;
 }
 
 int main(void)
