@@ -6,11 +6,12 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 15:11:58 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/12 18:29:19 by Axel             ###   ########.fr       */
+/*   Updated: 2024/05/30 11:03:30 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Array.hpp"
+#include <cstdlib>
 
 void clearScreen(void) { std::cout << "\033c"; }
 

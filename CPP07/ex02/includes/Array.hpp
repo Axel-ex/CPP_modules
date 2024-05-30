@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:53:25 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/01 09:53:24 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/05/30 11:20:00 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ template <typename T = int> class Array
         int _size;
 };
 
-#include "Array.tpp"
+#include "Array.cpp"
 
 #endif

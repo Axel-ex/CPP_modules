@@ -6,11 +6,12 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:35:31 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/12 18:30:38 by Axel             ###   ########.fr       */
+/*   Updated: 2024/05/30 10:57:29 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/iter.hpp"
+#include <cstdlib>
 
 void clearScreen(void) { std::cout << "\033c"; }
 

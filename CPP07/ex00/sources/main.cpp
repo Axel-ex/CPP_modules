@@ -6,12 +6,13 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 10:47:42 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/12 18:31:13 by Axel             ###   ########.fr       */
+/*   Updated: 2024/05/30 10:51:22 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/functions.hpp"
 #include <iostream>
+#include <cstdlib>
 
 void clearScreen(void) { std::cout << "\033c"; }
 
@@ -58,15 +59,24 @@ template <typename T> void test(const T& c, const T& d, std::string test_type)
     pressEnter();
 }
 
+void test_equality(void)
+{
+	int a = 42, b = 42;
+	
+	printBanner("EQUALITY TEST");
+	const int &res = max<int>(a, b);
+	std::cout << "max returned the variable: ";
+	&res == &a ? std::cout << "a" : std::cout << "b";
+	pressEnter();
+}
+
 int main(void)
 {
     clearScreen();
     test<int>(42, 24, "INT TEST");
     test<char>('a', 'b', "CHAR TEST");
     test<float>(2.01f, 42.42f, "FLOAT TEST");
-
-    // AMBIGUOUS
-    //  test<std::string>("hey les boys", "hey les girls", "STRING TEST");
+	test_equality();
 
     return (EXIT_SUCCESS);
 }
