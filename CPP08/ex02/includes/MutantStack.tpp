@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 09:51:10 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/01 11:33:30 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:30:17 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,4 @@ template<typename T, typename C>
 typename C::iterator	MutantStack<T, C> :: end( void )
 {
 	return (this->c.end());
-}
-
-template<typename T, typename C>
-typename C::const_iterator	MutantStack<T, C> :: cbegin( void ) const
-{
-	return (this->c.cbegin());
-}
-
-template<typename T, typename C>
-typename C::const_iterator	MutantStack<T, C> :: cend( void )	const
-{
-	return (this->c.cend());
 }

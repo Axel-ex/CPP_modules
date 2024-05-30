@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 09:47:36 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/01 11:38:06 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:35:32 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
  * @tparam T type the container is managing
  * @tparam C stack underlying container
  */
-template <typename T, typename C = std::deque<T>>
+template <typename T, typename C = std::deque<T> >
 class MutantStack : public std::stack<T, C>
 {
     public:
@@ -41,10 +41,6 @@ class MutantStack : public std::stack<T, C>
         typedef typename C::iterator iterator;
         iterator begin(void);
         iterator end(void);
-
-        typedef typename C::const_iterator c_iterator;
-        c_iterator cbegin(void) const;
-        c_iterator cend(void) const;
 };
 
 #include "MutantStack.tpp"

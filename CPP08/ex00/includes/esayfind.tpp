@@ -6,12 +6,13 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 09:52:02 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/29 11:18:18 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/05/30 12:39:03 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iterator>
+#include <algorithm>
 
 template<typename T>
 int	easyfind( const T &cont, int to_find )

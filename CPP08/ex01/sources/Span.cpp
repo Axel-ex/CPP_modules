@@ -6,11 +6,13 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 11:52:15 by achabrer          #+#    #+#             */
-/*   Updated: 2024/02/29 15:38:25 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:21:52 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Span.hpp"
+#include <algorithm>
+#include <limits>
 
 Span ::Span(void) : _N(0) {}
 
@@ -82,7 +84,7 @@ int Span ::shortestSpan(void) const
         throw Span::NoSpanException();
 
     std::sort(sorted.begin(), sorted.end());
-    for (it = sorted.cbegin(); it != sorted.cend() - 1; it++)
+    for (it = sorted.begin(); it != sorted.end() - 1; it++)
         if ((*(it + 1) - *it) < distance)
             distance = *(it + 1) - *it;
 

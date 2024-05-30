@@ -6,11 +6,12 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 10:47:44 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/12 18:33:47 by Axel             ###   ########.fr       */
+/*   Updated: 2024/05/30 15:40:25 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/MutantStack.hpp"
+#include <cstdlib>
 
 void clearScreen(void) { std::cout << "\033c"; }
 
@@ -54,8 +55,6 @@ void subjectTest(void)
         ++it;
     }
 
-    // exists a constructor for std::stack that accepts std::deque, not
-    // std::list
     std::stack<int> s(mstack);
     pressEnter();
 }
@@ -69,21 +68,11 @@ void myTest(void)
     s.push("my");
     s.push("friends");
 
-    std::deque<std::string>::const_iterator it;
-
-    for (it = s.cbegin(); it != s.cend(); it++)
+    std::deque<std::string>::iterator it;
+    for (it = s.begin(); it != s.end(); it++)
     {
+        *it = "lol";
         std::cout << *it << std::endl;
-        // Impossible
-        //  *it = "lol";
-    }
-    pressEnter();
-
-    std::deque<std::string>::iterator it2;
-    for (it2 = s.begin(); it2 != s.end(); it2++)
-    {
-        *it2 = "lol";
-        std::cout << *it2 << std::endl;
     }
 }
 

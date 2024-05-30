@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 11:45:44 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/12 18:32:45 by Axel             ###   ########.fr       */
+/*   Updated: 2024/05/30 15:17:29 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define SPAN_HPP
 
 #include <iostream>
+#include <vector>
 
 class Span
 {
