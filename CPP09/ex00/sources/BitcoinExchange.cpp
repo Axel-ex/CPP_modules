@@ -6,11 +6,13 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 13:12:56 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/09 09:15:20 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/06/04 12:56:51 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/BitcoinExchange.hpp"
+#include <cstdlib>
+#include <iterator>
 
 BitcoinExchange ::BitcoinExchange(void) { loadDataBase(); }
 
@@ -50,7 +52,7 @@ void BitcoinExchange ::loadDataBase(void)
     {
         curr.first = strToTime(row.substr(0, row.find(',')));
         curr.second =
-            std::strtof(row.substr(row.find(',') + 1).c_str(), nullptr);
+            std::strtof(row.substr(row.find(',') + 1).c_str(), NULL);
         _data.insert(curr);
     }
     ifs.close();
@@ -63,7 +65,7 @@ void BitcoinExchange ::compute(void)
     std::string date;
     std::string value;
 
-    ifs.open(_file_name);
+    ifs.open(_file_name.c_str());
     if (ifs.fail())
         throw std::ifstream::failure("Error: could not open the file " +
                                      _file_name);
@@ -80,13 +82,13 @@ void BitcoinExchange ::compute(void)
 void BitcoinExchange ::processLine(const std::string& date,
                                    const std::string& value)
 {
-    float num_value = std::strtof(value.c_str(), nullptr);
+    float num_value = std::strtof(value.c_str(), NULL);
     float match;
 
     if (value == date || !isDateFormat(date))
         return (LOG_ERR(BAD_INPUT + date), void());
-    if (num_value < 0)
-        return (LOG_ERR(NEGATIVE_NB), void());
+    if (num_value < 0 || num_value > 1000)
+        return (LOG_ERR(LARGE_NB), void());
     match = _data[matchDate(date)];
     if (num_value * match > INT_MAX)
         return (LOG_ERR(LARGE_NB), void());
@@ -105,7 +107,7 @@ std::time_t BitcoinExchange::matchDate(const std::string& date) const
     for (; it != _data.end(); ++it)
     {
         if (it->first >= value)
-            return (std::prev(it)->first);
+            return (my_prev(it)->first);
     }
     return (_data.rbegin()->first);
 }
@@ -114,9 +116,8 @@ std::time_t BitcoinExchange::matchDate(const std::string& date) const
 std::time_t BitcoinExchange::strToTime(const std::string& str) const
 {
     std::tm tm = {};
-    std::stringstream date(str);
 
-    date >> std::get_time(&tm, "%Y-%m-%d");
+	get_time(str, tm);
 
     return (mktime(&tm));
 }

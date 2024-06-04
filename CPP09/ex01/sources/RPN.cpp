@@ -6,11 +6,14 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 14:11:56 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/14 18:54:44 by Axel             ###   ########.fr       */
+/*   Updated: 2024/06/04 12:48:58 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/RPN.hpp"
+#include <stdexcept>
+#include <string>
+#include <cstdlib>
 
 RPN ::RPN(void) {}
 
@@ -38,31 +41,28 @@ void RPN ::compute(void)
     executor();
 }
 
-void RPN ::lexer(void)
+void RPN::lexer()
 {
     std::stringstream ss(_input);
     s_token token;
 
-    std::string tokenString;
-    while (std::getline(ss, tokenString, ' '))
+    while (ss >> token.content)
     {
-        token.content = tokenString;
         getTokenType(token);
-        _token_list.push_front(token);
+        _token_list.push_back(token);
     }
-    _token_list.reverse();
 }
 
 void RPN ::executor(void)
 {
-    std::forward_list<s_token>::const_iterator it;
+    std::list<s_token>::const_iterator it;
     std::stack<int> tmp;
 
     for (it = _token_list.begin(); it != _token_list.end(); it++)
     {
         if (it->type == OPERAND)
         {
-            tmp.push(std::stoi(it->content));
+            tmp.push(std::atoi(it->content.c_str()));
             continue;
         }
         tmp.push(operate(tmp, it->content));
@@ -77,8 +77,8 @@ int RPN ::operate(std::stack<int>& tmp, const std::string& op)
         throw std::runtime_error("Too few elements on the stack");
 
     int b = tmp.top();
-    int a = tmp.top();
     tmp.pop();
+    int a = tmp.top();
     tmp.pop();
 
     if (op == "*")
@@ -101,18 +101,13 @@ void RPN ::getTokenType(s_token& token)
     else if (std::isdigit(token.content[0]) && token.content.size() == 1)
         token.type = OPERAND;
     else
-        throw InvalidTokenException("Invalid token : " + token.content);
+        throw std::runtime_error("Invalid token : " + token.content);
 }
 
 void RPN ::printTokenList(void) const
 {
-    std::forward_list<s_token>::const_iterator it;
+    std::list<s_token>::const_iterator it;
 
     for (it = _token_list.begin(); it != _token_list.end(); it++)
         std::cout << it->content << " : " << it->type << std::endl;
-}
-
-const char* RPN ::InvalidTokenException ::what(void) const throw()
-{
-    return (_err_msg.c_str());
 }

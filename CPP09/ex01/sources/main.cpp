@@ -6,11 +6,12 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 14:39:29 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/02 15:23:06 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/06/04 10:42:59 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/RPN.hpp"
+#include <cstdlib>
 
 void printUsage(void)
 {

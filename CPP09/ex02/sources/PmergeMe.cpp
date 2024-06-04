@@ -6,12 +6,18 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 11:08:42 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/12 13:27:30 by Axel             ###   ########.fr       */
+/*   Updated: 2024/06/04 12:14:34 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PmergeMe.hpp"
+#include <cctype>
+#include <cstdlib>
+#include <ctime>
+#include <exception>
 #include <sstream>
+#include <stdexcept>
+#include <string>
 
 PmergeMe ::PmergeMe(void) {}
 
@@ -55,27 +61,18 @@ void PmergeMe ::readArgs(char** argv, int argc)
         while (ss.good())
         {
             ss >> arg;
-            try
-            {
-                elem = std::stoi(arg);
-                _input1.push_back(elem);
-                _input2.push_back(elem);
-            }
-            catch (std::invalid_argument& e)
-            {
-                std::cout << "Invalid argument: " << e.what() << std::endl;
-            }
-            catch (std::out_of_range& e)
-            {
-                std::cout << "Out of range: " << e.what() << std::endl;
-            }
+            if (!is_number(arg))
+                throw std::runtime_error(arg);
+            elem = std::atoi(arg.c_str());
+            _input1.push_back(elem);
+            _input2.push_back(elem);
         }
     }
 }
 
 void PmergeMe ::compute(void)
 {
-    std::chrono::high_resolution_clock::duration t_vec, t_deq;
+    double t_vec, t_deq;
 
     std::cout << "Before: " << _input1 << std::endl;
     t_vec = timeExecution("vector");
@@ -83,27 +80,24 @@ void PmergeMe ::compute(void)
     std::cout << "After: " << _input1 << std::endl;
 
     std::cout << "Time to process a range of " << _input1.size()
-              << " with std::vector " << " " << (t_vec).count() << " us"
-              << std::endl;
+              << " with std::vector "
+              << " " << t_vec << " ms" << std::endl;
     std::cout << "Time to process a range of " << _input2.size()
-              << " with std::deque " << " " << (t_deq).count() << " us"
-              << std::endl;
+              << " with std::deque "
+              << " " << t_deq << " ms" << std::endl;
 }
 
-std::chrono::high_resolution_clock::duration
-PmergeMe ::timeExecution(std::string t_container)
+double PmergeMe ::timeExecution(std::string t_container)
 {
-    std::chrono::high_resolution_clock::time_point start, end;
-
-    start = std::chrono::high_resolution_clock::now();
+    clock_t start = clock();
 
     if (t_container == "vector")
         mergeSortVec(_input1);
     else if (t_container == "deque")
         mergeSortDeq(_input2);
 
-    end = std::chrono::high_resolution_clock::now();
-    return (std::chrono::duration_cast<std::chrono::microseconds>(end - start));
+    clock_t end = clock();
+    return ((double)(end - start) / (CLOCKS_PER_SEC) * 1000);
 }
 
 void PmergeMe ::mergeSortVec(std::vector<int>& vec)
@@ -185,4 +179,12 @@ void PmergeMe ::mergeDeq(std::deque<int>& left, std::deque<int>& right,
         origin[o++] = left[l++];
     while (r < right.size())
         origin[o++] = right[r++];
+}
+
+bool is_number(const std::string& str)
+{
+    for (size_t i = 0; i < str.size(); i++)
+        if (!std::isdigit(str[i]))
+            return (false);
+    return (true);
 }

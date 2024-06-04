@@ -6,14 +6,14 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 10:59:45 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/12 13:27:02 by Axel             ###   ########.fr       */
+/*   Updated: 2024/06/04 11:59:25 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PMERGEME_HPP
 #define PMERGEME_HPP
 
-#include <chrono>
+#include <ctime>
 #include <deque>
 #include <iostream>
 #include <vector>
@@ -33,8 +33,7 @@ class PmergeMe
 
         void readArgs(char** argv, int argc);
         void compute(void);
-        std::chrono::high_resolution_clock::duration
-        timeExecution(std::string t_container);
+        double timeExecution(std::string t_container);
 
         // MERGE SORT
         void mergeSortVec(std::vector<int>& vec);
@@ -47,5 +46,7 @@ class PmergeMe
 };
 
 std::ostream& operator<<(std::ostream& ofs, const std::vector<int>& rhs);
+
+bool is_number(const std::string &str);
 
 #endif

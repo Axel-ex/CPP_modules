@@ -6,15 +6,15 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 13:59:10 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/04 10:50:55 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/06/04 11:00:42 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RPN_HPP
 #define RPN_HPP
 
-#include <forward_list>
 #include <iostream>
+#include <list>
 #include <sstream>
 #include <stack>
 
@@ -37,7 +37,7 @@ typedef struct t_token
 class RPN
 {
     private:
-        std::forward_list<s_token> _token_list;
+        std::list<s_token> _token_list;
         std::string _input;
 
     public:
@@ -56,17 +56,6 @@ class RPN
         // helper
         void getTokenType(s_token& token);
         void printTokenList(void) const;
-
-        class InvalidTokenException : public std::exception
-        {
-            private:
-                std::string _err_msg;
-
-            public:
-                InvalidTokenException(std::string msg) : _err_msg(msg){};
-                const char* what(void) const throw();
-                ~InvalidTokenException(void) _NOEXCEPT{};
-        };
 };
 
 #endif

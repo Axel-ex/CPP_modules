@@ -6,7 +6,7 @@
 /*   By: achabrer <achabrer@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 11:46:13 by achabrer          #+#    #+#             */
-/*   Updated: 2024/03/02 23:34:01 by achabrer         ###   ########.fr       */
+/*   Updated: 2024/06/04 12:56:34 by achabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@
 #include <map>
 #include <sstream>
 
+#define INT_MAX 2147483648
+
 #define LOG_ERR(str) std::cerr << str << std::endl
 
 #define FILE_NT_FND "Error: could not open the file"
-#define NEGATIVE_NB "Error: not a positive number"
 #define LARGE_NB "Error: too large a number."
 #define BAD_INPUT "Error: bad input => "
 
@@ -49,5 +50,12 @@ class BitcoinExchange
         std::time_t matchDate(const std::string& date) const;
         bool isDateFormat(const std::string& date) const;
 };
+
+bool get_time(const std::string& date_str, std::tm& tm);
+
+template <typename Iterator>
+Iterator my_prev(Iterator it) {
+    return --it;
+}
 
 #endif
